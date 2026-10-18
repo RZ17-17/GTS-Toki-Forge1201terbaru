@@ -1,0 +1,6704 @@
+{
+  "mod_elements": [
+    {
+      "name": "Toki",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "toki",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/entity/layer/TokiLayer.java",
+          "src/main/resources/data/gts/neoforge/biome_modifier/toki_biome_modifier.json",
+          "src/main/resources/assets/gts/models/item/toki_spawn_egg.json",
+          "src/main/java/net/mcreator/gts/client/renderer/TokiRenderer.java",
+          "src/main/java/net/mcreator/gts/entity/model/TokiModel.java",
+          "src/main/java/net/mcreator/gts/entity/TokiEntity.java"
+        ]
+      },
+      "path": "~/Toki"
+    },
+    {
+      "name": "TokiCelebration",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_celebration",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiCelebrationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiCelebration"
+    },
+    {
+      "name": "TokiSniperAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_sniper_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiSniperAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiRangeAttack/SniperAttack"
+    },
+    {
+      "name": "TokiSniperAttackDamage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_sniper_attack_damage",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiSniperAttackDamageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiRangeAttack/SniperAttack"
+    },
+    {
+      "name": "TokiSpitAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_spit_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiSpitAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiRangeAttack"
+    },
+    {
+      "name": "TokiMeleeAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_melee_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiMeleeAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "TokiStepping",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_stepping",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiSteppingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "TokiSitting",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_sitting",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiSittingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "TokiRangeAndBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_range_and_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiRangeAndBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack"
+    },
+    {
+      "name": "TokiLowerBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_lower_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiLowerBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiBreach"
+    },
+    {
+      "name": "TokiVoreAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_vore_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiVoreAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "WaveEffect",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "wave_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/WaveEffect.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsShockWave"
+    },
+    {
+      "name": "TokiDrone",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_drone",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java",
+          "src/main/resources/assets/gts/models/item/toki_drone_spawn_egg.json",
+          "src/main/java/net/mcreator/gts/entity/model/TokiDroneModel.java",
+          "src/main/java/net/mcreator/gts/entity/layer/TokiDroneLayer.java",
+          "src/main/java/net/mcreator/gts/client/renderer/TokiDroneRenderer.java"
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "TokiDroneSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_drone_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiDroneSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "DroneAttackImmunity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "drone_attack_immunity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DroneAttackImmunityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "TokiDroneBehavior",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_drone_behavior",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiDroneBehaviorProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "TokiDroneFireball",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_drone_fireball",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiDroneFireballProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "TokiDroneSummon",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_drone_summon",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiDroneSummonProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "TokiKick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_kick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiKickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "PlayerSpeedTest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_speed_test",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerSpeedTestProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/PlayerBehavior"
+    },
+    {
+      "name": "TokiMiddleBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_middle_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiMiddleBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiBreach"
+    },
+    {
+      "name": "TokiUpperBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_upper_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiUpperBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiBreach"
+    },
+    {
+      "name": "TokiTrappedBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_trapped_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiTrappedBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiBreach"
+    },
+    {
+      "name": "TokiTrappedBreachExplosion",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_trapped_breach_explosion",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiTrappedBreachExplosionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiBreach"
+    },
+    {
+      "name": "TokiLowerBreachExplosion",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_lower_breach_explosion",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiLowerBreachExplosionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiBreach"
+    },
+    {
+      "name": "TokiJoinTheWorld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_join_the_world",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiJoinTheWorldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiBehaviour"
+    },
+    {
+      "name": "TokiClothDamage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_cloth_damage",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiClothDamageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiBehaviour"
+    },
+    {
+      "name": "TokiBelch",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_belch",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiBelchProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiCelebration"
+    },
+    {
+      "name": "TokiGunMelee",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_gun_melee",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiGunMeleeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "TokiGunSmash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_gun_smash",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiGunSmashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "TokiThrowAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_throw_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiThrowAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "TokiDroneNoBattery",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_drone_no_battery",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiDroneNoBatteryProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "TokiDroneBattery",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_drone_battery",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java"
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "TokiDroneBatteryCountDown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_drone_battery_count_down",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiDroneBatteryCountDownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiDrone"
+    },
+    {
+      "name": "TokiConfigMenu1",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_config_menu_1",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/client/gui/TokiConfigMenu1Screen.java",
+          "src/main/java/net/mcreator/gts/world/inventory/TokiConfigMenu1Menu.java",
+          "src/main/java/net/mcreator/gts/network/TokiConfigMenu1ButtonMessage.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui"
+    },
+    {
+      "name": "CheckDisableStep",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_step",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableStepProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableKick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_kick",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableKickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableSit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_sit",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableSitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableGunSlap",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_gun_slap",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableGunSlapProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableGunSmash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_gun_smash",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableGunSmashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableThrow",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_throw",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableThrowProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableVore",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_vore",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableVoreProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableSniper",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_sniper",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableSniperProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableSpit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_spit",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableSpitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableDrone",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_drone",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableDroneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableUpperBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_upper_breach",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableUpperBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableMiddleBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_middle_breach",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableMiddleBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableLowerBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_lower_breach",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableLowerBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableTrappedBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_trapped_breach",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableTrappedBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableShowOff",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_show_off",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableShowOffProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableBelch",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_belch",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableBelchProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableStomachSound",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_stomach_sound",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableStomachSoundProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableClothingDamage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_clothing_damage",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableClothingDamageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableRaidWaveSizeChange",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_raid_wave_size_change",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableRaidWaveSizeChangeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "PlayerJoinTheWorld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_join_the_world",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerJoinTheWorldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/PlayerBehavior"
+    },
+    {
+      "name": "PlayerStruggleKeyOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_struggle_key_on_key_released",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerStruggleKeyOnKeyReleasedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/PlayerStruggle"
+    },
+    {
+      "name": "PlayerStruggleKey",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_struggle_key",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/network/PlayerStruggleKeyMessage.java"
+        ]
+      },
+      "path": "~/GiantessCommon/PlayerStruggle"
+    },
+    {
+      "name": "PlayerStruggleTokiAction",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_struggle_toki_action",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerStruggleTokiActionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiBehaviour"
+    },
+    {
+      "name": "TokiDismountAction",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_dismount_action",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiDismountActionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "DISMOUNTING",
+            "type": "logic"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/PlayerStruggle"
+    },
+    {
+      "name": "CheckDisableBreakLeavesWhenWalk",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_break_leaves_when_walk",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableBreakLeavesWhenWalkProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableLockOnTarget",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_lock_on_target",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableLockOnTargetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "TokiKiss",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_kiss",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiKissProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "WaitTime",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack/TokiMeleeAttack"
+    },
+    {
+      "name": "ModifiedAnvil",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "modified_anvil",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/gts/blockstates/modified_anvil.json",
+          "src/main/resources/assets/gts/models/block/modified_anvil.json",
+          "src/main/resources/data/gts/loot_table/blocks/modified_anvil.json",
+          "src/main/java/net/mcreator/gts/block/ModifiedAnvilBlock.java",
+          "src/main/resources/assets/gts/models/item/modified_anvil.json"
+        ]
+      },
+      "path": "~/Toki/TokiRewards/TokiAnvil"
+    },
+    {
+      "name": "TokiAnvilGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_anvil_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/client/gui/TokiAnvilGUIScreen.java",
+          "src/main/java/net/mcreator/gts/network/TokiAnvilGUISlotMessage.java",
+          "src/main/java/net/mcreator/gts/world/inventory/TokiAnvilGUIMenu.java"
+        ]
+      },
+      "path": "~/Toki/TokiRewards/TokiAnvil"
+    },
+    {
+      "name": "TokiAnvilOutputSlot",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_anvil_output_slot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiAnvilOutputSlotProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiRewards/TokiAnvil"
+    },
+    {
+      "name": "TokiAnvilInputSlot",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_anvil_input_slot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiAnvilInputSlotProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiRewards/TokiAnvil"
+    },
+    {
+      "name": "TokiCrystal",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_crystal",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/item/TokiCrystalItem.java",
+          "src/main/resources/assets/gts/models/item/toki_crystal.json"
+        ]
+      },
+      "path": "~/Toki/TokiRewards/TokiAnvil"
+    },
+    {
+      "name": "TokiDisk",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_disk",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/gts/jukebox_song/toki_disk.json",
+          "src/main/resources/assets/gts/models/item/toki_disk.json",
+          "src/main/java/net/mcreator/gts/item/TokiDiskItem.java"
+        ]
+      },
+      "path": "~/Toki/TokiRewards/TokiAnvil"
+    },
+    {
+      "name": "TokiAnvilRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_anvil_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/gts/recipe/toki_anvil_recipe.json"
+        ]
+      },
+      "path": "~/Toki/TokiRewards/TokiAnvil"
+    },
+    {
+      "name": "GiantessToki",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_toki",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Toki/TokiRewards"
+    },
+    {
+      "name": "GiantessSpit",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_spit",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/client/renderer/GiantessSpitRenderer.java",
+          "src/main/java/net/mcreator/gts/entity/GiantessSpitEntity.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GiantessSpit"
+    },
+    {
+      "name": "GiantessSpitHitsBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_spit_hits_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GiantessSpitHitsBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GiantessSpit"
+    },
+    {
+      "name": "GiantessSpitParticles",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_spit_particles",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GiantessSpitParticlesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GiantessSpit"
+    },
+    {
+      "name": "GiantessSpitHitsEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_spit_hits_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GiantessSpitHitsEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GiantessSpit"
+    },
+    {
+      "name": "GiantessSpitOverlayCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_spit_overlay_condition",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GiantessSpitOverlayConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GiantessSpit"
+    },
+    {
+      "name": "GiantessSpitOverlay",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_spit_overlay",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/client/screens/GiantessSpitOverlayOverlay.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GiantessSpit"
+    },
+    {
+      "name": "GiantessSpitOverlayEffect",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_spit_overlay_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GiantessSpit"
+    },
+    {
+      "name": "Candy",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "candy",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/gts/neoforge/biome_modifier/candy_biome_modifier.json",
+          "src/main/java/net/mcreator/gts/entity/CandyEntity.java",
+          "src/main/java/net/mcreator/gts/client/renderer/CandyRenderer.java",
+          "src/main/java/net/mcreator/gts/entity/model/CandyModel.java",
+          "src/main/java/net/mcreator/gts/entity/layer/CandyLayer.java",
+          "src/main/resources/assets/gts/models/item/candy_spawn_egg.json"
+        ]
+      },
+      "path": "~/Candy"
+    },
+    {
+      "name": "GtsSpawnCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_spawn_condition",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsSpawnConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsBehavior"
+    },
+    {
+      "name": "GtsDeath",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_death",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsDeathProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsBehavior"
+    },
+    {
+      "name": "GtsSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsBehavior"
+    },
+    {
+      "name": "GtsHurt",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_hurt",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsHurtProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsBehavior"
+    },
+    {
+      "name": "GtsManualSizeChange",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_manual_size_change",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsManualSizeChangeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsBehavior"
+    },
+    {
+      "name": "GtsTimer",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_timer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsPotionEffect"
+    },
+    {
+      "name": "GtsPathFinder",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "gts_path_finder",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/GtsPathFinder.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsPathfinding"
+    },
+    {
+      "name": "GtsNavigation",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "gts_navigation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/GtsNavigation.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsPathfinding"
+    },
+    {
+      "name": "GtsMoveHelper",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "gts_move_helper",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/GtsMoveHelper.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsPathfinding"
+    },
+    {
+      "name": "CandyStepping",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_stepping",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandySteppingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyMeleeAttack"
+    },
+    {
+      "name": "CandyMeleeAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_melee_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyMeleeAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyMeleeAttack"
+    },
+    {
+      "name": "GtsWaveEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_wave_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsWaveEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsShockWave"
+    },
+    {
+      "name": "CandyShockWave",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_shock_wave",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyShockWaveProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyMeleeAttack"
+    },
+    {
+      "name": "CandyKick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_kick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyKickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyMeleeAttack"
+    },
+    {
+      "name": "CandySwipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_swipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandySwipeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyMeleeAttack"
+    },
+    {
+      "name": "CandySmash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_smash",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandySmashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyMeleeAttack"
+    },
+    {
+      "name": "GtsShrinkEffect",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_shrink_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsPotionEffect"
+    },
+    {
+      "name": "GtsVoreDamageTotemIgnore",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_vore_damage_totem_ignore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsVoreDamageTotemIgnoreProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/PlayerBehavior"
+    },
+    {
+      "name": "CandyVoreAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_vore_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyVoreAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyMeleeAttack"
+    },
+    {
+      "name": "CandyBelch",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_belch",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyBelchProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyCelebration"
+    },
+    {
+      "name": "CandyJoinTheWorld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_join_the_world",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyJoinTheWorldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyBehavior"
+    },
+    {
+      "name": "PlayerStruggleCandyAction",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_struggle_candy_action",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerStruggleCandyActionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyBehavior"
+    },
+    {
+      "name": "HeartBullet",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heart_bullet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/entity/HeartBulletEntity.java",
+          "src/main/java/net/mcreator/gts/client/renderer/HeartBulletRenderer.java"
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyRangeAttack/CandyHeartBulletAttack"
+    },
+    {
+      "name": "CandyHeartBulletAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_heart_bullet_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyHeartBulletAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyRangeAttack/CandyHeartBulletAttack"
+    },
+    {
+      "name": "HeartBulletDespawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heart_bullet_despawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/HeartBulletDespawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyRangeAttack/CandyHeartBulletAttack"
+    },
+    {
+      "name": "HeartBulletTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heart_bullet_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/HeartBulletTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyRangeAttack/CandyHeartBulletAttack"
+    },
+    {
+      "name": "CandyBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyBreach"
+    },
+    {
+      "name": "GtsExplosionImmunity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_explosion_immunity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsExplosionImmunityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "damagesource",
+            "type": "damagesource"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsBehavior"
+    },
+    {
+      "name": "CandyBreachExplosion",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_breach_explosion",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyBreachExplosionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyBreach"
+    },
+    {
+      "name": "CandySpitAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_spit_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandySpitAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyRangeAttack"
+    },
+    {
+      "name": "CandyRangeAndBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_range_and_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyRangeAndBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack"
+    },
+    {
+      "name": "HeartBulletHitEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heart_bullet_hit_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/HeartBulletHitEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyRangeAttack/CandyHeartBulletAttack"
+    },
+    {
+      "name": "CandyThunderAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_thunder_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyThunderAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyRangeAttack/CandyThunderSummon"
+    },
+    {
+      "name": "CandyClothDamage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_cloth_damage",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyClothDamageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyBehavior"
+    },
+    {
+      "name": "GtsCommonGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_common_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/world/inventory/GtsCommonGUIMenu.java",
+          "src/main/java/net/mcreator/gts/client/gui/GtsCommonGUIScreen.java",
+          "src/main/java/net/mcreator/gts/network/GtsCommonGUIButtonMessage.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "GtsNaturalHeightDisplay",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_natural_height_display",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsNaturalHeightDisplayProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "GtsNaturalHeightIncrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_natural_height_increase",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsNaturalHeightIncreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "GtsNaturalHeightDecrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_natural_height_decrease",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsNaturalHeightDecreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "GiantessTurnSpeedDisplay",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_turn_speed_display",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GiantessTurnSpeedDisplayProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "GiantessTurnSpeedIncrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_turn_speed_increase",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GiantessTurnSpeedIncreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "GiantessTurnSpeedDecrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "giantess_turn_speed_decrease",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GiantessTurnSpeedDecreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "CheckDisableNaturalSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_natural_spawn",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableNaturalSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "TokiConfigMainMenu",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_config_main_menu",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiConfigMainMenuProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui"
+    },
+    {
+      "name": "MainMenuTokiConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "main_menu_toki_config",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/MainMenuTokiConfigProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "CheckDisableCandyStep",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_step",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandyStepProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandyShockwave",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_shockwave",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandyShockwaveProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandyKick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_kick",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandyKickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandySwipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_swipe",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandySwipeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandySmash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_smash",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandySmashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandyBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_breach",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandyBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandyVore",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_vore",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandyVoreProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandyHeartMagic",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_heart_magic",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandyHeartMagicProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandySpit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_spit",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandySpitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CheckDisableCandyThunderMagic",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_candy_thunder_magic",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableCandyThunderMagicProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/CheckCheckboxCondition"
+    },
+    {
+      "name": "CandyConfigGui",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_config_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/world/inventory/CandyConfigGuiMenu.java",
+          "src/main/java/net/mcreator/gts/client/gui/CandyConfigGuiScreen.java",
+          "src/main/java/net/mcreator/gts/network/CandyConfigGuiButtonMessage.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui"
+    },
+    {
+      "name": "CandyConfigMainMenu",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_config_main_menu",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyConfigMainMenuProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui"
+    },
+    {
+      "name": "MainMenuCandyConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "main_menu_candy_config",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/MainMenuCandyConfigProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "ConfigReset",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "config_reset",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/ConfigResetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "OnWorldLoadReset",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_world_load_reset",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/OnWorldLoadResetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI"
+    },
+    {
+      "name": "GtsConfigCommandOpenGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_config_command_open_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/GtsConfigCommandOpenGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigCommand"
+    },
+    {
+      "name": "GtsConfigCommand",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_config_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/command/GtsConfigCommandCommand.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigCommand"
+    },
+    {
+      "name": "TamedToki",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "tamed_toki",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java",
+          "src/main/java/net/mcreator/gts/client/renderer/TamedTokiRenderer.java",
+          "src/main/java/net/mcreator/gts/entity/layer/TamedTokiLayer.java",
+          "src/main/java/net/mcreator/gts/entity/model/TamedTokiModel.java"
+        ]
+      },
+      "path": "~/Toki/TamedToki"
+    },
+    {
+      "name": "TamedTokiStepping",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_stepping",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiSteppingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiMelee"
+    },
+    {
+      "name": "TamedTokiSitting",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_sitting",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiSittingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiMelee"
+    },
+    {
+      "name": "TamedTokiKick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_kick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiKickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiMelee"
+    },
+    {
+      "name": "TamedTokiGunMelee",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_gun_melee",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiGunMeleeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiMelee"
+    },
+    {
+      "name": "TamedTokiGunSmash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_gun_smash",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiGunSmashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiMelee"
+    },
+    {
+      "name": "TamedTokiThrow",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_throw",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiThrowProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiMelee"
+    },
+    {
+      "name": "TamedTokiLowerBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_lower_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiLowerBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiBreach"
+    },
+    {
+      "name": "TamedTokiMiddleBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_middle_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiMiddleBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiBreach"
+    },
+    {
+      "name": "TamedTokiUpperBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_upper_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiUpperBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiBreach"
+    },
+    {
+      "name": "TamedTokiTrappedBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_trapped_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiTrappedBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiBreach"
+    },
+    {
+      "name": "TamedTokiBelch",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_belch",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiBelchProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack"
+    },
+    {
+      "name": "TamedTokiMeleeAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_melee_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiMeleeAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiMelee"
+    },
+    {
+      "name": "TamedTokiVoreAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_vore_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiVoreAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiMelee"
+    },
+    {
+      "name": "TamedTokiSpitAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_spit_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiSpitAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiRangeAttack"
+    },
+    {
+      "name": "TamedTokiSniperAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_sniper_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiSniperAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack/TamedTokiRangeAttack"
+    },
+    {
+      "name": "TamedTokiRangeAndBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_range_and_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiRangeAndBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack"
+    },
+    {
+      "name": "TamedTokiTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiAttack"
+    },
+    {
+      "name": "TamedTokiJoinTheWorld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_join_the_world",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiJoinTheWorldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki"
+    },
+    {
+      "name": "TamedTokiSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "health",
+            "type": "number"
+          },
+          {
+            "name": "maxhealth",
+            "type": "number"
+          },
+          {
+            "name": "movementspeed",
+            "type": "number"
+          },
+          {
+            "name": "pitch",
+            "type": "number"
+          },
+          {
+            "name": "safefall",
+            "type": "number"
+          },
+          {
+            "name": "scale",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "yaw",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki"
+    },
+    {
+      "name": "SupporterName",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "supporter_name",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/SupporterNameProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/GiantessCommon"
+    },
+    {
+      "name": "TamedCandy",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "tamed_candy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/entity/model/TamedCandyModel.java",
+          "src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java",
+          "src/main/java/net/mcreator/gts/client/renderer/TamedCandyRenderer.java",
+          "src/main/java/net/mcreator/gts/entity/layer/TamedCandyLayer.java"
+        ]
+      },
+      "path": "~/Candy/TamedCandy"
+    },
+    {
+      "name": "TamedCandyStepping",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_stepping",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandySteppingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyMeleeAttack"
+    },
+    {
+      "name": "TamedCandyShockWave",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_shock_wave",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyShockWaveProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyMeleeAttack"
+    },
+    {
+      "name": "TamedCandyKick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_kick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyKickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyMeleeAttack"
+    },
+    {
+      "name": "TamedCandySwipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_swipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandySwipeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyMeleeAttack"
+    },
+    {
+      "name": "TamedCandySmash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_smash",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandySmashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyMeleeAttack"
+    },
+    {
+      "name": "TamedCandyVoreAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_vore_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyVoreAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyMeleeAttack"
+    },
+    {
+      "name": "TamedCandyBelch",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_belch",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyBelchProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack"
+    },
+    {
+      "name": "TamedCandyMeleeAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_melee_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyMeleeAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyMeleeAttack"
+    },
+    {
+      "name": "TamedCandyBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack"
+    },
+    {
+      "name": "TamedCandySpitAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_spit_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandySpitAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyRangeAttack"
+    },
+    {
+      "name": "TamedCandyHeartBulletAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_heart_bullet_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyHeartBulletAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyRangeAttack"
+    },
+    {
+      "name": "TamedCandyThunderAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_thunder_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyThunderAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack/TamedCandyRangeAttack"
+    },
+    {
+      "name": "TamedCandyJoinTheWorld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_join_the_world",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyJoinTheWorldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy"
+    },
+    {
+      "name": "TamedCandyTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack"
+    },
+    {
+      "name": "TamedCandyRangeAndBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_range_and_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyRangeAndBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyAttack"
+    },
+    {
+      "name": "TamedCandySpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandySpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "health",
+            "type": "number"
+          },
+          {
+            "name": "maxhealth",
+            "type": "number"
+          },
+          {
+            "name": "movementspeed",
+            "type": "number"
+          },
+          {
+            "name": "pitch",
+            "type": "number"
+          },
+          {
+            "name": "safefall",
+            "type": "number"
+          },
+          {
+            "name": "scale",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "yaw",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy"
+    },
+    {
+      "name": "ResetAllConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reset_all_config",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/ResetAllConfigProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI"
+    },
+    {
+      "name": "CandyTaming",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_taming",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyTamingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack/CandyMeleeAttack"
+    },
+    {
+      "name": "GtsCommonGuiPage2",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gts_common_gui_page_2",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/world/inventory/GtsCommonGuiPage2Menu.java",
+          "src/main/java/net/mcreator/gts/client/gui/GtsCommonGuiPage2Screen.java",
+          "src/main/java/net/mcreator/gts/network/GtsCommonGuiPage2ButtonMessage.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 2"
+    },
+    {
+      "name": "MainPage1NextPage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "main_page_1_next_page",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/MainPage1NextPageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1"
+    },
+    {
+      "name": "MainPage2PreviousPage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "main_page_2_previous_page",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/MainPage2PreviousPageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 2"
+    },
+    {
+      "name": "CheckDisableTamedFriendlyFire",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_tamed_friendly_fire",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableTamedFriendlyFireProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableTamedMobAggro",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_tamed_mob_aggro",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableTamedMobAggroProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "CheckDisableTamedBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_disable_tamed_breach",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CheckDisableTamedBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/CheckBoxCheckCondition"
+    },
+    {
+      "name": "TamedTokiMobAggroCheck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_mob_aggro_check",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiMobAggroCheckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki"
+    },
+    {
+      "name": "TamedCandyMobAggroCheck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_mob_aggro_check",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyMobAggroCheckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy"
+    },
+    {
+      "name": "DisableStomachSound",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_stomach_sound",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableStomachSoundProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1/OnButtonPressed"
+    },
+    {
+      "name": "DisableClothingDamage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_clothing_damage",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableClothingDamageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1/OnButtonPressed"
+    },
+    {
+      "name": "DisableNaturalSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_natural_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableNaturalSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1/OnButtonPressed"
+    },
+    {
+      "name": "DisableRaidWaveSizeIncrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_raid_wave_size_increase",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableRaidWaveSizeIncreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1/OnButtonPressed"
+    },
+    {
+      "name": "DisableBelch",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_belch",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableBelchProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1/OnButtonPressed"
+    },
+    {
+      "name": "DisableBreakLeavesWhenContact",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_break_leaves_when_contact",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableBreakLeavesWhenContactProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1/OnButtonPressed"
+    },
+    {
+      "name": "DisableLockOntoTarget",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_lock_onto_target",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableLockOntoTargetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 1/OnButtonPressed"
+    },
+    {
+      "name": "DisableTamedFriendlyFire",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_tamed_friendly_fire",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableTamedFriendlyFireProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 2/OnButtonClick"
+    },
+    {
+      "name": "DisableTamedSeekOutHostileMob",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_tamed_seek_out_hostile_mob",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableTamedSeekOutHostileMobProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 2/OnButtonClick"
+    },
+    {
+      "name": "DisableTamedBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_tamed_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableTamedBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/GtsConfigGui/Page 2/OnButtonClick"
+    },
+    {
+      "name": "DisableStomp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_stomp",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableStompProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableKick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_kick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableKickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableGroundSlam",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_ground_slam",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableGroundSlamProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableGunSlap",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_gun_slap",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableGunSlapProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableGunSmash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_gun_smash",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableGunSmashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableThrow",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_throw",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableThrowProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableVore",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_vore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableVoreProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableSniper",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_sniper",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableSniperProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableSpit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_spit",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableSpitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableDrone",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_drone",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableDroneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableUpperBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_upper_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableUpperBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableMiddleBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_middle_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableMiddleBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableLowerBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_lower_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableLowerBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableTrappedBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_trapped_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableTrappedBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableCelebration",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_celebration",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCelebrationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/TokiConfigGui/OnButtonPress"
+    },
+    {
+      "name": "DisableCandyStomp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_stomp",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyStompProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandyGroundSlam",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_ground_slam",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyGroundSlamProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandyKick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_kick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyKickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandyUpperSwipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_upper_swipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyUpperSwipeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandyUpperSmash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_upper_smash",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyUpperSmashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandyBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandyVore",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_vore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyVoreProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandySpit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_spit",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandySpitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandyHeartMagic",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_heart_magic",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyHeartMagicProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "DisableCandyThunderMagic",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disable_candy_thunder_magic",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/DisableCandyThunderMagicProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/GtsConfig/ConfigGUI/CandyConfigGui/OnButtonPressed"
+    },
+    {
+      "name": "TamedGtsInteractionMenu",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_interaction_menu",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/world/inventory/TamedGtsInteractionMenuMenu.java",
+          "src/main/java/net/mcreator/gts/client/gui/TamedGtsInteractionMenuScreen.java",
+          "src/main/java/net/mcreator/gts/network/TamedGtsInteractionMenuButtonMessage.java"
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon"
+    },
+    {
+      "name": "TamedGTSRightClick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_right_click",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedGTSRightClickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon"
+    },
+    {
+      "name": "TamedCandySitandStand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_sitand_stand",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandySitandStandProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyInteraction"
+    },
+    {
+      "name": "TamedTokiAiCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_ai_condition",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiAiConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiInteraction"
+    },
+    {
+      "name": "TamedTokiSitAndStand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_toki_sit_and_stand",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedTokiSitAndStandProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TamedToki/TamedTokiInteraction"
+    },
+    {
+      "name": "TamedGtsSit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_sit",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedGtsSitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon"
+    },
+    {
+      "name": "TamedCandyAiCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_candy_ai_condition",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedCandyAiConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Candy/TamedCandy/TamedCandyInteraction"
+    },
+    {
+      "name": "TamedGTSMountEvent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_mount_event",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedGTSMountEventProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "MOUNTING",
+            "type": "logic"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon"
+    },
+    {
+      "name": "TamedGtsSizeIncrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_size_increase",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedGtsSizeIncreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon"
+    },
+    {
+      "name": "TamedGtsSizeDecrease",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_size_decrease",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedGtsSizeDecreaseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon"
+    },
+    {
+      "name": "PlayerInvincibleWhenRiding",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_invincible_when_riding",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerInvincibleWhenRidingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "damagesource",
+            "type": "damagesource"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon/PlayerCancelDamageWhenRiding"
+    },
+    {
+      "name": "ShockWaveImmune",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shock_wave_immune",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java"
+        ]
+      },
+      "path": "~/GiantessCommon/GtsPotionEffect"
+    },
+    {
+      "name": "PlayerShockWaveImmune",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_shock_wave_immune",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerShockWaveImmuneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon/PlayerCancelDamageWhenRiding"
+    },
+    {
+      "name": "PlayerFallImmune",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_fall_immune",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerFallImmuneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon/PlayerCancelDamageWhenRiding"
+    },
+    {
+      "name": "RegularAttack",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "regular_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/network/RegularAttackMessage.java"
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon/TamedGtsAttack"
+    },
+    {
+      "name": "TamedGtsPlayerControlRegularAttack",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_player_control_regular_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedGtsPlayerControlRegularAttackProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon/TamedGtsAttack"
+    },
+    {
+      "name": "BreachAttack",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "breach_attack",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/network/BreachAttackMessage.java"
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon/TamedGtsAttack"
+    },
+    {
+      "name": "TamedGtsPlayerBreach",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_player_breach",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedGtsPlayerBreachProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon/TamedGtsAttack"
+    },
+    {
+      "name": "PlayerExplosionImmune",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_explosion_immune",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/PlayerExplosionImmuneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "damagesource",
+            "type": "damagesource"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon/PlayerCancelDamageWhenRiding"
+    },
+    {
+      "name": "TamedGTSDismountEvent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tamed_gts_dismount_event",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TamedGTSDismountEventProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "DISMOUNTING",
+            "type": "logic"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GiantessCommon/TamedGTSCommon"
+    },
+    {
+      "name": "TokiTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toki_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/TokiTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Toki/TokiAttack"
+    },
+    {
+      "name": "CandyTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/gts/procedures/CandyTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Candy/CandyAttack"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "Player_Speed",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
+    },
+    {
+      "name": "DisableStep",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableKick",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableSit",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableGunSlap",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableGunSmash",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableThrow",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableVore",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableSniper",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableSpit",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableDrone",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableUpperBreach",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableMiddleBreach",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableLowerBreach",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableTrappedBreach",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableShowOff",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableBelch",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableStomachSound",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableClothingDamage",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableRaidWaveSizeChange",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "Toki_TurnSpeed",
+      "type": "number",
+      "scope": "map",
+      "value": "30.0"
+    },
+    {
+      "name": "DisableLeavesBreakWalk",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableLockOnTarget",
+      "type": "logic",
+      "scope": "map",
+      "value": "true"
+    },
+    {
+      "name": "DisableSubmission",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "GtsNaturalSpawnHeight",
+      "type": "number",
+      "scope": "map",
+      "value": "3.0"
+    },
+    {
+      "name": "DisableNaturalSpawn",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandyStep",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandyShockWave",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandyKick",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandySwipe",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandySmash",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandyBreach",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandyVore",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandyHeartMagic",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandySpit",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableCandyThunderMagic",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "Version211",
+      "type": "logic",
+      "scope": "map",
+      "value": "true"
+    },
+    {
+      "name": "DisableTamedGiantessFriendlyFire",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableTamedGiantessBreach",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "DisableTamedGiantessMobAggro",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    }
+  ],
+  "sound_elements": [
+    {
+      "name": "spitsoundeffect",
+      "files": [
+        "spitsoundeffect"
+      ],
+      "category": "hostile",
+      "subtitle": "Giantess Spit Sound"
+    },
+    {
+      "name": "toki.lick",
+      "files": [
+        "tokilick"
+      ],
+      "category": "hostile",
+      "subtitle": "Giantess licking"
+    },
+    {
+      "name": "toki_swallow",
+      "files": [
+        "toki_swallow_2",
+        "toki_swallow_1",
+        "toki_swallow_3"
+      ],
+      "category": "hostile",
+      "subtitle": "Giantess Swallowing"
+    },
+    {
+      "name": "toki.stomach",
+      "files": [
+        "stomachsound1",
+        "stomachsound2",
+        "stomachsound3"
+      ],
+      "category": "hostile",
+      "subtitle": "Giantess Stomach Growl"
+    },
+    {
+      "name": "toki.belch",
+      "files": [
+        "tokibelch1",
+        "tokibelch2"
+      ],
+      "category": "hostile",
+      "subtitle": "Giantess Belch"
+    },
+    {
+      "name": "toki.kiss",
+      "files": [
+        "tokikisssound"
+      ],
+      "category": "hostile",
+      "subtitle": "Giantess kiss"
+    },
+    {
+      "name": "toki.disks",
+      "files": [
+        "tokidisk"
+      ],
+      "category": "music",
+      "subtitle": "Toki Disk Sound"
+    },
+    {
+      "name": "candy.belch",
+      "files": [
+        "candy_belch_1",
+        "candy_belch_2",
+        "candy_belch_3"
+      ],
+      "category": "hostile",
+      "subtitle": "Candy Belch"
+    },
+    {
+      "name": "candy.stomach",
+      "files": [
+        "candy_stomach_1",
+        "candy_stomach_2",
+        "candy_stomach_3",
+        "candy_stomach_4",
+        "candy_stomach_5",
+        "candy_stomach_6"
+      ],
+      "category": "hostile",
+      "subtitle": "Candy Stomach Noise"
+    },
+    {
+      "name": "candy.swallow",
+      "files": [
+        "candy_swallow_1",
+        "candy_swallow_2",
+        "candy_swallow_3"
+      ],
+      "category": "hostile",
+      "subtitle": "Candy gulp"
+    }
+  ],
+  "tag_elements": {
+    "ENTITIES:gts:giantessfaction": [
+      "CUSTOM:TokiDrone",
+      "#gts:giantess"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:ModifiedAnvil"
+    ],
+    "ENTITIES:minecraft:raiders": [
+      "~CUSTOM:Toki",
+      "~CUSTOM:Candy"
+    ],
+    "ENTITIES:gts:giantess": [
+      "#gts:untamedgiantess",
+      "#gts:tamedgiantess"
+    ],
+    "ENTITIES:gts:untamedgiantess": [
+      "CUSTOM:Candy",
+      "CUSTOM:Toki"
+    ],
+    "ITEMS:minecraft:music_discs": [
+      "~CUSTOM:TokiDisk"
+    ],
+    "ENTITIES:gts:tamedgiantess": [
+      "CUSTOM:TamedCandy",
+      "CUSTOM:TamedToki"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "gui.gts.gts_common_gui.button_lock_onto_target_default_disabl": "Lock onto target (Default Disabled)",
+      "gui.gts.candy_config_gui.button_kick": "Kick",
+      "gui.gts.toki_config_menu_1.label_tokis_behavior": "Toki\u0027s Behavior:",
+      "gui.gts.gts_common_gui.button_empty": "+",
+      "subtitles.spitsoundeffect": "Giantess Spit Sound",
+      "gui.gts.gts_common_gui_page_2.button_previous_page": "Previous Page",
+      "gui.gts.candy_config_gui.button_heart_magic": "Heart Magic",
+      "gui.gts.gts_common_gui.button_candy_config": "Candy Config",
+      "gui.gts.gts_common_gui_page_2.label_page_2": "Page 2",
+      "gui.gts.gts_common_gui.button_clothing_damage": "Clothing Damage",
+      "gui.gts.gts_common_gui.button_natural_spawn": "Natural Spawn",
+      "gui.gts.candy_config_gui.button_upper_swipe": "Upper Swipe",
+      "subtitles.candy.stomach": "Candy Stomach Noise",
+      "gui.gts.gts_common_gui_page_2.button_tamed_giantess_friendly_fire": "Tamed Giantess Friendly Fire",
+      "gui.gts.gts_common_gui.button_reset_to_default": "Reset to Default",
+      "block.gts.modified_anvil": "Modified Anvil",
+      "subtitles.candy.swallow": "Candy gulp",
+      "entity.gts.toki": "Toki",
+      "key.gts.regular_attack": "Regular Attack",
+      "gui.gts.candy_config_gui.button_thunder_magic": "Thunder Magic",
+      "gui.gts.toki_config_menu_1.button_eat": "Eat",
+      "gui.gts.toki_config_menu_1.button_middlebreach": "MiddleBreach",
+      "item_group.gts.giantess_toki": "Giantess Toki \u0026 more",
+      "gui.gts.gts_common_gui.button_empty3": "-",
+      "gui.gts.toki_config_menu_1.label_tokis_breach": "Toki\u0027s Breach Abilities (Destroys blocks):",
+      "gui.gts.candy_config_gui.button_ground_slam": "Ground Slam",
+      "key.gts.player_struggle_key": "Player Struggle Key",
+      "item.gts.candy_spawn_egg": "Candy Spawn Egg",
+      "effect.gts.gts_shrink_effect": "Shrink Magic",
+      "subtitles.toki.belch": "Giantess Belch",
+      "gui.gts.gts_common_gui_page_2.button_tamed_giantess_breach_attack": "Tamed Giantess Breach Attack",
+      "gui.gts.toki_config_menu_1.button_upperbreach": "UpperBreach",
+      "subtitles.toki.lick": "Giantess licking",
+      "gui.gts.toki_config_menu_1.button_kick": "Kick",
+      "entity.gts.tamed_candy": "Candy",
+      "gui.gts.candy_config_gui.button_eat": "Eat",
+      "gui.gts.tamed_gts_interaction_menu.label_cost_1_golden_apple": "Cost 1 Golden Apple",
+      "gui.gts.toki_config_menu_1.button_spit": "Spit",
+      "Enabled": "Enable",
+      "effect.gts.toki_drone_battery": "Toki Drone Battery",
+      "gui.gts.gts_common_gui_page_2.button_tamed_giantess_seek_out_monsters": "Tamed Giantess Seek Out Monsters",
+      "key.gts.breach_attack": "Breach Attack",
+      "gui.gts.toki_config_menu_1.button_ground_slam": "Ground Slam",
+      "gui.gts.candy_config_gui.label_candys_attacks": "Candy\u0027s Attack:",
+      "gui.gts.candy_config_gui.button_spit": "Spit",
+      "gui.gts.tamed_gts_interaction_menu.button_sitstand": "Sit/Stand",
+      "gui.gts.gts_common_gui.button_belch": "Belch",
+      "gui.gts.candy_config_gui.button_breach": "Breach",
+      "gui.gts.gts_common_gui.label_giantess_natural_spawn_height": "Giantess Natural Spawn Height:",
+      "gui.gts.gts_common_gui.label_giantess_turn_speed": "Giantess Turn Speed:",
+      "entity.gts.tamed_toki": "Toki",
+      "gui.gts.gts_common_gui.label_giantess_config_menu": "Giantess Config Main Menu",
+      "gui.gts.gts_common_gui.label_page_1": "Page 1",
+      "gui.gts.candy_config_gui.button_main_menu": "Main Menu",
+      "gui.gts.tamed_gts_interaction_menu.button_size_increase": "Size Increase",
+      "item.gts.toki_disk": "Unknown Disk",
+      "gui.gts.candy_config_gui.button_stomp": "Stomp",
+      "Disabled": "Disable",
+      "effect.gts.shock_wave_immune": "ShockWaveImmune",
+      "gui.gts.toki_config_menu_1.label_tokis_attack": "Toki\u0027s Attacks/Abilities:",
+      "gui.gts.tamed_gts_interaction_menu.label_tamed_giantess_interaction_menu": "Tamed Giantess Interaction Menu:",
+      "subtitles.toki.disks": "Toki Disk Sound",
+      "gui.gts.gts_common_gui.label_giantess_pathfinding": "Giantess Pathfinding (reload require):",
+      "entity.gts.candy": "Candy",
+      "gui.gts.gts_common_gui_page_2.label_tamed_giantess_config": "Tamed Giantess Config:",
+      "gui.gts.toki_config_menu_1.button_throw": "Throw",
+      "entity.gts.toki_drone": "Toki Drone",
+      "gui.gts.toki_config_menu_1.button_gun_smash": "Gun Smash",
+      "gui.gts.toki_config_menu_1.button_celebration_after_kill": "Celebration after kill",
+      "gui.gts.gts_common_gui.button_break_leaves_on_contact": "Break Leaves On Contact",
+      "item.gts.toki_drone_spawn_egg": "Toki Drone Spawn Egg",
+      "item.gts.toki_disk.desc": "Unknow Disk",
+      "subtitles.toki.kiss": "Giantess kiss",
+      "gui.gts.tamed_gts_interaction_menu.button_size_decrease": "Size Decrease",
+      "gui.gts.gts_common_gui.button_empty2": "+",
+      "gui.gts.toki_config_menu_1.button_stomp": "Stomp",
+      "subtitles.toki_swallow": "Giantess Swallowing",
+      "gui.gts.gts_common_gui.button_empty1": "-",
+      "item.gts.toki_spawn_egg": "Toki Spawn Egg",
+      "subtitles.toki.stomach": "Giantess Stomach Growl",
+      "gui.gts.gts_common_gui.button_toki_config": "Toki Config",
+      "gui.gts.tamed_gts_interaction_menu.label_cost_1_golden_carrot": "Cost 1 Golden Carrot",
+      "RidingRejectNotification": "She is too small to carry you!",
+      "gui.gts.toki_config_menu_1.button_gun_slap": "Gun Slap",
+      "gui.gts.toki_config_menu_1.button_trappedbreach": "TrappedBreach",
+      "gui.gts.gts_common_gui_page_2.label_giantess_config_main_menu": "Giantess Config Main Menu",
+      "effect.gts.gts_timer": "Toki Timer",
+      "gui.gts.toki_config_menu_1.button_long_range_shot": "Long Range Shot",
+      "gui.gts.toki_config_menu_1.button_drone": "Drone",
+      "gui.gts.toki_config_menu_1.button_lowerbreach": "LowerBreach",
+      "gui.gts.gts_common_gui.label_general_giantess_behavior": "General Giantess Behavior:",
+      "gui.gts.toki_config_menu_1.button_nextpage": "Main Menu",
+      "gui.gts.gts_common_gui.button_stomach_sound": "Stomach Sound",
+      "effect.gts.giantess_spit_overlay_effect": "Toki Spit Overlay Potion Effect",
+      "item.gts.toki_crystal": "Unknown Crystal",
+      "subtitles.candy.belch": "Candy Belch",
+      "gui.gts.candy_config_gui.button_upper_smash": "Upper Smash",
+      "gui.gts.gts_common_gui.button_next_page": "Next Page",
+      "gui.gts.gts_common_gui.button_raid_wave_size_increase": "Raid Wave Size Increase",
+      "gui.gts.toki_anvil_gui.label_reset_anvil_uses": "Reset Anvil Uses"
+    },
+    "zh_cn": {
+      "gui.gts.gts_common_gui.button_lock_onto_target_default_disabl": "锁定目标(默认禁用):",
+      "gui.gts.candy_config_gui.button_kick": "踢",
+      "gui.gts.toki_config_menu_1.label_tokis_behavior": "小时的行为：",
+      "gui.gts.gts_common_gui.button_empty": "+",
+      "subtitles.spitsoundeffect": "吐口水的声音",
+      "gui.gts.gts_common_gui_page_2.button_previous_page": "上一页",
+      "gui.gts.candy_config_gui.button_heart_magic": "心心魔法",
+      "gui.gts.gts_common_gui.button_candy_config": "糖果兔的设置界面",
+      "gui.gts.gts_common_gui_page_2.label_page_2": "第二页",
+      "gui.gts.gts_common_gui.button_clothing_damage": "衣服破损",
+      "gui.gts.gts_common_gui.button_natural_spawn": "自然生成",
+      "gui.gts.candy_config_gui.button_upper_swipe": "上部扇",
+      "subtitles.candy.stomach": "肚子叫的声音",
+      "gui.gts.gts_common_gui_page_2.button_tamed_giantess_friendly_fire": "驯服巨大娘友伤",
+      "gui.gts.gts_common_gui.button_reset_to_default": "重置为默认",
+      "block.gts.modified_anvil": "改造过的铁砧",
+      "subtitles.candy.swallow": "丸吞的声音",
+      "entity.gts.toki": "飞鸟马时",
+      "key.gts.regular_attack": "一般攻击",
+      "gui.gts.candy_config_gui.button_thunder_magic": "雷电魔法",
+      "gui.gts.toki_config_menu_1.button_eat": "丸吞",
+      "gui.gts.toki_config_menu_1.button_middlebreach": "中部突破",
+      "item_group.gts.giantess_toki": "Giantess Toki \u0026 more",
+      "gui.gts.gts_common_gui.button_empty3": "-",
+      "gui.gts.toki_config_menu_1.label_tokis_breach": "小时的突破:",
+      "gui.gts.candy_config_gui.button_ground_slam": "地面猛击",
+      "key.gts.player_struggle_key": "玩家挣扎键",
+      "item.gts.candy_spawn_egg": "糖果兔的刷怪蛋",
+      "effect.gts.gts_shrink_effect": "缩小魔法",
+      "subtitles.toki.belch": "打嗝的声音",
+      "gui.gts.gts_common_gui_page_2.button_tamed_giantess_breach_attack": "驯服巨大娘突破",
+      "gui.gts.toki_config_menu_1.button_upperbreach": "上部突破",
+      "subtitles.toki.lick": "用舌头舔的声音",
+      "gui.gts.toki_config_menu_1.button_kick": "踢",
+      "entity.gts.tamed_candy": "糖果兔",
+      "gui.gts.candy_config_gui.button_eat": "丸吞",
+      "gui.gts.tamed_gts_interaction_menu.label_cost_1_golden_apple": "需要一个金苹果",
+      "gui.gts.toki_config_menu_1.button_spit": "吐口水",
+      "Enabled": "启用",
+      "effect.gts.toki_drone_battery": "无人机电池",
+      "gui.gts.gts_common_gui_page_2.button_tamed_giantess_seek_out_monsters": "驯服巨大娘主动攻击怪物",
+      "key.gts.breach_attack": "突破攻击",
+      "gui.gts.toki_config_menu_1.button_ground_slam": "坐",
+      "gui.gts.candy_config_gui.label_candys_attacks": "糖果兔的攻击：",
+      "gui.gts.candy_config_gui.button_spit": "吐口水",
+      "gui.gts.tamed_gts_interaction_menu.button_sitstand": "坐/站",
+      "gui.gts.gts_common_gui.button_belch": "打嗝",
+      "gui.gts.candy_config_gui.button_breach": "糖果兔的突破",
+      "gui.gts.gts_common_gui.label_giantess_natural_spawn_height": "巨大娘自然生成大小：",
+      "gui.gts.gts_common_gui.label_giantess_turn_speed": "巨大娘转速：",
+      "entity.gts.tamed_toki": "小时",
+      "gui.gts.gts_common_gui.label_giantess_config_menu": "巨大娘设置界面",
+      "gui.gts.gts_common_gui.label_page_1": "第一页",
+      "gui.gts.candy_config_gui.button_main_menu": "主菜单",
+      "gui.gts.tamed_gts_interaction_menu.button_size_increase": "变大",
+      "item.gts.toki_disk": "未知光碟",
+      "gui.gts.candy_config_gui.button_stomp": "踩",
+      "Disabled": "禁用",
+      "effect.gts.shock_wave_immune": "Tamed Giantess Potion Effect",
+      "gui.gts.toki_config_menu_1.label_tokis_attack": "小时的攻击:",
+      "gui.gts.tamed_gts_interaction_menu.label_tamed_giantess_interaction_menu": "驯服的巨大娘互动面板：",
+      "subtitles.toki.disks": "未知光碟的录音",
+      "gui.gts.gts_common_gui.label_giantess_pathfinding": "巨大娘寻路 (需要重启地图):",
+      "entity.gts.candy": "糖果兔",
+      "gui.gts.gts_common_gui_page_2.label_tamed_giantess_config": "驯服巨大娘设置界面:",
+      "gui.gts.toki_config_menu_1.button_throw": "扔",
+      "entity.gts.toki_drone": "无人机",
+      "gui.gts.toki_config_menu_1.button_gun_smash": "用枪砸",
+      "gui.gts.toki_config_menu_1.button_celebration_after_kill": "击杀后庆祝",
+      "gui.gts.gts_common_gui.button_break_leaves_on_contact": "走动时破坏树叶",
+      "item.gts.toki_drone_spawn_egg": "无人机的刷怪蛋",
+      "item.gts.toki_disk.desc": "未知光碟",
+      "subtitles.toki.kiss": "亲吻的声音",
+      "gui.gts.tamed_gts_interaction_menu.button_size_decrease": "变小",
+      "gui.gts.gts_common_gui.button_empty2": "+",
+      "gui.gts.toki_config_menu_1.button_stomp": "踩",
+      "subtitles.toki_swallow": "丸吞的声音",
+      "gui.gts.gts_common_gui.button_empty1": "-",
+      "item.gts.toki_spawn_egg": "飞鸟马时的刷怪蛋",
+      "subtitles.toki.stomach": "肚子叫的声音",
+      "gui.gts.gts_common_gui.button_toki_config": "飞鸟马时的设置界面",
+      "gui.gts.tamed_gts_interaction_menu.label_cost_1_golden_carrot": "需要一个金萝卜",
+      "RidingRejectNotification": "她太小啦，抱不动你",
+      "gui.gts.toki_config_menu_1.button_gun_slap": "用枪打耳光",
+      "gui.gts.toki_config_menu_1.button_trappedbreach": "受困突破",
+      "gui.gts.gts_common_gui_page_2.label_giantess_config_main_menu": "巨大娘设置界面",
+      "effect.gts.gts_timer": "Toki Timer",
+      "gui.gts.toki_config_menu_1.button_long_range_shot": "狙击",
+      "gui.gts.toki_config_menu_1.button_drone": "无人机",
+      "gui.gts.toki_config_menu_1.button_lowerbreach": "下部突破",
+      "gui.gts.gts_common_gui.label_general_giantess_behavior": "巨大娘设置：",
+      "gui.gts.toki_config_menu_1.button_nextpage": "主菜单",
+      "gui.gts.gts_common_gui.button_stomach_sound": "肚子叫",
+      "effect.gts.giantess_spit_overlay_effect": "Toki Spit Overlay Potion Effect",
+      "item.gts.toki_crystal": "未知的晶体",
+      "subtitles.candy.belch": "打嗝的声音",
+      "gui.gts.candy_config_gui.button_upper_smash": "上部砸",
+      "gui.gts.gts_common_gui.button_next_page": "下一页",
+      "gui.gts.gts_common_gui.button_raid_wave_size_increase": "村庄袭击大小增加",
+      "gui.gts.toki_anvil_gui.label_reset_anvil_uses": "重置铁砧使用次数"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Toki",
+        "children": [
+          {
+            "name": "TokiAttack",
+            "children": [
+              {
+                "name": "TokiRangeAttack",
+                "children": [
+                  {
+                    "name": "SniperAttack",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "TokiCelebration",
+                "children": []
+              },
+              {
+                "name": "TokiMeleeAttack",
+                "children": []
+              },
+              {
+                "name": "TokiBreach",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "TokiDrone",
+            "children": []
+          },
+          {
+            "name": "TokiBehaviour",
+            "children": []
+          },
+          {
+            "name": "TokiRewards",
+            "children": [
+              {
+                "name": "TokiAnvil",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "TamedToki",
+            "children": [
+              {
+                "name": "TamedTokiAttack",
+                "children": [
+                  {
+                    "name": "TamedTokiMelee",
+                    "children": []
+                  },
+                  {
+                    "name": "TamedTokiBreach",
+                    "children": []
+                  },
+                  {
+                    "name": "TamedTokiRangeAttack",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "TamedTokiInteraction",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "GiantessCommon",
+        "children": [
+          {
+            "name": "GiantessSpit",
+            "children": []
+          },
+          {
+            "name": "GtsConfig",
+            "children": [
+              {
+                "name": "ConfigCommand",
+                "children": []
+              },
+              {
+                "name": "ConfigGUI",
+                "children": [
+                  {
+                    "name": "GtsConfigGui",
+                    "children": [
+                      {
+                        "name": "CheckBoxCheckCondition",
+                        "children": []
+                      },
+                      {
+                        "name": "Page 1",
+                        "children": [
+                          {
+                            "name": "OnButtonPressed",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Page 2",
+                        "children": [
+                          {
+                            "name": "OnButtonClick",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "TokiConfigGui",
+                    "children": [
+                      {
+                        "name": "CheckBoxCheckCondition",
+                        "children": []
+                      },
+                      {
+                        "name": "OnButtonPress",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "CandyConfigGui",
+                    "children": [
+                      {
+                        "name": "CheckCheckboxCondition",
+                        "children": []
+                      },
+                      {
+                        "name": "OnButtonPressed",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "GtsPathfinding",
+            "children": []
+          },
+          {
+            "name": "GtsShockWave",
+            "children": []
+          },
+          {
+            "name": "PlayerStruggle",
+            "children": []
+          },
+          {
+            "name": "GtsPotionEffect",
+            "children": []
+          },
+          {
+            "name": "GtsBehavior",
+            "children": []
+          },
+          {
+            "name": "PlayerBehavior",
+            "children": []
+          },
+          {
+            "name": "TamedGTSCommon",
+            "children": [
+              {
+                "name": "PlayerCancelDamageWhenRiding",
+                "children": []
+              },
+              {
+                "name": "TamedGtsAttack",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Candy",
+        "children": [
+          {
+            "name": "CandyAttack",
+            "children": [
+              {
+                "name": "CandyMeleeAttack",
+                "children": []
+              },
+              {
+                "name": "CandyCelebration",
+                "children": []
+              },
+              {
+                "name": "CandyRangeAttack",
+                "children": [
+                  {
+                    "name": "CandyHeartBulletAttack",
+                    "children": []
+                  },
+                  {
+                    "name": "CandyThunderSummon",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "CandyBreach",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "CandyBehavior",
+            "children": []
+          },
+          {
+            "name": "TamedCandy",
+            "children": [
+              {
+                "name": "TamedCandyAttack",
+                "children": [
+                  {
+                    "name": "TamedCandyMeleeAttack",
+                    "children": []
+                  },
+                  {
+                    "name": "TamedCandyRangeAttack",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "TamedCandyInteraction",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "gts",
+    "modName": "Toki",
+    "version": "2.2.1",
+    "description": "a Giantess mod",
+    "author": "Censhucho",
+    "websiteURL": "https://mcreator.net",
+    "license": "GNU General Public License version 3 (GPLv3)",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [
+      "geckolib"
+    ],
+    "currentGenerator": "neoforge-1.21.1",
+    "credits": "Created with Mcreator, Toki Model Created by Zhiban with modification including new animations and reduce bone structure",
+    "modElementsPackage": "net.mcreator.gts"
+  },
+  "mcreatorVersion": 202400452410
+}

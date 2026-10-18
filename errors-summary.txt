@@ -1,0 +1,277 @@
+5:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:4: error: cannot find symbol
+8:  symbol:   class EffectCure
+9:  location: package net.minecraftforge.common
+10:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:5: error: cannot find symbol
+13:  symbol:   class RegisterClientExtensionsEvent
+14:  location: package net.minecraftforge.client.extensions.common
+15:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:7: error: cannot find symbol
+18:  symbol:   class EventBusSubscriber
+19:  location: package net.minecraftforge.fml.common
+20:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:20: error: cannot find symbol
+23:  symbol: class EventBusSubscriber
+24:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:27: error: cannot find symbol
+27:  symbol:   class EffectCure
+28:  location: class ShockWaveImmuneMobEffect
+29:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:31: error: cannot find symbol
+32:  symbol:   class RegisterClientExtensionsEvent
+33:  location: class ShockWaveImmuneMobEffect
+34:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:4: error: cannot find symbol
+37:  symbol:   class EffectCure
+38:  location: package net.minecraftforge.common
+39:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:5: error: cannot find symbol
+42:  symbol:   class RegisterClientExtensionsEvent
+43:  location: package net.minecraftforge.client.extensions.common
+44:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:7: error: cannot find symbol
+47:  symbol:   class EventBusSubscriber
+48:  location: package net.minecraftforge.fml.common
+49:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:20: error: cannot find symbol
+52:  symbol: class EventBusSubscriber
+53:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:27: error: cannot find symbol
+56:  symbol:   class EffectCure
+57:  location: class GiantessSpitOverlayEffectMobEffect
+58:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:31: error: cannot find symbol
+61:  symbol:   class RegisterClientExtensionsEvent
+62:  location: class GiantessSpitOverlayEffectMobEffect
+63:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:4: error: cannot find symbol
+66:  symbol:   class EffectCure
+67:  location: package net.minecraftforge.common
+68:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:5: error: cannot find symbol
+71:  symbol:   class RegisterClientExtensionsEvent
+72:  location: package net.minecraftforge.client.extensions.common
+73:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:7: error: cannot find symbol
+76:  symbol:   class EventBusSubscriber
+77:  location: package net.minecraftforge.fml.common
+78:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:20: error: cannot find symbol
+81:  symbol: class EventBusSubscriber
+82:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:27: error: cannot find symbol
+85:  symbol:   class EffectCure
+86:  location: class GtsTimerMobEffect
+87:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:31: error: cannot find symbol
+90:  symbol:   class RegisterClientExtensionsEvent
+91:  location: class GtsTimerMobEffect
+92:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:4: error: cannot find symbol
+95:  symbol:   class EffectCure
+96:  location: package net.minecraftforge.common
+97:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:5: error: cannot find symbol
+100:  symbol:   class RegisterClientExtensionsEvent
+101:  location: package net.minecraftforge.client.extensions.common
+102:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:7: error: cannot find symbol
+105:  symbol:   class EventBusSubscriber
+106:  location: package net.minecraftforge.fml.common
+107:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:20: error: cannot find symbol
+110:  symbol: class EventBusSubscriber
+111:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:27: error: cannot find symbol
+114:  symbol:   class EffectCure
+115:  location: class TokiDroneBatteryMobEffect
+116:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:31: error: cannot find symbol
+119:  symbol:   class RegisterClientExtensionsEvent
+120:  location: class TokiDroneBatteryMobEffect
+121:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:4: error: cannot find symbol
+124:  symbol:   class EffectCures
+125:  location: package net.minecraftforge.common
+126:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:5: error: cannot find symbol
+129:  symbol:   class EffectCure
+130:  location: package net.minecraftforge.common
+131:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:25: error: cannot find symbol
+134:  symbol:   class EffectCure
+135:  location: class GtsShrinkEffectMobEffect
+136:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsMod.java:7: error: package net.minecraftforge.event.world does not exist
+139:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsMod.java:94: error: cannot find symbol
+142:  symbol:   class BiomeLoadingEvent
+143:  location: class GtsMod
+144:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/BreachAttackMessage.java:8: error: cannot find symbol
+147:  symbol:   class EventBusSubscriber
+148:  location: package net.minecraftforge.fml.common
+149:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/BreachAttackMessage.java:17: error: cannot find symbol
+152:  symbol: class EventBusSubscriber
+153:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsCommonGUIButtonMessage.java:8: error: cannot find symbol
+156:  symbol:   class EventBusSubscriber
+157:  location: package net.minecraftforge.fml.common
+158:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsCommonGUIButtonMessage.java:35: error: cannot find symbol
+161:  symbol: class EventBusSubscriber
+162:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/CandyConfigGuiButtonMessage.java:8: error: cannot find symbol
+165:  symbol:   class EventBusSubscriber
+166:  location: package net.minecraftforge.fml.common
+167:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/CandyConfigGuiButtonMessage.java:31: error: cannot find symbol
+170:  symbol: class EventBusSubscriber
+171:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TokiConfigMenu1ButtonMessage.java:8: error: cannot find symbol
+174:  symbol:   class EventBusSubscriber
+175:  location: package net.minecraftforge.fml.common
+176:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TokiConfigMenu1ButtonMessage.java:36: error: cannot find symbol
+179:  symbol: class EventBusSubscriber
+180:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TamedGtsInteractionMenuButtonMessage.java:8: error: cannot find symbol
+183:  symbol:   class EventBusSubscriber
+184:  location: package net.minecraftforge.fml.common
+185:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TamedGtsInteractionMenuButtonMessage.java:23: error: cannot find symbol
+188:  symbol: class EventBusSubscriber
+189:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/PlayerStruggleKeyMessage.java:8: error: cannot find symbol
+192:  symbol:   class EventBusSubscriber
+193:  location: package net.minecraftforge.fml.common
+194:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/PlayerStruggleKeyMessage.java:17: error: cannot find symbol
+197:  symbol: class EventBusSubscriber
+198:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TokiAnvilGUISlotMessage.java:8: error: cannot find symbol
+201:  symbol:   class EventBusSubscriber
+202:  location: package net.minecraftforge.fml.common
+203:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TokiAnvilGUISlotMessage.java:21: error: cannot find symbol
+206:  symbol: class EventBusSubscriber
+207:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsCommonGuiPage2ButtonMessage.java:8: error: cannot find symbol
+210:  symbol:   class EventBusSubscriber
+211:  location: package net.minecraftforge.fml.common
+212:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsCommonGuiPage2ButtonMessage.java:24: error: cannot find symbol
+215:  symbol: class EventBusSubscriber
+216:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsModVariables.java:6: error: cannot find symbol
+219:  symbol:   class EventBusSubscriber
+220:  location: package net.minecraftforge.fml.common
+221:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsModVariables.java:33: error: cannot find symbol
+224:  symbol: class EventBusSubscriber
+225:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsModVariables.java:51: error: cannot find symbol
+228:  symbol:   class EventBusSubscriber
+229:  location: class GtsModVariables
+230:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsModVariables.java:71: error: cannot find symbol
+233:  symbol:   class EventBusSubscriber
+234:  location: class GtsModVariables
+235:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/RegularAttackMessage.java:8: error: cannot find symbol
+238:  symbol:   class EventBusSubscriber
+239:  location: package net.minecraftforge.fml.common
+240:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/RegularAttackMessage.java:17: error: cannot find symbol
+243:  symbol: class EventBusSubscriber
+244:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:6: error: cannot find symbol
+247:  symbol:   class PlayState
+248:  location: package software.bernie.geckolib.core.animation
+249:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:13: error: cannot find symbol
+252:  symbol:   class RegisterSpawnPlacementsEvent
+253:  location: package net.minecraftforge.event.entity
+254:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:14: error: cannot find symbol
+257:  symbol:   class EventHooks
+258:  location: package net.minecraftforge.event
+259:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:18: error: cannot find symbol
+262:  symbol:   class PathType
+263:  location: package net.minecraft.world.level.pathfinder
+264:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:111: error: cannot find symbol
+267:  symbol:   class Builder
+268:  location: class SynchedEntityData
+269:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:471: error: cannot find symbol
+272:  symbol:   class RegisterSpawnPlacementsEvent
+273:  location: class TamedTokiEntity
+274:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:487: error: cannot find symbol
+277:  symbol:   class PlayState
+278:  location: class TamedTokiEntity
+279:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:6: error: cannot find symbol
+282:  symbol:   class PlayState
+283:  location: package software.bernie.geckolib.core.animation
+284:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:13: error: cannot find symbol
+287:  symbol:   class RegisterSpawnPlacementsEvent
+288:  location: package net.minecraftforge.event.entity
+289:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:14: error: package net.minecraftforge.fml.common.asm.enumextension does not exist
+292:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:18: error: cannot find symbol
+295:  symbol:   class PathType
+296:  location: package net.minecraft.world.level.pathfinder
+297:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:39: error: cannot find symbol
+300:  symbol:   class SpawnPlacementTypes
+301:  location: package net.minecraft.world.entity
+302:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:81: error: cannot find symbol
+305:  symbol:   class EnumProxy
+306:  location: class CandyEntity
+307:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:109: error: cannot find symbol
+310:  symbol:   class Builder
+311:  location: class SynchedEntityData
+312:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:231: error: cannot find symbol
+315:  symbol:   class RegisterSpawnPlacementsEvent
+316:  location: class CandyEntity
+317:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:257: error: cannot find symbol
+320:  symbol:   class PlayState
+321:  location: class CandyEntity
+322:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:6: error: cannot find symbol
+325:  symbol:   class PlayState
+326:  location: package software.bernie.geckolib.core.animation
+327:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:13: error: cannot find symbol
+330:  symbol:   class RegisterSpawnPlacementsEvent
+331:  location: package net.minecraftforge.event.entity
+332:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:14: error: cannot find symbol
+335:  symbol:   class EventHooks
+336:  location: package net.minecraftforge.event
+337:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:18: error: cannot find symbol
+340:  symbol:   class PathType
+341:  location: package net.minecraft.world.level.pathfinder
+342:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:111: error: cannot find symbol
+345:  symbol:   class Builder
+346:  location: class SynchedEntityData
+347:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:471: error: cannot find symbol
+350:  symbol:   class RegisterSpawnPlacementsEvent
+351:  location: class TamedCandyEntity
+352:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:487: error: cannot find symbol
+355:  symbol:   class PlayState
+356:  location: class TamedCandyEntity
+357:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:6: error: cannot find symbol
+360:  symbol:   class PlayState
+361:  location: package software.bernie.geckolib.core.animation
+362:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:13: error: cannot find symbol
+365:  symbol:   class RegisterSpawnPlacementsEvent
+366:  location: package net.minecraftforge.event.entity
+367:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:86: error: cannot find symbol
+370:  symbol:   class Builder
+371:  location: class SynchedEntityData
+372:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:261: error: cannot find symbol
+375:  symbol:   class RegisterSpawnPlacementsEvent
+376:  location: class TokiDroneEntity
+377:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:276: error: cannot find symbol
+380:  symbol:   class PlayState
+381:  location: class TokiDroneEntity
+382:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:285: error: cannot find symbol
+385:  symbol:   class PlayState
+386:  location: class TokiDroneEntity
+387:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:6: error: cannot find symbol
+390:  symbol:   class PlayState
+391:  location: package software.bernie.geckolib.core.animation
+392:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:13: error: cannot find symbol
+395:  symbol:   class RegisterSpawnPlacementsEvent
+396:  location: package net.minecraftforge.event.entity
+397:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:14: error: package net.minecraftforge.fml.common.asm.enumextension does not exist
+400:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:18: error: cannot find symbol
+403:  symbol:   class PathType
+404:  location: package net.minecraft.world.level.pathfinder
+405:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:40: error: cannot find symbol
+408:  symbol:   class SpawnPlacementTypes
+409:  location: package net.minecraft.world.entity
+410:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:84: error: cannot find symbol
+413:  symbol:   class EnumProxy
+414:  location: class TokiEntity
+415:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:112: error: cannot find symbol
+418:  symbol:   class Builder
+419:  location: class SynchedEntityData
+420:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:245: error: cannot find symbol
+423:  symbol:   class RegisterSpawnPlacementsEvent
+424:  location: class TokiEntity
+425:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:271: error: cannot find symbol
+428:  symbol:   class PlayState
+429:  location: class TokiEntity
+430:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsNavigation.java:17: error: cannot find symbol
+433:  symbol:   class t
+434:  location: package org.checkerframework.checker.units.qual
+435:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsNavigation.java:21: error: cannot find symbol
+438:  symbol:   class PathType
+439:  location: package net.minecraft.world.level.pathfinder
+440:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/command/GtsConfigCommandCommand.java:8: error: cannot find symbol
+443:  symbol:   class EventBusSubscriber
+444:  location: package net.minecraftforge.fml.common
+445:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/command/GtsConfigCommandCommand.java:19: error: cannot find symbol
+448:  symbol: class EventBusSubscriber
+449:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsMoveHelper.java:17: error: cannot find symbol
+452:  symbol:   class PathType
+453:  location: package net.minecraft.world.level.pathfinder
+454:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModKeyMappings.java:11: error: cannot find symbol
+457:  symbol:   class EventBusSubscriber
+458:  location: package net.minecraftforge.fml.common
+459:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModKeyMappings.java:22: error: cannot find symbol
+462:  symbol: class EventBusSubscriber
+463:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModKeyMappings.java:75: error: cannot find symbol
+466:  symbol:   class EventBusSubscriber
+467:  location: class GtsModKeyMappings
+468:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModModels.java:8: error: cannot find symbol
+471:  symbol:   class EventBusSubscriber
+472:  location: package net.minecraftforge.fml.common
+473:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModModels.java:15: error: cannot find symbol
+476:  symbol: class EventBusSubscriber
+477:/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModMobEffects.java:10: error: cannot find symbol
+480:  symbol:   class EventBusSubscriber
+481:  location: package net.minecraftforge.fml.common

@@ -1,0 +1,30 @@
+GTS Toki & More — Forge 1.20.1 porting checkpoint v11
+====================================================
+
+STATUS: SOURCE CHECKPOINT ONLY — NOT a playable JAR.
+Target: Minecraft 1.20.1 / Forge 47.2.20 / Java 17 / GeckoLib 4.4.9.
+
+Additional work since v9:
+- Replaced 1.21-style ResourceLocation.parse(...) calls with ResourceLocation constructors compatible with 1.20.1.
+- Migrated NeoForge-style Pre/Post tick event subclasses to Forge 1.20.1 TickEvent event types with explicit START/END phase checks.
+- Migrated world.holderOrThrow(DamageTypes.*) calls to the 1.20.1 registry access API.
+- Migrated menu screen registration away from RegisterMenuScreensEvent to Forge FMLClientSetupEvent + MenuScreens.register(...).
+- Preserved previous SimpleChannel/capability groundwork, scale attribute registration, RecordItem migration, and ItemStack/anvil API changes.
+
+Static checks:
+- Java source files: 288
+- JSON resource files: 30; valid: 30; invalid: 0
+- PNG textures: 39
+- OGG sounds: 24
+- GeckoLib geometry models: 3
+- GeckoLib animation files: 3
+- Remaining ResourceLocation.parse(...): no
+- Remaining world.holderOrThrow(...): no
+- Remaining net.minecraftforge.event.tick imports: no
+- Remaining RegisterMenuScreensEvent usage: no
+- Remaining NeoForge networking markers: no
+
+BLOCKER:
+- No successful Gradle build or Minecraft launch test has been run. Gradle is not installed in this environment and network DNS resolution to services.gradle.org failed, so a real build could not be started.
+- Other Forge/GeckoLib API mismatches may remain and need to be caught by a real compile.
+- This archive is source code, not a playable .jar.
