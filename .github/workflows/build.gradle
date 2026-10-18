@@ -1,0 +1,9 @@
+      - name: Build Minecraft mod
+        run: gradle build --no-daemon
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: GTS-Toki-Forge1201
+          path: build/libs/*.jar
+          if-no-files-found: error
