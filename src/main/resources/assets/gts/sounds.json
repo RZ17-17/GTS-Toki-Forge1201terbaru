@@ -1,0 +1,148 @@
+{
+  "spitsoundeffect": {
+    "subtitle": "subtitles.spitsoundeffect",
+    "sounds": [
+      {
+        "name": "gts:spitsoundeffect",
+        "stream": false
+      }
+    ]
+  },
+  "toki.lick": {
+    "subtitle": "subtitles.toki.lick",
+    "sounds": [
+      {
+        "name": "gts:tokilick",
+        "stream": false
+      }
+    ]
+  },
+  "toki_swallow": {
+    "subtitle": "subtitles.toki_swallow",
+    "sounds": [
+      {
+        "name": "gts:toki_swallow_2",
+        "stream": false
+      },
+      {
+        "name": "gts:toki_swallow_1",
+        "stream": false
+      },
+      {
+        "name": "gts:toki_swallow_3",
+        "stream": false
+      }
+    ]
+  },
+  "toki.stomach": {
+    "subtitle": "subtitles.toki.stomach",
+    "sounds": [
+      {
+        "name": "gts:stomachsound1",
+        "stream": false
+      },
+      {
+        "name": "gts:stomachsound2",
+        "stream": false
+      },
+      {
+        "name": "gts:stomachsound3",
+        "stream": false
+      }
+    ]
+  },
+  "toki.belch": {
+    "subtitle": "subtitles.toki.belch",
+    "sounds": [
+      {
+        "name": "gts:tokibelch1",
+        "stream": false
+      },
+      {
+        "name": "gts:tokibelch2",
+        "stream": false
+      }
+    ]
+  },
+  "toki.kiss": {
+    "subtitle": "subtitles.toki.kiss",
+    "sounds": [
+      {
+        "name": "gts:tokikisssound",
+        "stream": false
+      }
+    ]
+  },
+  "toki.disks": {
+    "subtitle": "subtitles.toki.disks",
+    "sounds": [
+      {
+        "name": "gts:tokidisk",
+        "stream": true
+      }
+    ]
+  },
+  "candy.belch": {
+    "subtitle": "subtitles.candy.belch",
+    "sounds": [
+      {
+        "name": "gts:candy_belch_1",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_belch_2",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_belch_3",
+        "stream": false
+      }
+    ]
+  },
+  "candy.stomach": {
+    "subtitle": "subtitles.candy.stomach",
+    "sounds": [
+      {
+        "name": "gts:candy_stomach_1",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_stomach_2",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_stomach_3",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_stomach_4",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_stomach_5",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_stomach_6",
+        "stream": false
+      }
+    ]
+  },
+  "candy.swallow": {
+    "subtitle": "subtitles.candy.swallow",
+    "sounds": [
+      {
+        "name": "gts:candy_swallow_1",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_swallow_2",
+        "stream": false
+      },
+      {
+        "name": "gts:candy_swallow_3",
+        "stream": false
+      }
+    ]
+  }
+}

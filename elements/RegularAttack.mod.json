@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "1",
+    "keyBindingName": "Regular Attack",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "TamedGtsPlayerControlRegularAttack"
+    }
+  }
+}

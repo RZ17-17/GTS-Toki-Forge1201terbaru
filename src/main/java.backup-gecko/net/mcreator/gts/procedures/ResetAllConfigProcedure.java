@@ -1,0 +1,88 @@
+package net.mcreator.gts.procedures;
+
+import net.minecraft.world.level.LevelAccessor;
+
+import net.mcreator.gts.network.GtsModVariables;
+
+public class ResetAllConfigProcedure {
+	public static void execute(LevelAccessor world) {
+		GtsModVariables.MapVariables.get(world).Version211 = true;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableStep = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableKick = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableSit = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableGunSlap = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableGunSmash = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableThrow = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableVore = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableSniper = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableSpit = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableDrone = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableUpperBreach = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableMiddleBreach = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableLowerBreach = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableTrappedBreach = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableShowOff = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableBelch = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableStomachSound = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableClothingDamage = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableRaidWaveSizeChange = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableLeavesBreakWalk = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableLockOnTarget = true;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableSubmission = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableNaturalSpawn = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandyStep = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandyShockWave = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandyKick = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandySwipe = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandySmash = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandyBreach = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandyVore = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandyHeartMagic = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandySpit = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableCandyThunderMagic = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).Toki_TurnSpeed = 30;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).GtsNaturalSpawnHeight = 3;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableTamedGiantessFriendlyFire = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+		GtsModVariables.MapVariables.get(world).DisableTamedGiantessMobAggro = false;
+		GtsModVariables.MapVariables.get(world).syncData(world);
+	}
+}

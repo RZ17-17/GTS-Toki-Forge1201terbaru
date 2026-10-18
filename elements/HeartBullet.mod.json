@@ -1,0 +1,33 @@
+{
+  "_fv": 73,
+  "_type": "projectile",
+  "definition": {
+    "projectileItem": {
+      "value": "Blocks.AIR"
+    },
+    "showParticles": false,
+    "actionSound": {
+      "value": "entity.arrow.shoot"
+    },
+    "igniteFire": false,
+    "power": 1.0,
+    "damage": 10.0,
+    "knockback": 6,
+    "entityModel": "ModelGts",
+    "customModelTexture": "heartbullettexture.png",
+    "modelWidth": 0.5,
+    "modelHeight": 0.5,
+    "onHitsBlock": {
+      "name": "HeartBulletDespawn"
+    },
+    "onHitsPlayer": {
+      "name": "HeartBulletHitEntity"
+    },
+    "onHitsEntity": {
+      "name": "HeartBulletHitEntity"
+    },
+    "onFlyingTick": {
+      "name": "HeartBulletTickUpdate"
+    }
+  }
+}

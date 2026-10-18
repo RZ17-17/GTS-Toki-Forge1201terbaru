@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "2",
+    "keyBindingName": "Breach Attack",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "TamedGtsPlayerBreach"
+    }
+  }
+}

@@ -1,0 +1,466 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Task :compileJava
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.client.extensions.common.RegisterClientExtensionsEvent;
+                                                  ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: package net.minecraftforge.client.extensions.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:7: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:20: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:27: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class ShockWaveImmuneMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:31: error: cannot find symbol
+	public static void registerMobEffectExtensions(RegisterClientExtensionsEvent event) {
+	                                               ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: class ShockWaveImmuneMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.client.extensions.common.RegisterClientExtensionsEvent;
+                                                  ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: package net.minecraftforge.client.extensions.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:7: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:20: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:27: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class GiantessSpitOverlayEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:31: error: cannot find symbol
+	public static void registerMobEffectExtensions(RegisterClientExtensionsEvent event) {
+	                                               ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: class GiantessSpitOverlayEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.client.extensions.common.RegisterClientExtensionsEvent;
+                                                  ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: package net.minecraftforge.client.extensions.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:7: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:20: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:27: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class GtsTimerMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:31: error: cannot find symbol
+	public static void registerMobEffectExtensions(RegisterClientExtensionsEvent event) {
+	                                               ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: class GtsTimerMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.client.extensions.common.RegisterClientExtensionsEvent;
+                                                  ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: package net.minecraftforge.client.extensions.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:7: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:20: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:27: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class TokiDroneBatteryMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:31: error: cannot find symbol
+	public static void registerMobEffectExtensions(RegisterClientExtensionsEvent event) {
+	                                               ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: class TokiDroneBatteryMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCures;
+                                ^
+  symbol:   class EffectCures
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:25: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class GtsShrinkEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsMod.java:7: error: package net.minecraftforge.event.world does not exist
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+                                     ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsMod.java:94: error: cannot find symbol
+	public void onBiomeLoading(BiomeLoadingEvent event) {
+	                           ^
+  symbol:   class BiomeLoadingEvent
+  location: class GtsMod
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/BreachAttackMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/BreachAttackMessage.java:17: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsCommonGUIButtonMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsCommonGUIButtonMessage.java:35: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/CandyConfigGuiButtonMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/CandyConfigGuiButtonMessage.java:31: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TokiConfigMenu1ButtonMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TokiConfigMenu1ButtonMessage.java:36: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TamedGtsInteractionMenuButtonMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TamedGtsInteractionMenuButtonMessage.java:23: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/PlayerStruggleKeyMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/PlayerStruggleKeyMessage.java:17: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TokiAnvilGUISlotMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/TokiAnvilGUISlotMessage.java:21: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsCommonGuiPage2ButtonMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsCommonGuiPage2ButtonMessage.java:24: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsModVariables.java:6: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsModVariables.java:33: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsModVariables.java:51: error: cannot find symbol
+	@EventBusSubscriber
+	 ^
+  symbol:   class EventBusSubscriber
+  location: class GtsModVariables
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/GtsModVariables.java:71: error: cannot find symbol
+	@EventBusSubscriber
+	 ^
+  symbol:   class EventBusSubscriber
+  location: class GtsModVariables
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/RegularAttackMessage.java:8: error: cannot find symbol
+import net.minecraftforge.fml.common.EventBusSubscriber;
+                                    ^
+  symbol:   class EventBusSubscriber
+  location: package net.minecraftforge.fml.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/network/RegularAttackMessage.java:17: error: cannot find symbol
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+ ^
+  symbol: class EventBusSubscriber
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/TamedTokiModel.java:5: error: cannot find symbol
+import software.bernie.geckolib.util.ClientUtil;
+                                    ^
+  symbol:   class ClientUtil
+  location: package software.bernie.geckolib.util
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/TamedTokiModel.java:10: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/TamedTokiModel.java:11: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationProcessor;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:5: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.RawAnimation;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:6: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.PlayState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:7: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:8: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationController;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:9: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimatableManager;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:10: error: package software.bernie.geckolib.animatable.instance does not exist
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+                                                   ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:13: error: cannot find symbol
+import net.minecraftforge.event.entity.RegisterSpawnPlacementsEvent;
+                                      ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: package net.minecraftforge.event.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:14: error: cannot find symbol
+import net.minecraftforge.event.EventHooks;
+                               ^
+  symbol:   class EventHooks
+  location: package net.minecraftforge.event
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:18: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.PathType;
+                                           ^
+  symbol:   class PathType
+  location: package net.minecraft.world.level.pathfinder
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/TamedTokiModel.java:43: error: cannot find symbol
+	public void setCustomAnimations(TamedTokiEntity entity, long instanceId, AnimationState animationState) {
+	                                                                         ^
+  symbol:   class AnimationState
+  location: class TamedTokiModel
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:85: error: cannot find symbol
+	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+	              ^
+  symbol:   class AnimatableInstanceCache
+  location: class TamedTokiEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:111: error: cannot find symbol
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                                  ^
+  symbol:   class Builder
+  location: class SynchedEntityData
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:471: error: cannot find symbol
+	public static void init(RegisterSpawnPlacementsEvent event) {
+	                        ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: class TamedTokiEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:487: error: cannot find symbol
+	private PlayState movementPredicate(AnimationState event) {
+	                                    ^
+  symbol:   class AnimationState
+  location: class TamedTokiEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:487: error: cannot find symbol
+	private PlayState movementPredicate(AnimationState event) {
+	        ^
+  symbol:   class PlayState
+  location: class TamedTokiEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:517: error: package AnimatableManager does not exist
+	public void registerControllers(AnimatableManager.ControllerRegistrar data) {
+	                                                 ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:522: error: cannot find symbol
+	public AnimatableInstanceCache getAnimatableInstanceCache() {
+	       ^
+  symbol:   class AnimatableInstanceCache
+  location: class TamedTokiEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/CandyModel.java:5: error: cannot find symbol
+import software.bernie.geckolib.util.ClientUtil;
+                                    ^
+  symbol:   class ClientUtil
+  location: package software.bernie.geckolib.util
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/CandyModel.java:10: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/CandyModel.java:11: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationProcessor;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:5: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.RawAnimation;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:6: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.PlayState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:7: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:8: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationController;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:9: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimatableManager;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:10: error: package software.bernie.geckolib.animatable.instance does not exist
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+                                                   ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:13: error: cannot find symbol
+import net.minecraftforge.event.entity.RegisterSpawnPlacementsEvent;
+                                      ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: package net.minecraftforge.event.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:14: error: package net.minecraftforge.fml.common.asm.enumextension does not exist
+import net.minecraftforge.fml.common.asm.enumextension.EnumProxy;
+                                                      ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:18: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.PathType;
+                                           ^
+  symbol:   class PathType
+  location: package net.minecraft.world.level.pathfinder
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:39: error: cannot find symbol
+import net.minecraft.world.entity.SpawnPlacementTypes;
+                                 ^
+  symbol:   class SpawnPlacementTypes
+  location: package net.minecraft.world.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/CandyModel.java:43: error: cannot find symbol
+	public void setCustomAnimations(CandyEntity entity, long instanceId, AnimationState animationState) {
+	                                                                     ^
+  symbol:   class AnimationState
+  location: class CandyModel
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:81: error: cannot find symbol
+	public static final EnumProxy<Raid.RaiderType> RAIDER_TYPE = new EnumProxy<>(Raid.RaiderType.class, GtsModEntities.CANDY, new int[]{0, 0, 0, 1, 1, 1, 1, 1});
+	                    ^
+  symbol:   class EnumProxy
+  location: class CandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:84: error: cannot find symbol
+	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+	              ^
+  symbol:   class AnimatableInstanceCache
+  location: class CandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:109: error: cannot find symbol
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                                  ^
+  symbol:   class Builder
+  location: class SynchedEntityData
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:231: error: cannot find symbol
+	public static void init(RegisterSpawnPlacementsEvent event) {
+	                        ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: class CandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:257: error: cannot find symbol
+	private PlayState movementPredicate(AnimationState event) {
+	                                    ^
+  symbol:   class AnimationState
+  location: class CandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:257: error: cannot find symbol
+	private PlayState movementPredicate(AnimationState event) {
+	        ^
+  symbol:   class PlayState
+  location: class CandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:287: error: package AnimatableManager does not exist
+	public void registerControllers(AnimatableManager.ControllerRegistrar data) {
+	                                                 ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:292: error: cannot find symbol
+	public AnimatableInstanceCache getAnimatableInstanceCache() {
+	       ^
+  symbol:   class AnimatableInstanceCache
+  location: class CandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/TamedCandyModel.java:5: error: cannot find symbol
+import software.bernie.geckolib.util.ClientUtil;
+                                    ^
+  symbol:   class ClientUtil
+  location: package software.bernie.geckolib.util
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/TamedCandyModel.java:10: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/model/TamedCandyModel.java:11: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationProcessor;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:5: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.RawAnimation;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:6: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.PlayState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:7: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationState;
+                                         ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:8: error: package software.bernie.geckolib.animation does not exist
+import software.bernie.geckolib.animation.AnimationController;
+                                         ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+only showing the first 100 errors, of 608 total; use -Xmaxerrs if you would like to see more
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 23s
+1 actionable task: 1 executed

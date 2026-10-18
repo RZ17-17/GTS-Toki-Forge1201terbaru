@@ -1,0 +1,581 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 400,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tokis_attack",
+          "text": {
+            "fixedValue": "Toki's Attacks/Abilities:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 20,
+          "y": 43,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tokis_breach",
+          "text": {
+            "fixedValue": "Toki's Breach Abilities (Destroys blocks):"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 20,
+          "y": 121,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_nextpage",
+          "text": "Main Menu",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "TokiConfigMainMenu"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 338,
+          "y": 30,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tokis_behavior",
+          "text": {
+            "fixedValue": "Toki's Behavior:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 20,
+          "y": 180,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_stomp",
+          "text": "Stomp",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableStomp"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 20,
+          "y": 54,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_step",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableStep"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 73,
+          "y": 60,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_kick",
+          "text": "Kick",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableKick"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 116,
+          "y": 54,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_kick",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableKick"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 164,
+          "y": 60,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_ground_slam",
+          "text": "Ground Slam",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableGroundSlam"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 207,
+          "y": 54,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_sit",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableSit"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 291,
+          "y": 60,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_gun_slap",
+          "text": "Gun Slap",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableGunSlap"
+          },
+          "width": 66,
+          "height": 20,
+          "x": 20,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_gun_slap",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableGunSlap"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 88,
+          "y": 82,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_gun_smash",
+          "text": "Gun Smash",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableGunSmash"
+          },
+          "width": 72,
+          "height": 20,
+          "x": 131,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_gun_smash",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableGunSmash"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 205,
+          "y": 82,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_throw",
+          "text": "Throw",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableThrow"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 104,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_throw",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableThrow"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 157,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_eat",
+          "text": "Eat",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableVore"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 20,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_vore",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableVore"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 61,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_long_range_shot",
+          "text": "Long Range Shot",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableSniper"
+          },
+          "width": 103,
+          "height": 20,
+          "x": 247,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_sniper",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableSniper"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 352,
+          "y": 82,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_spit",
+          "text": "Spit",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableSpit"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 200,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_spit",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableSpit"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 248,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_drone",
+          "text": "Drone",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableDrone"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 291,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_drone",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableDrone"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 343,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_upperbreach",
+          "text": "UpperBreach",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableUpperBreach"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 20,
+          "y": 132,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_upper_breach",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableUpperBreach"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 104,
+          "y": 138,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_middlebreach",
+          "text": "MiddleBreach",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableMiddleBreach"
+          },
+          "width": 88,
+          "height": 20,
+          "x": 146,
+          "y": 132,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_middle_breach",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableMiddleBreach"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 236,
+          "y": 138,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_lowerbreach",
+          "text": "LowerBreach",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableLowerBreach"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 279,
+          "y": 132,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_lower_breach",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableLowerBreach"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 363,
+          "y": 138,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_trappedbreach",
+          "text": "TrappedBreach",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableTrappedBreach"
+          },
+          "width": 93,
+          "height": 20,
+          "x": 20,
+          "y": 155,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_trapped_breac",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableTrappedBreach"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 115,
+          "y": 161,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_celebration_after_kill",
+          "text": "Celebration after kill",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCelebration"
+          },
+          "width": 140,
+          "height": 20,
+          "x": 20,
+          "y": 190,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_show_off",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableShowOff"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 162,
+          "y": 196,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 7,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

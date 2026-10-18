@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    " c "
+  ],
+  "key": {
+    "a": {
+      "item": "gts:toki_crystal"
+    },
+    "b": {
+      "item": "gts:toki_disk"
+    },
+    "c": {
+      "item": "minecraft:anvil"
+    }
+  },
+  "result": {
+    "id": "gts:modified_anvil",
+    "count": 1
+  }
+}

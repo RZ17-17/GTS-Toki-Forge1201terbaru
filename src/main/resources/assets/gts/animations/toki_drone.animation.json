@@ -1,0 +1,58 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"drone.idle": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"prop_4": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 5760, 0]
+						}
+					}
+				},
+				"prop_3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, -5760, 0]
+						}
+					}
+				},
+				"prop_2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 5760, 0]
+						}
+					}
+				},
+				"prop_1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, -5760, 0]
+						}
+					}
+				},
+				"Body": {
+					"rotation": {
+						"vector": ["query.ground_speed * 50", 0, 0],
+						"easing": "easeInSine"
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

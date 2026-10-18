@@ -1,0 +1,10 @@
+{
+  "parent": "gts:custom/toki_anvil",
+  "textures": {
+    "all": "gts:block/anvil",
+    "particle": "gts:block/anvil",
+    "top": "gts:block/anvil_top",
+    "body": "gts:block/anvil"
+  },
+  "render_type": "solid"
+}

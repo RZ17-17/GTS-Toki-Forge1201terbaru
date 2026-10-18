@@ -1,0 +1,33 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="GNU General Public License version 3 (GPLv3)"
+
+[[mods]]
+modId="gts"
+version="4.0.0"
+displayName="Toki & More GTS"
+displayURL="https://mcreator.net"
+credits="Ported from the supplied NeoForge 1.21.1 workspace"
+authors="Original mod authors"
+description="A Giantess mod"
+
+[[dependencies.gts]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.gts]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.20.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.gts]]
+modId="geckolib"
+mandatory=true
+versionRange="[4.4,5)"
+ordering="AFTER"
+side="BOTH"

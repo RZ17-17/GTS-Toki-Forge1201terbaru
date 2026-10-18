@@ -1,0 +1,511 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 400,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_giantess_config_menu",
+          "text": {
+            "fixedValue": "Giantess Config Main Menu"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 23,
+          "y": 31,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_general_giantess_behavior",
+          "text": {
+            "fixedValue": "General Giantess Behavior:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 113,
+          "y": 45,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_giantess_natural_spawn_height",
+          "text": {
+            "fixedValue": "Giantess Natural Spawn Height:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 148,
+          "y": 101,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_gts_natural_height_display",
+          "text": {
+            "fixedValue": "",
+            "name": "GtsNaturalHeightDisplay"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 306,
+          "y": 101,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty",
+          "text": "+",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "GtsNaturalHeightIncrease"
+          },
+          "width": 30,
+          "height": 20,
+          "x": 332,
+          "y": 96,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty1",
+          "text": "-",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "GtsNaturalHeightDecrease"
+          },
+          "width": 30,
+          "height": 20,
+          "x": 365,
+          "y": 96,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_giantess_pathfinding",
+          "text": {
+            "fixedValue": "Giantess Pathfinding (reload require):"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 113,
+          "y": 134,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_giantess_turn_speed",
+          "text": {
+            "fixedValue": "Giantess Turn Speed:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 147,
+          "y": 196,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_giantess_turn_speed_display",
+          "text": {
+            "fixedValue": "",
+            "name": "GiantessTurnSpeedDisplay"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 254,
+          "y": 196,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty2",
+          "text": "+",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "GiantessTurnSpeedIncrease"
+          },
+          "width": 30,
+          "height": 20,
+          "x": 285,
+          "y": 191,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty3",
+          "text": "-",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "GiantessTurnSpeedDecrease"
+          },
+          "width": 30,
+          "height": 20,
+          "x": 318,
+          "y": 191,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_toki_config",
+          "text": "Toki Config",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "MainMenuTokiConfig"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 23,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_candy_config",
+          "text": "Candy Config",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "MainMenuCandyConfig"
+          },
+          "width": 87,
+          "height": 20,
+          "x": 23,
+          "y": 83,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_reset_to_default",
+          "text": "Reset to Default",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ConfigReset"
+          },
+          "width": 108,
+          "height": 20,
+          "x": 22,
+          "y": 191,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_page_1",
+          "text": {
+            "fixedValue": "Page 1"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 374,
+          "y": 30,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_next_page",
+          "text": "Next Page",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "MainPage1NextPage"
+          },
+          "width": 72,
+          "height": 20,
+          "x": 296,
+          "y": 25,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_stomach_sound",
+          "text": "Stomach Sound",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableStomachSound"
+          },
+          "width": 93,
+          "height": 20,
+          "x": 121,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_stomach_sound",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableStomachSound"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 217,
+          "y": 62,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_clothing_damage",
+          "text": "Clothing Damage",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableClothingDamage"
+          },
+          "width": 103,
+          "height": 20,
+          "x": 257,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_clothing_dama",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableClothingDamage"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 363,
+          "y": 62,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_natural_spawn",
+          "text": "Natural Spawn",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableNaturalSpawn"
+          },
+          "width": 93,
+          "height": 20,
+          "x": 121,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_natural_spawn",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableNaturalSpawn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 217,
+          "y": 118,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_raid_wave_size_increase",
+          "text": "Raid Wave Size Increase",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableRaidWaveSizeIncrease"
+          },
+          "width": 145,
+          "height": 20,
+          "x": 121,
+          "y": 79,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_raid_wave_siz",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableRaidWaveSizeChange"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 268,
+          "y": 85,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_belch",
+          "text": "Belch",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableBelch"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 257,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_belch",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableBelch"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 311,
+          "y": 118,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_break_leaves_on_contact",
+          "text": "Break Leaves On Contact",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableBreakLeavesWhenContact"
+          },
+          "width": 145,
+          "height": 20,
+          "x": 121,
+          "y": 145,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_break_leaves",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableBreakLeavesWhenWalk"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 268,
+          "y": 151,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_lock_onto_target_default_disabl",
+          "text": "Lock onto target (Default Disabled)",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableLockOntoTarget"
+          },
+          "width": 207,
+          "height": 20,
+          "x": 121,
+          "y": 168,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_lock_on_targe",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableLockOnTarget"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 330,
+          "y": 174,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

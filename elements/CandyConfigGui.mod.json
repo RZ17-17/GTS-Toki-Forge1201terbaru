@@ -1,0 +1,384 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 400,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_candys_attacks",
+          "text": {
+            "fixedValue": "Candy's Attack:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 20,
+          "y": 42,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_main_menu",
+          "text": "Main Menu",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "CandyConfigMainMenu"
+          },
+          "width": 72,
+          "height": 20,
+          "x": 331,
+          "y": 30,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_stomp",
+          "text": "Stomp",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyStomp"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 20,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_step",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandyStep"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 73,
+          "y": 62,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_ground_slam",
+          "text": "Ground Slam",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyGroundSlam"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 116,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_shockwa",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandyShockwave"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 200,
+          "y": 62,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_kick",
+          "text": "Kick",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyKick"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 243,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_kick",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandyKick"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 290,
+          "y": 62,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_upper_swipe",
+          "text": "Upper Swipe",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyUpperSwipe"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 20,
+          "y": 80,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_swipe",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandySwipe"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 104,
+          "y": 86,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_upper_smash",
+          "text": "Upper Smash",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyUpperSmash"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 146,
+          "y": 80,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_smash",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandySmash"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 229,
+          "y": 86,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_breach",
+          "text": "Breach",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyBreach"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 272,
+          "y": 80,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_breach",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandyBreach"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 329,
+          "y": 86,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_eat",
+          "text": "Eat",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyVore"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 20,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_vore",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandyVore"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 62,
+          "y": 110,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_spit",
+          "text": "Spit",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandySpit"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 105,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_spit",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandySpit"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 152,
+          "y": 110,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_heart_magic",
+          "text": "Heart Magic",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyHeartMagic"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 194,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_heart_m",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandyHeartMagic"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 278,
+          "y": 110,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_thunder_magic",
+          "text": "Thunder Magic",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableCandyThunderMagic"
+          },
+          "width": 93,
+          "height": 20,
+          "x": 21,
+          "y": 128,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_candy_thunder",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableCandyThunderMagic"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 116,
+          "y": 134,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

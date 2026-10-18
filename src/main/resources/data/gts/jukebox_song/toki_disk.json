@@ -1,0 +1,8 @@
+{
+  "comparator_output": 0,
+  "description": {
+    "translate": "item.gts.toki_disk.desc"
+  },
+  "length_in_seconds": 5,
+  "sound_event": "gts:toki.disks"
+}

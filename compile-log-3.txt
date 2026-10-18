@@ -1,0 +1,510 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Task :compileJava
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.client.extensions.common.RegisterClientExtensionsEvent;
+                                                  ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: package net.minecraftforge.client.extensions.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:27: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class ShockWaveImmuneMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:31: error: cannot find symbol
+	public static void registerMobEffectExtensions(RegisterClientExtensionsEvent event) {
+	                                               ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: class ShockWaveImmuneMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.client.extensions.common.RegisterClientExtensionsEvent;
+                                                  ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: package net.minecraftforge.client.extensions.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:27: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class GiantessSpitOverlayEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:31: error: cannot find symbol
+	public static void registerMobEffectExtensions(RegisterClientExtensionsEvent event) {
+	                                               ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: class GiantessSpitOverlayEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.client.extensions.common.RegisterClientExtensionsEvent;
+                                                  ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: package net.minecraftforge.client.extensions.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:27: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class GtsTimerMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:31: error: cannot find symbol
+	public static void registerMobEffectExtensions(RegisterClientExtensionsEvent event) {
+	                                               ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: class GtsTimerMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.client.extensions.common.RegisterClientExtensionsEvent;
+                                                  ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: package net.minecraftforge.client.extensions.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:27: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class TokiDroneBatteryMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:31: error: cannot find symbol
+	public static void registerMobEffectExtensions(RegisterClientExtensionsEvent event) {
+	                                               ^
+  symbol:   class RegisterClientExtensionsEvent
+  location: class TokiDroneBatteryMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:4: error: cannot find symbol
+import net.minecraftforge.common.EffectCures;
+                                ^
+  symbol:   class EffectCures
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:5: error: cannot find symbol
+import net.minecraftforge.common.EffectCure;
+                                ^
+  symbol:   class EffectCure
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:25: error: cannot find symbol
+	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	                                ^
+  symbol:   class EffectCure
+  location: class GtsShrinkEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsMod.java:7: error: package net.minecraftforge.event.world does not exist
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+                                     ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsMod.java:94: error: cannot find symbol
+	public void onBiomeLoading(BiomeLoadingEvent event) {
+	                           ^
+  symbol:   class BiomeLoadingEvent
+  location: class GtsMod
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:13: error: cannot find symbol
+import net.minecraftforge.event.entity.RegisterSpawnPlacementsEvent;
+                                      ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: package net.minecraftforge.event.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:14: error: cannot find symbol
+import net.minecraftforge.event.EventHooks;
+                               ^
+  symbol:   class EventHooks
+  location: package net.minecraftforge.event
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:18: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.PathType;
+                                           ^
+  symbol:   class PathType
+  location: package net.minecraft.world.level.pathfinder
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:111: error: cannot find symbol
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                                  ^
+  symbol:   class Builder
+  location: class SynchedEntityData
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedTokiEntity.java:471: error: cannot find symbol
+	public static void init(RegisterSpawnPlacementsEvent event) {
+	                        ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: class TamedTokiEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:13: error: cannot find symbol
+import net.minecraftforge.event.entity.RegisterSpawnPlacementsEvent;
+                                      ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: package net.minecraftforge.event.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:14: error: package net.minecraftforge.fml.common.asm.enumextension does not exist
+import net.minecraftforge.fml.common.asm.enumextension.EnumProxy;
+                                                      ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:18: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.PathType;
+                                           ^
+  symbol:   class PathType
+  location: package net.minecraft.world.level.pathfinder
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:39: error: cannot find symbol
+import net.minecraft.world.entity.SpawnPlacementTypes;
+                                 ^
+  symbol:   class SpawnPlacementTypes
+  location: package net.minecraft.world.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:81: error: cannot find symbol
+	public static final EnumProxy<Raid.RaiderType> RAIDER_TYPE = new EnumProxy<>(Raid.RaiderType.class, GtsModEntities.CANDY, new int[]{0, 0, 0, 1, 1, 1, 1, 1});
+	                    ^
+  symbol:   class EnumProxy
+  location: class CandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:109: error: cannot find symbol
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                                  ^
+  symbol:   class Builder
+  location: class SynchedEntityData
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/CandyEntity.java:231: error: cannot find symbol
+	public static void init(RegisterSpawnPlacementsEvent event) {
+	                        ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: class CandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:13: error: cannot find symbol
+import net.minecraftforge.event.entity.RegisterSpawnPlacementsEvent;
+                                      ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: package net.minecraftforge.event.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:14: error: cannot find symbol
+import net.minecraftforge.event.EventHooks;
+                               ^
+  symbol:   class EventHooks
+  location: package net.minecraftforge.event
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:18: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.PathType;
+                                           ^
+  symbol:   class PathType
+  location: package net.minecraft.world.level.pathfinder
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:111: error: cannot find symbol
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                                  ^
+  symbol:   class Builder
+  location: class SynchedEntityData
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TamedCandyEntity.java:471: error: cannot find symbol
+	public static void init(RegisterSpawnPlacementsEvent event) {
+	                        ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: class TamedCandyEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:13: error: cannot find symbol
+import net.minecraftforge.event.entity.RegisterSpawnPlacementsEvent;
+                                      ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: package net.minecraftforge.event.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:86: error: cannot find symbol
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                                  ^
+  symbol:   class Builder
+  location: class SynchedEntityData
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiDroneEntity.java:261: error: cannot find symbol
+	public static void init(RegisterSpawnPlacementsEvent event) {
+	                        ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: class TokiDroneEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:13: error: cannot find symbol
+import net.minecraftforge.event.entity.RegisterSpawnPlacementsEvent;
+                                      ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: package net.minecraftforge.event.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:14: error: package net.minecraftforge.fml.common.asm.enumextension does not exist
+import net.minecraftforge.fml.common.asm.enumextension.EnumProxy;
+                                                      ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:18: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.PathType;
+                                           ^
+  symbol:   class PathType
+  location: package net.minecraft.world.level.pathfinder
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:40: error: cannot find symbol
+import net.minecraft.world.entity.SpawnPlacementTypes;
+                                 ^
+  symbol:   class SpawnPlacementTypes
+  location: package net.minecraft.world.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:84: error: cannot find symbol
+	public static final EnumProxy<Raid.RaiderType> RAIDER_TYPE = new EnumProxy<>(Raid.RaiderType.class, GtsModEntities.TOKI, new int[]{0, 0, 0, 1, 1, 1, 1, 1});
+	                    ^
+  symbol:   class EnumProxy
+  location: class TokiEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:112: error: cannot find symbol
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                                  ^
+  symbol:   class Builder
+  location: class SynchedEntityData
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/entity/TokiEntity.java:245: error: cannot find symbol
+	public static void init(RegisterSpawnPlacementsEvent event) {
+	                        ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: class TokiEntity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsNavigation.java:17: error: cannot find symbol
+import org.checkerframework.checker.units.qual.t;
+                                              ^
+  symbol:   class t
+  location: package org.checkerframework.checker.units.qual
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsNavigation.java:21: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.PathType;
+                                           ^
+  symbol:   class PathType
+  location: package net.minecraft.world.level.pathfinder
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/GtsMoveHelper.java:17: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.PathType;
+                                           ^
+  symbol:   class PathType
+  location: package net.minecraft.world.level.pathfinder
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/EntityAnimationFactory.java:16: error: cannot find symbol
+	public static void onEntityTick(TickEvent.EntityTickEvent event) {
+	                                         ^
+  symbol:   class EntityTickEvent
+  location: class TickEvent
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModMenus.java:9: error: cannot find symbol
+import net.minecraftforge.common.extensions.IMenuTypeExtension;
+                                           ^
+  symbol:   class IMenuTypeExtension
+  location: package net.minecraftforge.common.extensions
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/world/inventory/TokiAnvilGUIMenu.java:10: error: package net.minecraftforge.capabilities does not exist
+import net.minecraftforge.capabilities.Capabilities;
+                                      ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModEntities.java:9: error: cannot find symbol
+import net.minecraftforge.event.entity.RegisterSpawnPlacementsEvent;
+                                      ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: package net.minecraftforge.event.entity
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModEntities.java:61: error: cannot find symbol
+	public static void init(RegisterSpawnPlacementsEvent event) {
+	                        ^
+  symbol:   class RegisterSpawnPlacementsEvent
+  location: class GtsModEntities
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/init/GtsModItems.java:10: error: cannot find symbol
+import net.minecraftforge.common.DeferredSpawnEggItem;
+                                ^
+  symbol:   class DeferredSpawnEggItem
+  location: package net.minecraftforge.common
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/DroneAttackImmunityProcedure.java:3: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/DroneAttackImmunityProcedure.java:6: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/DroneAttackImmunityProcedure.java:20: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class DroneAttackImmunityProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TamedTokiMeleeAttackProcedure.java:5: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TamedTokiMeleeAttackProcedure.java:8: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TamedTokiMeleeAttackProcedure.java:33: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class TamedTokiMeleeAttackProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TamedCandyMeleeAttackProcedure.java:5: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TamedCandyMeleeAttackProcedure.java:8: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TamedCandyMeleeAttackProcedure.java:34: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class TamedCandyMeleeAttackProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/PlayerExplosionImmuneProcedure.java:3: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/PlayerExplosionImmuneProcedure.java:6: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/PlayerExplosionImmuneProcedure.java:22: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class PlayerExplosionImmuneProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TokiMeleeAttackProcedure.java:5: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TokiMeleeAttackProcedure.java:8: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TokiMeleeAttackProcedure.java:34: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class TokiMeleeAttackProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/GtsExplosionImmunityProcedure.java:3: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/GtsExplosionImmunityProcedure.java:6: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/GtsExplosionImmunityProcedure.java:22: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class GtsExplosionImmunityProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/CandyMeleeAttackProcedure.java:5: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/CandyMeleeAttackProcedure.java:8: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/CandyMeleeAttackProcedure.java:34: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class CandyMeleeAttackProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TokiDismountActionProcedure.java:6: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/PlayerFallImmuneProcedure.java:6: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/PlayerInvincibleWhenRidingProcedure.java:3: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/PlayerInvincibleWhenRidingProcedure.java:6: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/PlayerInvincibleWhenRidingProcedure.java:22: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class PlayerInvincibleWhenRidingProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/GtsVoreDamageTotemIgnoreProcedure.java:6: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/CandyClothDamageProcedure.java:3: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/CandyClothDamageProcedure.java:20: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class CandyClothDamageProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TamedGTSMountEventProcedure.java:8: error: cannot find symbol
+import net.minecraftforge.eventbus.api.ICancellableEvent;
+                                      ^
+  symbol:   class ICancellableEvent
+  location: package net.minecraftforge.eventbus.api
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TokiClothDamageProcedure.java:3: error: cannot find symbol
+import net.minecraftforge.event.entity.living.LivingIncomingDamageEvent;
+                                             ^
+  symbol:   class LivingIncomingDamageEvent
+  location: package net.minecraftforge.event.entity.living
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/procedures/TokiClothDamageProcedure.java:20: error: cannot find symbol
+	public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+	                                    ^
+  symbol:   class LivingIncomingDamageEvent
+  location: class TokiClothDamageProcedure
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/ShockWaveImmuneMobEffect.java:26: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GiantessSpitOverlayEffectMobEffect.java:26: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsTimerMobEffect.java:26: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/TokiDroneBatteryMobEffect.java:26: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:21: error: package GtsModAttributes does not exist
+		this.addAttributeModifier(GtsModAttributes.SCALE.get(), new ResourceLocation(GtsMod.MODID, "effect.gts_shrink_effect_0"), -0.5, AttributeModifier.Operation.MULTIPLY_BASE);
+		                                          ^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:24: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:26: error: cannot find symbol
+		cures.add(EffectCures.MILK);
+		          ^
+  symbol:   variable EffectCures
+  location: class GtsShrinkEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:27: error: cannot find symbol
+		cures.add(EffectCures.PROTECTED_BY_TOTEM);
+		          ^
+  symbol:   variable EffectCures
+  location: class GtsShrinkEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/potion/GtsShrinkEffectMobEffect.java:28: error: cannot find symbol
+		cures.add(EffectCures.HONEY);
+		          ^
+  symbol:   variable EffectCures
+  location: class GtsShrinkEffectMobEffect
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/block/ModifiedAnvilBlock.java:48: error: cannot find symbol
+	public static final MapCodec<ModifiedAnvilBlock> CODEC = simpleCodec(properties -> new ModifiedAnvilBlock());
+	                                                         ^
+  symbol:   method simpleCodec((propertie[...]ock())
+  location: class ModifiedAnvilBlock
+/storage/emulated/0/pstore/GTS_Toki_Forge1201_stage6_source/src/main/java/net/mcreator/gts/block/ModifiedAnvilBlock.java:117: error: method does not override or implement a method from a supertype
+	@Override
+	^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+only showing the first 100 errors, of 375 total; use -Xmaxerrs if you would like to see more
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 21s
+1 actionable task: 1 executed

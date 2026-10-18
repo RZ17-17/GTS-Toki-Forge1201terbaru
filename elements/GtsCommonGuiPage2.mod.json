@@ -1,0 +1,185 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 400,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_giantess_config_main_menu",
+          "text": {
+            "fixedValue": "Giantess Config Main Menu"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 23,
+          "y": 31,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_previous_page",
+          "text": "Previous Page",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "MainPage2PreviousPage"
+          },
+          "width": 93,
+          "height": 20,
+          "x": 275,
+          "y": 25,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_page_2",
+          "text": {
+            "fixedValue": "Page 2"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 374,
+          "y": 30,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tamed_giantess_config",
+          "text": {
+            "fixedValue": "Tamed Giantess Config:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 22,
+          "y": 61,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_tamed_giantess_friendly_fire",
+          "text": "Tamed Giantess Friendly Fire",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableTamedFriendlyFire"
+          },
+          "width": 171,
+          "height": 20,
+          "x": 22,
+          "y": 75,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_tamed_friendl",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableTamedFriendlyFire"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 196,
+          "y": 80,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_tamed_giantess_seek_out_monsters",
+          "text": "Tamed Giantess Seek Out Monsters",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableTamedSeekOutHostileMob"
+          },
+          "width": 192,
+          "height": 20,
+          "x": 22,
+          "y": 99,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_tamed_mob_agg",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableTamedMobAggro"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 217,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_tamed_giantess_breach_attack",
+          "text": "Tamed Giantess Breach Attack",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "DisableTamedBreach"
+          },
+          "width": 171,
+          "height": 20,
+          "x": 22,
+          "y": 123,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_check_disable_tamed_breach",
+          "text": {
+            "fixedValue": "",
+            "name": "CheckDisableTamedBreach"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 196,
+          "y": 128,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

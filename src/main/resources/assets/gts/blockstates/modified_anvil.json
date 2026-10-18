@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "gts:block/modified_anvil"
+    },
+    "facing=east": {
+      "model": "gts:block/modified_anvil",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "gts:block/modified_anvil",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gts:block/modified_anvil",
+      "y": 270
+    }
+  }
+}
