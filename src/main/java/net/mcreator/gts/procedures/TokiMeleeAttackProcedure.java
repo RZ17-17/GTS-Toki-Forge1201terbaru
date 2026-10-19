@@ -48,10 +48,9 @@ public class TokiMeleeAttackProcedure {
 		double TargetHeight = 0;
 		if (sourceentity instanceof TokiEntity) {
 			if (immediatesourceentity instanceof GiantessSpitEntity) {
-				if (event != null && event.isCancelable()) {
-                    event.setCanceled(true);
-                }
-			} else if (!sourceentity.getPersistentData().getBoolean("AttackCheck")) {
+                // Cancel only a projectile that collides with its own shooter; enemy hits must deal damage.
+                if (entity == sourceentity && event != null && event.isCancelable()) event.setCanceled(true);
+            } else if (!sourceentity.getPersistentData().getBoolean("AttackCheck")) {
 				if (event != null && event.isCancelable()) {
                     event.setCanceled(true);
                 }

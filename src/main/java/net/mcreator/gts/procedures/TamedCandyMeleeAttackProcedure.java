@@ -48,10 +48,9 @@ public class TamedCandyMeleeAttackProcedure {
 		double TargetHeight = 0;
 		if (sourceentity instanceof TamedCandyEntity) {
 			if (immediatesourceentity instanceof GiantessSpitEntity || immediatesourceentity instanceof HeartBulletEntity) {
-				if (event != null && event.isCancelable()) {
-					event.setCanceled(true);
-				}
-			} else if (!sourceentity.getPersistentData().getBoolean("AttackCheck")) {
+                // Protect the shooter from its own projectile without nullifying damage to targets.
+                if (entity == sourceentity && event != null && event.isCancelable()) event.setCanceled(true);
+            } else if (!sourceentity.getPersistentData().getBoolean("AttackCheck")) {
 				if (event != null && event.isCancelable()) {
 					event.setCanceled(true);
 				}
