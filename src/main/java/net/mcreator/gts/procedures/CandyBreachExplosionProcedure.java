@@ -21,7 +21,7 @@ public class CandyBreachExplosionProcedure {
 			Y = Scale / 2;
 			for (int index0 = 0; index0 < (int) (sourceentity instanceof LivingEntity _livingEntity2 && _livingEntity2.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity2.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0); index0++) {
 				if (world instanceof Level _level && !_level.isClientSide())
-					_level.explode(null, (sourceentity.getX()), (sourceentity.getY() + Y), (sourceentity.getZ()), (float) (3.5 * Math.atan(Scale / 3)), Level.ExplosionInteraction.MOB);
+					_level.explode(null, (sourceentity.getX()), (sourceentity.getY() + Y), (sourceentity.getZ()), (float) (3.5 * Math.atan(Scale / 3)), Level.ExplosionInteraction.NONE);
 				if (world instanceof Level _level && !_level.isClientSide())
 					_level.explode(null,
 							(sourceentity.getX() + sourceentity.getLookAngle().x
@@ -29,7 +29,7 @@ public class CandyBreachExplosionProcedure {
 							(sourceentity.getY() + Y),
 							(sourceentity.getZ() + sourceentity.getLookAngle().z
 									* (sourceentity instanceof LivingEntity _livingEntity13 && _livingEntity13.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity13.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)),
-							(float) (3.5 * Math.atan(Scale / 3)), Level.ExplosionInteraction.MOB);
+							(float) (3.5 * Math.atan(Scale / 3)), Level.ExplosionInteraction.NONE);
 				Y = Y + 2.8;
 			}
 		}
