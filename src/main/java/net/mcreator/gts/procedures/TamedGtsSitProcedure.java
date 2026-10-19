@@ -3,6 +3,7 @@ package net.mcreator.gts.procedures;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.server.level.ServerLevel;
 
 import net.mcreator.gts.entity.TamedTokiEntity;
@@ -32,7 +33,7 @@ public class TamedGtsSitProcedure {
 			TamedCandySitandStandProcedure.execute(world, TamedGts);
 		} else if (TamedGts instanceof TamedTokiEntity) {
 			TamedTokiSitAndStandProcedure.execute(world, TamedGts);
-		} else if (TamedGts instanceof TokiVariantEntity variant && variant.isTame() && variant.isOwnedBy(entity)) {
+		} else if (TamedGts instanceof TokiVariantEntity variant && variant.isTame() && entity instanceof LivingEntity owner && variant.isOwnedBy(owner)) {
 			variant.setOrderedToSit(!variant.isOrderedToSit());
 			variant.getNavigation().stop();
 			variant.setTarget(null);
