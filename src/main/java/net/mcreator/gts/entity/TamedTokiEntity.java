@@ -327,8 +327,9 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	public void die(DamageSource source) {
 		super.die(source);
-		// Do not play the death animation when Forge cancels death to save the pet.
-		if (this.isDeadOrDying())
+		// Forge may cancel death and restore health in the LivingDeathEvent.
+		// Only run the death animation if the entity remains at zero health.
+		if (this.getHealth() <= 0.0F)
 			GtsDeathProcedure.execute(this.level(), this);
 	}
 
