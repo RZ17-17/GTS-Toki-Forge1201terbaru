@@ -6,7 +6,6 @@ import software.bernie.geckolib.util.ClientUtils;
 import software.bernie.geckolib.model.data.EntityModelData;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.constant.DataTickets;
-import software.bernie.geckolib.cache.object.CoreGeoBone;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.AnimationProcessor;
 
@@ -39,7 +38,7 @@ public class TamedCandyModel extends GeoModel<TamedCandyEntity> {
 
 	@Override
 	public void setCustomAnimations(TamedCandyEntity entity, long instanceId, AnimationState animationState) {
-		CoreGeoBone head = getAnimationProcessor().getBone("Head");
+		var head = getAnimationProcessor().getBone("Head");
 		if (head != null) {
 			EntityModelData entityData = (EntityModelData) animationState.getData(DataTickets.ENTITY_MODEL_DATA);
 			head.setRotX(entityData.headPitch() * Mth.DEG_TO_RAD);
@@ -48,9 +47,9 @@ public class TamedCandyModel extends GeoModel<TamedCandyEntity> {
 		Player player = ClientUtils.getClientPlayer();
 		if (player != null) {
 			AnimationProcessor processor = getAnimationProcessor();
-			Collection<CoreGeoBone> bones = processor.getRegisteredBones();
+			var bones = processor.getRegisteredBones();
 			int index = 0;
-			for (CoreGeoBone bone : bones) {
+			for (var bone : bones) {
 				if (bone.getName().startsWith("S_")) {
 					Vector3d bPos = bone.getPositionVector();
 					Vec3 offset = new Vec3(bPos.x(), bPos.y(), -bPos.z()).scale((entity.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() / 16.0));
