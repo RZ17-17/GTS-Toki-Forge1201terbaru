@@ -14,7 +14,7 @@ import net.mcreator.gts.init.GtsModAttributes;
 public class GtsShrinkEffectMobEffect extends MobEffect {
 	public GtsShrinkEffectMobEffect() {
 		super(MobEffectCategory.HARMFUL, -1);
-		this.addAttributeModifier(GtsModAttributes.SCALE.get(), new ResourceLocation(GtsMod.MODID, "effect.gts_shrink_effect_0"), -0.5, AttributeModifier.Operation.MULTIPLY_BASE);
+		this.addAttributeModifier(GtsModAttributes.SCALE.get(), GtsMod.MODID + ":effect.gts_shrink_effect_0", -0.5, AttributeModifier.Operation.MULTIPLY_BASE);
 	}
 
 
