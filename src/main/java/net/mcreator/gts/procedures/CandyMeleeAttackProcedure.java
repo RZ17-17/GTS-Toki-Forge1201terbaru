@@ -65,7 +65,7 @@ public class CandyMeleeAttackProcedure {
 						&& (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) <= 4
 								* (sourceentity instanceof LivingEntity _livingEntity13 && _livingEntity13.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity13.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)
 						&& Mth.nextInt(RandomSource.create(), 0, (int) Math.round(((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)) * 10)) == 0
-						&& !(sourceentity instanceof LivingEntity _livEnt17 && _livEnt17.hasEffect(GtsModMobEffects.GTS_TIMER)) && !entity.getPersistentData().getBoolean("BeingGrabbed") && true) {
+						&& !(sourceentity instanceof LivingEntity _livEnt17 && _livEnt17.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed") && true) {
 					if ((sourceentity instanceof LivingEntity _livingEntity19 && _livingEntity19.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity19.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > TargetHeight) {
 						if (sourceentity instanceof CandyEntity _datEntSetS)
 							_datEntSetS.getEntityData().set(CandyEntity.DATA_AnimationDecision, "candy.lowerVore");
