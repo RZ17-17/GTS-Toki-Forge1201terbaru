@@ -42,7 +42,7 @@ public class TokiVoreAttackProcedure {
 		sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY()), (entity.getZ())));
 		sourceentity.getPersistentData().putDouble("TargetStruggleCount", 0);
 		if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER, 145, 1, false, false));
+			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER.get(), 145, 1, false, false));
 		GtsMod.queueServerWork(15, () -> {
 			if (sourceentity.isAlive() && !entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction")))) {
 				entity.setShiftKeyDown(false);
@@ -71,7 +71,7 @@ public class TokiVoreAttackProcedure {
 		GtsMod.queueServerWork(65, () -> {
 			if ((entity.getVehicle()) == sourceentity && sourceentity.isAlive()) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GIANTESS_SPIT_OVERLAY_EFFECT, 60, 1, false, false));
+					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GIANTESS_SPIT_OVERLAY_EFFECT.get(), 60, 1, false, false));
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
 						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("gts:toki.lick")), SoundSource.HOSTILE,
@@ -82,13 +82,13 @@ public class TokiVoreAttackProcedure {
 					}
 				}
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT, 30, 0));
+					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT.get(), 30, 0));
 			}
 		});
 		GtsMod.queueServerWork(90, () -> {
 			if ((entity.getVehicle()) == sourceentity && sourceentity.isAlive()) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT, 70, 1));
+					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT.get(), 70, 1));
 			}
 		});
 		GtsMod.queueServerWork(145, () -> {
