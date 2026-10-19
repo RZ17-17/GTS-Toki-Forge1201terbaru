@@ -1,4 +1,3 @@
-
 package net.mcreator.gts.entity;
 
 import software.bernie.geckolib.util.GeckoLibUtil;
@@ -58,7 +57,9 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 import net.mcreator.gts.procedures.TokiTickUpdateProcedure;
 import net.mcreator.gts.procedures.TokiCelebrationProcedure;
@@ -82,7 +83,7 @@ public class TokiEntity extends Raider implements GeoEntity {
 	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.STRING);
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.STRING);
-		public static final EntityDataAccessor<Integer> DATA_passengerSlots = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_passengerSlots = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<String> DATA_AnimationDecision = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.STRING);
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	private boolean swinging;
@@ -240,12 +241,24 @@ public class TokiEntity extends Raider implements GeoEntity {
 		this.updateSwingTime();
 	}
 
+	private static boolean isInTrialChambers(ServerLevelAccessor world, BlockPos pos) {
+		var structureRegistry = world.registryAccess().registryOrThrow(Registries.STRUCTURE);
+		for (var entry : structureRegistry.entrySet()) {
+			ResourceLocation id = structureRegistry.getKey(entry.getValue());
+			if (id == null) continue;
+			String path = id.getPath().toLowerCase(java.util.Locale.ROOT);
+			if (path.contains("trial") || path.contains("chamber")) {
+				if (world.getLevel().structureManager().getStructureWithPieceAt(pos, entry.getValue()).isValid()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public static void init(SpawnPlacementRegisterEvent event) {
 		event.register(GtsModEntities.TOKI.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			return GtsSpawnConditionProcedure.execute(world, x, y, z);
+			return !isInTrialChambers(world, pos) && GtsSpawnConditionProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		}, SpawnPlacementRegisterEvent.Operation.REPLACE);
 	}
 
@@ -305,10 +318,9 @@ public class TokiEntity extends Raider implements GeoEntity {
 		return this.cache;
 	}
 
-
 	@Override
 	protected boolean canAddPassenger(Entity entity) {
-		return this.getPassengers().size() < this.getEntityData().get(TokiEntity.DATA_passengerSlots);
+		return this.getPassengers().size() < this.getEntityData().get(DATA_passengerSlots);
 	}
 
 	public Vec3 getPassengerSlotOffset(int index) {
