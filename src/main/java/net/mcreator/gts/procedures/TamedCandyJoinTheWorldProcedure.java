@@ -34,8 +34,8 @@ public class TamedCandyJoinTheWorldProcedure {
 		if (entity == null)
 			return;
 		if (!world.isClientSide() && entity instanceof TamedCandyEntity) {
-			if (entity instanceof LivingEntity _livingEntity2 && _livingEntity2.getAttributes().hasAttribute(Attributes.EXPLOSION_KNOCKBACK_RESISTANCE))
-				_livingEntity2.getAttribute(Attributes.EXPLOSION_KNOCKBACK_RESISTANCE).setBaseValue(100);
+			if (entity instanceof LivingEntity _livingEntity2 && _livingEntity2.getAttributes().hasAttribute(Attributes.KNOCKBACK_RESISTANCE))
+				_livingEntity2.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(100);
 			entity.getPersistentData().putDouble("RangeAttack", 0);
 			entity.getPersistentData().putDouble("BreachAttack", 0);
 			entity.getPersistentData().putBoolean("AttackCheck", false);
