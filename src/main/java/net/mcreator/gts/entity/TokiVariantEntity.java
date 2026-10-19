@@ -107,7 +107,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             }
         });
         // Prioritize hostile monsters so tamed Ara/Firefly fight instead of repeatedly following their owner.
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<Monster>(this, Monster.class, 10, true, false, target -> !(target instanceof TamableAnimal tameTarget && tameTarget.isTame()) && !TokiVariantEntity.this.isAlliedTo(target)));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<Monster>(this, Monster.class, 10, true, false, target -> !isFriendlyTamedTarget(target) && !(target instanceof TamableAnimal tameTarget && tameTarget.isTame()) && !TokiVariantEntity.this.isAlliedTo(target)));
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<Player>(this, Player.class, false) {
             @Override
             public boolean canUse() {
