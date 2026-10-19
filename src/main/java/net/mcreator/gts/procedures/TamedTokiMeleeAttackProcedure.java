@@ -62,9 +62,7 @@ public class TamedTokiMeleeAttackProcedure {
 				if (!(sourceentity instanceof LivingEntity _livEnt12 && _livEnt12.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed") && !GtsModVariables.MapVariables.get(world).DisableVore
 						&& (sourceentity instanceof LivingEntity _livingEntity14 && _livingEntity14.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity14.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > 2 && !(entity instanceof Player)
 						&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 50
-						&& (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 0.7
-						&& (Mth.nextInt(RandomSource.create(), 0, (int) Math.round(((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)) * 10)) == 0
-								|| (entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null) == null)
+						&& (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 0.8
 						&& ((entity instanceof net.minecraft.world.entity.monster.Monster
 							&& !(entity instanceof net.minecraft.world.entity.TamableAnimal tameTarget && tameTarget.isTame())
 							&& !(entity instanceof net.mcreator.gts.entity.TokiEntity)
