@@ -69,6 +69,7 @@ import net.mcreator.gts.procedures.TamedTokiAiConditionProcedure;
 import net.mcreator.gts.procedures.GtsDeathProcedure;
 import net.mcreator.gts.network.GtsModVariables;
 import net.mcreator.gts.init.GtsModEntities;
+import net.mcreator.gts.init.GtsModAttributes;
 import net.mcreator.gts.GtsNavigation;
 import net.mcreator.gts.GtsMoveHelper;
 
@@ -412,7 +413,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel serverWorld, AgeableMob ageable) {
 		TamedTokiEntity retval = GtsModEntities.TAMED_TOKI.get().create(serverWorld);
-		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null);
+		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null, null);
 		return retval;
 	}
 
