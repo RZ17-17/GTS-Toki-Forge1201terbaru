@@ -56,15 +56,10 @@ public class TamedGTSRightClickProcedure {
 						}
 
 						@Override
-						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-							return false;
-						}
-
-						@Override
 						public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 							return new TamedGtsInteractionMenuMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 						}
-					}, _bpos);
+					});
 				}
 				sourceentity.getPersistentData().putString("targetedTamedGiantess", (entity.getStringUUID()));
 			});
