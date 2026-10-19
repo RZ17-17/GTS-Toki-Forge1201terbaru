@@ -42,7 +42,7 @@ public class TokiMiddleBreachProcedure {
 								(sourceentity.getZ() + sourceentity.getLookAngle().z
 										* (sourceentity instanceof LivingEntity _livingEntity17 && _livingEntity17.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity17.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)),
 								(float) ((sourceentity instanceof LivingEntity _livingEntity18 && _livingEntity18.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity18.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 2),
-								Level.ExplosionInteraction.MOB);
+								Level.ExplosionInteraction.NONE);
 					if (Mth.nextInt(RandomSource.create(), 1, 3) == 3 && !GtsModVariables.MapVariables.get(world).DisableDrone && world.getDifficulty() == Difficulty.HARD) {
 						TokiDroneSpawnProcedure.execute(world, entity, sourceentity);
 					}
