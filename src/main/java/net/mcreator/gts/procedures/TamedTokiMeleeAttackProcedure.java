@@ -70,8 +70,7 @@ public class TamedTokiMeleeAttackProcedure {
 							&& !(entity instanceof net.mcreator.gts.entity.TokiEntity)
 							&& !(entity instanceof net.mcreator.gts.entity.TokiVariantEntity)
 							&& !(entity instanceof net.mcreator.gts.entity.CandyEntity))
-							|| entity instanceof net.mcreator.gts.entity.TokiEntity
-							|| (entity instanceof net.mcreator.gts.entity.TokiVariantEntity variantTarget && !variantTarget.isTame()))) {
+							)) {
 					if ((sourceentity instanceof LivingEntity _livingEntity24 && _livingEntity24.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity24.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > TargetHeight) {
 						if (sourceentity instanceof TamedTokiEntity _datEntSetS)
 							_datEntSetS.getEntityData().set(TamedTokiEntity.DATA_AnimationDecision, "Toki.LowerVoreAttack");
