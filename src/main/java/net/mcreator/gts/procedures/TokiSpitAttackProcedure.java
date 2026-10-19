@@ -21,6 +21,7 @@ import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.mcreator.gts.network.GtsModVariables;
 import net.mcreator.gts.init.GtsModEntities;
 import net.mcreator.gts.entity.TokiEntity;
+import net.mcreator.gts.entity.TamedTokiEntity;
 import net.mcreator.gts.entity.GiantessSpitEntity;
 import net.mcreator.gts.GtsMod;
 
