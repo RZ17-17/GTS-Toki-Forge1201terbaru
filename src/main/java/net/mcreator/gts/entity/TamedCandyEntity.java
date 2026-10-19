@@ -141,7 +141,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				double z = TamedCandyEntity.this.getZ();
 				Entity entity = TamedCandyEntity.this;
 				Level world = TamedCandyEntity.this.level();
-				return super.canUse() && TamedCandyAiConditionProcedure.execute(entity);
+				return !TamedCandyEntity.this.getEntityData().get(TamedCandyEntity.DATA_Sleep) && super.canUse() && TamedCandyAiConditionProcedure.execute(entity);
 			}
 
 			@Override
@@ -151,7 +151,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				double z = TamedCandyEntity.this.getZ();
 				Entity entity = TamedCandyEntity.this;
 				Level world = TamedCandyEntity.this.level();
-				return super.canContinueToUse() && TamedCandyAiConditionProcedure.execute(entity);
+				return !TamedCandyEntity.this.getEntityData().get(TamedCandyEntity.DATA_Sleep) && super.canContinueToUse() && TamedCandyAiConditionProcedure.execute(entity);
 			}
 		}.setAlertOthers());
 		this.goalSelector.addGoal(2, new OwnerHurtByTargetGoal(this) {
