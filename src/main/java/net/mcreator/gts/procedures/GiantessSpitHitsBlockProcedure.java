@@ -45,7 +45,7 @@ public class GiantessSpitHitsBlockProcedure {
 					}
 					if (entityiterator instanceof Player) {
 						if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide())
-							_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GIANTESS_SPIT_OVERLAY_EFFECT, 60, 1, false, false));
+							_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GIANTESS_SPIT_OVERLAY_EFFECT.get(), 60, 1, false, false));
 					}
 				}
 			}
