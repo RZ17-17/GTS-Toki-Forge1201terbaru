@@ -389,7 +389,6 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 					this.setPersistenceRequired();
 			}
 		}
-		sourceentity.startRiding(this);
 		return retval;
 	}
 
@@ -462,17 +461,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 					}
 				}
 			}
-			if ((this.horizontalCollision || this.verticalCollision) && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
-				boolean flag = false;
-				AABB aabb = this.getBoundingBox().inflate(1);
-				for (BlockPos blockpos : BlockPos.betweenClosed(Mth.floor(aabb.minX), Mth.floor(aabb.minY), Mth.floor(aabb.minZ), Mth.floor(aabb.maxX), Mth.floor(aabb.maxY), Mth.floor(aabb.maxZ))) {
-					BlockState blockstate = this.level().getBlockState(blockpos);
-					Block block = blockstate.getBlock();
-					if (block instanceof LeavesBlock) {
-						flag = this.level().destroyBlock(blockpos, true, this) || flag;
-					}
-				}
-			}
+			// Tamed Toki must not destroy blocks while walking.
 		}
 		this.updateSwingTime();
 	}
