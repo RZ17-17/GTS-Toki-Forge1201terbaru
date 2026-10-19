@@ -54,7 +54,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         super.registerGoals();
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.2D, 8.0F, 3.0F, true));
+        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, true));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15D, true));
         this.goalSelector.addGoal(5, new Goal() {
             private int cooldown;
