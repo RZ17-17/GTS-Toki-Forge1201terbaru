@@ -225,12 +225,6 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     }
 
     @Override
-    public boolean doHurtTarget(Entity target) {
-        if (this.isTame() && isFriendlyTamedTarget(target)) return false;
-        return super.doHurtTarget(target);
-    }
-
-    @Override
     public boolean hurt(DamageSource source, float amount) {
         Entity attacker = source.getEntity();
         // Prevent hits from the owner and allied tamed companions.
@@ -248,6 +242,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
 
     @Override
     public boolean doHurtTarget(Entity target) {
+        if (this.isTame() && isFriendlyTamedTarget(target)) return false;
         boolean hit = super.doHurtTarget(target);
         if (hit && !this.level().isClientSide() && target instanceof LivingEntity) {
             this.triggerAnim("movement", "attack");
