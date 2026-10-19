@@ -111,7 +111,9 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Villager.class, false, false));
 		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true) {
 			@Override
-			protected boolean canPerformAttack(LivingEntity entity) {
+			protected boolean canPerformAttack() {
+				LivingEntity entity = this.mob.getTarget();
+				if (entity == null) return false;
 				return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < (this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth()) && this.mob.getSensing().hasLineOfSight(entity);
 			}
 		});
@@ -167,8 +169,8 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 	}
 
-	protected void dropCustomDeathLoot(ServerLevel serverLevel, DamageSource source, boolean recentlyHitIn) {
-		super.dropCustomDeathLoot(serverLevel, source, recentlyHitIn);
+	protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
+		super.dropCustomDeathLoot(source, looting, recentlyHitIn);
 		this.spawnAtLocation(new ItemStack(GtsModItems.TOKI_CRYSTAL.get()));
 	}
 
@@ -327,7 +329,6 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		return this.cache;
 	}
 
-	@Override
 	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
 		int index = this.getPassengers().indexOf(entity);
 		Vec3 offset = getPassengerSlotOffset(index);
