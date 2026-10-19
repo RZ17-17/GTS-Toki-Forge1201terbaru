@@ -367,10 +367,6 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 						float nutrition = foodproperties != null ? (float) foodproperties.getNutrition() : 1;
 						this.heal(nutrition);
 						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-					} else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-						this.usePlayerItem(sourceentity, hand, itemstack);
-						this.heal(4);
-						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
 					} else {
 						retval = super.mobInteract(sourceentity, hand);
 					}
