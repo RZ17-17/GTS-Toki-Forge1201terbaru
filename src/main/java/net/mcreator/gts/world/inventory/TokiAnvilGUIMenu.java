@@ -25,6 +25,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.gts.GtsMod;
 import net.mcreator.gts.procedures.TokiAnvilInputSlotProcedure;
 import net.mcreator.gts.network.TokiAnvilGUISlotMessage;
 import net.mcreator.gts.init.GtsModMenus;
