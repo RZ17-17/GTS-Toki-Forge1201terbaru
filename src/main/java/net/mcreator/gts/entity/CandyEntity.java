@@ -131,7 +131,9 @@ public class CandyEntity extends Raider implements GeoEntity {
 		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, Villager.class, false, false));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, true) {
 			@Override
-			protected boolean canPerformAttack(LivingEntity entity) {
+			protected boolean canPerformAttack() {
+				LivingEntity entity = this.mob.getTarget();
+				if (entity == null) return false;
 				return this.isTimeToAttack()
 						&& (((entity.getX() - this.mob.getX()) * (entity.getX() - this.mob.getX())) + ((entity.getZ() - this.mob.getZ()) * (entity.getZ() - this.mob.getZ()))) <= ((this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5)
 								* (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5))
@@ -237,7 +239,7 @@ public class CandyEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
-	public void applyRaidBuffs(int num, boolean logic) {
+	public void applyRaidBuffs(ServerLevel serverLevel, int num, boolean logic) {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -292,7 +294,6 @@ public class CandyEntity extends Raider implements GeoEntity {
 		return this.cache;
 	}
 
-	@Override
 	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
 		int index = this.getPassengers().indexOf(entity);
 		Vec3 offset = getPassengerSlotOffset(index);
