@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.entity.player.Player;
@@ -124,6 +125,41 @@ public class TokiEntity extends Raider implements GeoEntity {
 	public void setTexture(String texture) {
 		this.entityData.set(TEXTURE, texture);
 	}
+
+	@Override
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+		ItemStack heldItem = player.getItemInHand(hand);
+		if (heldItem.is(ItemTags.FLOWERS) && !player.isSpectator()) {
+			if (this.level().isClientSide) {
+				return InteractionResult.SUCCESS;
+			}
+			TamedTokiEntity tamed = net.mcreator.gts.init.GtsModEntities.TAMED_TOKI.get().create(this.level());
+			if (tamed != null) {
+				tamed.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), this.getXRot());
+				tamed.setTexture(this.getTexture());
+				if (this.getAttribute(GtsModAttributes.SCALE.get()) != null && tamed.getAttribute(GtsModAttributes.SCALE.get()) != null) {
+					tamed.getAttribute(GtsModAttributes.SCALE.get()).setBaseValue(this.getAttributeValue(GtsModAttributes.SCALE.get()));
+				}
+				tamed.tame(player);
+				tamed.setHealth(Math.min(tamed.getMaxHealth(), this.getHealth()));
+				if (this.hasCustomName()) {
+					tamed.setCustomName(this.getCustomName());
+					tamed.setCustomNameVisible(this.isCustomNameVisible());
+				}
+				if (this.level().addFreshEntity(tamed)) {
+					if (!player.getAbilities().instabuild) {
+						heldItem.shrink(1);
+					}
+					this.discard();
+					return InteractionResult.SUCCESS;
+				}
+			}
+			return InteractionResult.CONSUME;
+		}
+		return super.mobInteract(player, hand);
+	}
+
+
 
 	public String getTexture() {
 		return this.entityData.get(TEXTURE);
