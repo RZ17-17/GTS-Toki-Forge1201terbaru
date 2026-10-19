@@ -34,7 +34,7 @@ public class TamedGtsSitProcedure {
 		} else if (TamedGts instanceof TamedTokiEntity) {
 			TamedTokiSitAndStandProcedure.execute(world, TamedGts);
 		} else if (TamedGts instanceof TokiVariantEntity variant && variant.isTame() && entity instanceof LivingEntity owner && variant.isOwnedBy(owner)) {
-			variant.setOrderedToSit(false);
+			variant.setOrderedToSit(!variant.isOrderedToSit());
 			variant.getNavigation().stop();
 			variant.setTarget(null);
 		}
