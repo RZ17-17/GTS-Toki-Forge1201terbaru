@@ -10,11 +10,18 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 
 import net.mcreator.gts.network.GtsModVariables;
+import net.mcreator.gts.entity.TamedCandyEntity;
 
 public class TamedCandyTickUpdateProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		// Sleeping/sitting companions must not acquire targets or trigger ranged attacks.
+		if (entity instanceof TamedCandyEntity candy && candy.getEntityData().get(TamedCandyEntity.DATA_Sleep)) {
+			if (candy.getTarget() != null) candy.setTarget(null);
+			candy.getNavigation().stop();
+			return;
+		}
 		Entity targetEntity = null;
 		if (!world.isClientSide() && !((entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null) == null)) {
 			targetEntity = entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null;
