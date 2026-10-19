@@ -23,6 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
@@ -368,10 +369,6 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 						float nutrition = foodproperties != null ? (float) foodproperties.nutrition() : 1;
 						this.heal(nutrition);
 						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-					} else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-						this.usePlayerItem(sourceentity, hand, itemstack);
-						this.heal(4);
-						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
 					} else {
 						retval = super.mobInteract(sourceentity, hand);
 					}
@@ -417,7 +414,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 
 	@Override
 	public boolean isFood(ItemStack stack) {
-		return List.of().contains(stack.getItem());
+		return List.of(Items.CARROT, Items.GOLDEN_CARROT, Items.BREAD, Items.APPLE, Items.BAKED_POTATO, Items.POTATO, Items.BEETROOT, Items.MELON_SLICE).contains(stack.getItem());
 	}
 
 	@Override
@@ -453,6 +450,18 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	public void aiStep() {
 		super.aiStep();
 		if (this.isAlive()) {
+			// Passive healing: restore Toki slowly, and heal its owner when nearby.
+			if (!this.level().isClientSide() && this.isTame()) {
+				if (this.tickCount % 100 == 0 && this.getHealth() < this.getMaxHealth()) {
+					this.heal(1.0F);
+				}
+				if (this.tickCount % 200 == 0) {
+					LivingEntity owner = this.getOwner();
+					if (owner != null && owner.isAlive() && owner.distanceToSqr(this) <= 64.0D && owner.getHealth() < owner.getMaxHealth()) {
+						owner.heal(1.0F);
+					}
+				}
+			}
 			if ((this.horizontalCollision || this.verticalCollision) && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
 				boolean flag = false;
 				AABB aabb = this.getBoundingBox().inflate(1);
