@@ -61,8 +61,6 @@ public class TokiMeleeAttackProcedure {
 				if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 0.8
 						&& (sourceentity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity10.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > 2
 						&& !GtsModVariables.MapVariables.get(world).DisableVore
-						&& (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) <= 4
-								* (sourceentity instanceof LivingEntity _livingEntity12 && _livingEntity12.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity12.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)
 						&& !(sourceentity instanceof LivingEntity _livEnt16 && _livEnt16.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed")) { // Wild Toki heals by swallowing hostile mobs when at 80% health or below.
 					if ((sourceentity instanceof LivingEntity _livingEntity18 && _livingEntity18.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity18.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > TargetHeight) {
 						if (sourceentity instanceof TokiEntity _datEntSetS)
