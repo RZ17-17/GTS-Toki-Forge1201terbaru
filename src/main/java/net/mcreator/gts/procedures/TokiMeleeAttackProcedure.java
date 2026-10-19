@@ -58,13 +58,12 @@ public class TokiMeleeAttackProcedure {
 				sourceentity.getPersistentData().putDouble("BreachAttack", 0);
 				entity.getPersistentData().putDouble("TargetRangeAttack", 0);
 				TargetHeight = entity.getY() - sourceentity.getY();
-				if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 0.5
+				if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 0.8
 						&& (sourceentity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity10.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > 2
 						&& !GtsModVariables.MapVariables.get(world).DisableVore
 						&& (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) <= 4
 								* (sourceentity instanceof LivingEntity _livingEntity12 && _livingEntity12.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity12.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)
-						&& Mth.nextInt(RandomSource.create(), 0, (int) Math.round(((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)) * 10)) == 0
-						&& !(sourceentity instanceof LivingEntity _livEnt16 && _livEnt16.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed") && false) { // Wild Toki must not swallow entities; only tamed Toki can use the vore/heal mechanic.
+						&& !(sourceentity instanceof LivingEntity _livEnt16 && _livEnt16.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed")) { // Wild Toki heals by swallowing hostile mobs when at 80% health or below.
 					if ((sourceentity instanceof LivingEntity _livingEntity18 && _livingEntity18.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity18.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > TargetHeight) {
 						if (sourceentity instanceof TokiEntity _datEntSetS)
 							_datEntSetS.getEntityData().set(TokiEntity.DATA_AnimationDecision, "Toki.LowerVoreAttack");
