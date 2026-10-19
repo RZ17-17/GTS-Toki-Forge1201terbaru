@@ -46,9 +46,6 @@ public class GtsManualSizeChangeProcedure {
 					if (entity instanceof LivingEntity _livingEntity9 && _livingEntity9.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED))
 						_livingEntity9.getAttribute(Attributes.MOVEMENT_SPEED)
 								.setBaseValue((0.25 + 0.05 * (entity instanceof LivingEntity _livingEntity8 && _livingEntity8.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity8.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)));
-					if (entity instanceof LivingEntity _livingEntity11 && _livingEntity11.getAttributes().hasAttribute(Attributes.SAFE_FALL_DISTANCE))
-						_livingEntity11.getAttribute(Attributes.SAFE_FALL_DISTANCE)
-								.setBaseValue((5 * (entity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity10.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)));
 					if (entity instanceof LivingEntity _livingEntity13 && _livingEntity13.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 						_livingEntity13.getAttribute(Attributes.MAX_HEALTH)
 								.setBaseValue(((entity instanceof LivingEntity _livingEntity12 && _livingEntity12.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity12.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 125));
@@ -63,9 +60,6 @@ public class GtsManualSizeChangeProcedure {
 					if (entity instanceof LivingEntity _livingEntity22 && _livingEntity22.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED))
 						_livingEntity22.getAttribute(Attributes.MOVEMENT_SPEED)
 								.setBaseValue((0.25 + 0.05 * (entity instanceof LivingEntity _livingEntity21 && _livingEntity21.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity21.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)));
-					if (entity instanceof LivingEntity _livingEntity24 && _livingEntity24.getAttributes().hasAttribute(Attributes.SAFE_FALL_DISTANCE))
-						_livingEntity24.getAttribute(Attributes.SAFE_FALL_DISTANCE)
-								.setBaseValue((5 * (entity instanceof LivingEntity _livingEntity23 && _livingEntity23.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity23.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)));
 					if (entity instanceof LivingEntity _livingEntity26 && _livingEntity26.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 						_livingEntity26.getAttribute(Attributes.MAX_HEALTH)
 								.setBaseValue(((entity instanceof LivingEntity _livingEntity25 && _livingEntity25.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity25.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 125));
