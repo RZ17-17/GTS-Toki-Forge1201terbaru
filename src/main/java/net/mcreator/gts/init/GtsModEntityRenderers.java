@@ -16,6 +16,8 @@ import net.mcreator.gts.client.renderer.TamedCandyRenderer;
 import net.mcreator.gts.client.renderer.HeartBulletRenderer;
 import net.mcreator.gts.client.renderer.GiantessSpitRenderer;
 import net.mcreator.gts.client.renderer.CandyRenderer;
+import net.mcreator.gts.client.renderer.AraRenderer;
+import net.mcreator.gts.client.renderer.FireflyRenderer;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class GtsModEntityRenderers {
@@ -28,5 +30,7 @@ public class GtsModEntityRenderers {
 		event.registerEntityRenderer(GtsModEntities.HEART_BULLET.get(), HeartBulletRenderer::new);
 		event.registerEntityRenderer(GtsModEntities.TAMED_TOKI.get(), TamedTokiRenderer::new);
 		event.registerEntityRenderer(GtsModEntities.TAMED_CANDY.get(), TamedCandyRenderer::new);
+		event.registerEntityRenderer(GtsModEntities.ARA.get(), AraRenderer::new);
+		event.registerEntityRenderer(GtsModEntities.FIREFLY.get(), FireflyRenderer::new);
 	}
 }

@@ -24,5 +24,7 @@ public class GtsModTabs {
 				tabData.accept(GtsModItems.TOKI_CRYSTAL.get());
 				tabData.accept(GtsModItems.TOKI_DISK.get());
 				tabData.accept(GtsModItems.CANDY_SPAWN_EGG.get());
+				tabData.accept(GtsModItems.ARA_SPAWN_EGG.get());
+				tabData.accept(GtsModItems.FIREFLY_SPAWN_EGG.get());
 			}).build());
 }

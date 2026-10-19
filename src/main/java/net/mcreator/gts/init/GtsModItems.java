@@ -25,6 +25,8 @@ public class GtsModItems {
 	public static final RegistryObject<Item> TOKI_CRYSTAL = REGISTRY.register("toki_crystal", TokiCrystalItem::new);
 	public static final RegistryObject<Item> TOKI_DISK = REGISTRY.register("toki_disk", TokiDiskItem::new);
 	public static final RegistryObject<Item> CANDY_SPAWN_EGG = REGISTRY.register("candy_spawn_egg", () -> new ForgeSpawnEggItem(GtsModEntities.CANDY, -39271, -1, new Item.Properties()));
+	public static final RegistryObject<Item> ARA_SPAWN_EGG = REGISTRY.register("ara_spawn_egg", () -> new ForgeSpawnEggItem(GtsModEntities.ARA, 0xC94F78, 0x3D223C, new Item.Properties()));
+	public static final RegistryObject<Item> FIREFLY_SPAWN_EGG = REGISTRY.register("firefly_spawn_egg", () -> new ForgeSpawnEggItem(GtsModEntities.FIREFLY, 0xE9B8CF, 0x2B1F47, new Item.Properties()));
 
 	// Start of user code block custom items
 	// End of user code block custom items
