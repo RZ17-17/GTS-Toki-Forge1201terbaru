@@ -86,7 +86,18 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.targetSelector.addGoal(3, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<Monster>(this, Monster.class, true) {
+        // Wild Ara and Firefly must acquire players as targets so their ranged spit goal can run.
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<Player>(this, Player.class, true) {
+            @Override
+            public boolean canUse() {
+                return !TokiVariantEntity.this.isTame() && super.canUse();
+            }
+            @Override
+            public boolean canContinueToUse() {
+                return !TokiVariantEntity.this.isTame() && super.canContinueToUse();
+            }
+        });
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<Monster>(this, Monster.class, true) {
             @Override
             public boolean canUse() {
                 return !TokiVariantEntity.this.isTame() && super.canUse();
