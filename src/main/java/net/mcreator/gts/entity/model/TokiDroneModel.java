@@ -1,6 +1,7 @@
 package net.mcreator.gts.entity.model;
 
 import software.bernie.geckolib.util.ClientUtils;
+import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.model.data.EntityModelData;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.constant.DataTickets;
@@ -47,7 +48,7 @@ public class TokiDroneModel extends GeoModel<TokiDroneEntity> {
 			AnimationProcessor processor = getAnimationProcessor();
 			var bones = processor.getRegisteredBones();
 			int index = 0;
-			for (var bone : bones) {
+			for (GeoBone bone : bones) {
 				if (bone.getName().startsWith("S_")) {
 					Vector3d bPos = bone.getPositionVector();
 					Vec3 offset = new Vec3(bPos.x(), bPos.y(), -bPos.z()).scale((1.0 / 16.0));
