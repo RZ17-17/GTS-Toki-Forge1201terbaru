@@ -91,8 +91,8 @@ public class TamedTokiVoreAttackProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 				entity.getPersistentData().putBoolean("BeingGrabbed", false);
-				// Wild Toki may be eaten, but only hostile non-Toki mobs restore health.
-				if (!wildTokiTarget && sourceentity instanceof LivingEntity _entity) {
+				// Healing is granted only after a valid wild target is fully swallowed; this includes wild Toki.
+				if (sourceentity instanceof LivingEntity _entity) {
 					float maxHealth = _entity.getMaxHealth();
 					_entity.setHealth(Math.min(maxHealth, _entity.getHealth() + maxHealth / 10.0F));
 				}
