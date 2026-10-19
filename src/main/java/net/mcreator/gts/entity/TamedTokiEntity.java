@@ -185,7 +185,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 		});
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Monster.class, false, false, target -> !isFriendlyTamedTarget(target)) {
+		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false, target -> !isFriendlyTamedTarget(target)) {
 			@Override
 			public boolean canUse() {
 				double x = TamedTokiEntity.this.getX();
