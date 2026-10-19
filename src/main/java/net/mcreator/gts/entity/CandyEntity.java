@@ -65,6 +65,7 @@ import net.mcreator.gts.procedures.GtsDeathProcedure;
 import net.mcreator.gts.procedures.CandyTickUpdateProcedure;
 import net.mcreator.gts.network.GtsModVariables;
 import net.mcreator.gts.init.GtsModEntities;
+import net.mcreator.gts.init.GtsModAttributes;
 import net.mcreator.gts.GtsNavigation;
 import net.mcreator.gts.GtsMoveHelper;
 
@@ -170,8 +171,8 @@ public class CandyEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata) {
-		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata, @Nullable CompoundTag tag) {
+		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata, tag);
 		GtsSpawnProcedure.execute(world, this.getX(), this.getY(), this.getZ(), this);
 		return retval;
 	}
@@ -211,7 +212,7 @@ public class CandyEntity extends Raider implements GeoEntity {
 	public void aiStep() {
 		super.aiStep();
 		if (this.isAlive()) {
-			if ((this.horizontalCollision || this.verticalCollision) && net.minecraftforge.event.EventHooks.canEntityGrief(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
+			if ((this.horizontalCollision || this.verticalCollision) && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
 				boolean flag = false;
 				AABB aabb = this.getBoundingBox().inflate(1);
 				for (BlockPos blockpos : BlockPos.betweenClosed(Mth.floor(aabb.minX), Mth.floor(aabb.minY), Mth.floor(aabb.minZ), Mth.floor(aabb.maxX), Mth.floor(aabb.maxY), Mth.floor(aabb.maxZ))) {
@@ -236,7 +237,7 @@ public class CandyEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
-	public void applyRaidBuffs(ServerLevel serverLevel, int num, boolean logic) {
+	public void applyRaidBuffs(int num, boolean logic) {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
