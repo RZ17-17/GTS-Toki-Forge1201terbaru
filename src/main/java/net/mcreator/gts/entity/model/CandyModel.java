@@ -54,7 +54,7 @@ public class CandyModel extends GeoModel<CandyEntity> {
 			int index = 0;
 			for (CoreGeoBone bone : bones) {
 				if (bone.getName().startsWith("S_")) {
-					Vector3d bPos = bone.getPositionVector();
+					Vector3d bPos = new Vector3d(bone.getPivotX(), bone.getPivotY(), bone.getPivotZ());
 					Vec3 offset = new Vec3(bPos.x(), bPos.y(), -bPos.z()).scale((entity.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() / 16.0));
 					offset = offset.yRot(Mth.DEG_TO_RAD * (float) -entity.getVisualRotationYInDegrees());
 					entity.setPassengerSlotOffset(index, offset);
