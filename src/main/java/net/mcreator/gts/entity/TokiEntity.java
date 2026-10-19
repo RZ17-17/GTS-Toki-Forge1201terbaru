@@ -252,7 +252,7 @@ public class TokiEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
-	public void applyRaidBuffs(ServerLevel serverLevel, int num, boolean logic) {
+	public void applyRaidBuffs(int num, boolean logic) {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
