@@ -39,6 +39,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
+import net.mcreator.gts.world.inventory.TamedGtsInteractionMenuMenu;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.network.NetworkHooks;
 import net.mcreator.gts.procedures.TokiSpitAttackProcedure;
 
 public abstract class TokiVariantEntity extends TamableAnimal implements GeoEntity {
@@ -137,10 +143,19 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         ItemStack stack = player.getItemInHand(hand);
         if (this.isTame()) {
             if (this.isOwnedBy(player) && stack.isEmpty()) {
-                // Ordinary right-click orders the companion to sit; sneak-right-click stands it up.
-                this.setOrderedToSit(!player.isShiftKeyDown());
                 this.navigation.stop();
                 this.setTarget(null);
+                if (player.isShiftKeyDown()) {
+                    this.setOrderedToSit(false);
+                    player.getPersistentData().putString("targetedTamedGiantess", this.getUUID().toString());
+                    if (player instanceof ServerPlayer serverPlayer) {
+                        NetworkHooks.openScreen(serverPlayer,
+                            new SimpleMenuProvider((id, inventory, owner) -> new TamedGtsInteractionMenuMenu(id, inventory, null), Component.literal("Companion Controls")),
+                            buf -> buf.writeBlockPos(this.blockPosition()));
+                    }
+                } else {
+                    this.setOrderedToSit(true);
+                }
                 return InteractionResult.sidedSuccess(this.level().isClientSide());
             }
             return super.mobInteract(player, hand);
