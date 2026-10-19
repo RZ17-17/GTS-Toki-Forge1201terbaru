@@ -133,8 +133,7 @@ public class TokiEntity extends Raider implements GeoEntity {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractGolem.class, false, false));
 		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, Villager.class, false, false));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, true) {
-			@Override
-			protected boolean canPerformAttack() {
+						protected boolean canPerformAttack() {
 				LivingEntity entity = this.mob.getTarget();
 				if (entity == null) return false;
 				return this.isTimeToAttack()
@@ -253,7 +252,7 @@ public class TokiEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
-	public void applyRaidBuffs(ServerLevel serverLevel, int num, boolean logic) {
+	public void applyRaidBuffs(int num, boolean logic) {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
