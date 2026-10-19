@@ -201,7 +201,6 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		return super.hurt(source, amount);
 	}
 
-	@Override
 	public boolean ignoreExplosion(Explosion explosion) {
 		return true;
 	}
