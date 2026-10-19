@@ -3,6 +3,7 @@ package net.mcreator.gts.entity.model;
 
 import net.mcreator.gts.init.GtsModAttributes;
 import software.bernie.geckolib.util.ClientUtils;
+import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.model.data.EntityModelData;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.constant.DataTickets;
@@ -49,7 +50,7 @@ public class TamedCandyModel extends GeoModel<TamedCandyEntity> {
 			AnimationProcessor processor = getAnimationProcessor();
 			var bones = processor.getRegisteredBones();
 			int index = 0;
-			for (var bone : bones) {
+			for (GeoBone bone : bones) {
 				if (bone.getName().startsWith("S_")) {
 					Vector3d bPos = bone.getPositionVector();
 					Vec3 offset = new Vec3(bPos.x(), bPos.y(), -bPos.z()).scale((entity.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() / 16.0));
