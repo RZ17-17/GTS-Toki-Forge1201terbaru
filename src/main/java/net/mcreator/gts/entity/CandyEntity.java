@@ -291,12 +291,6 @@ public class CandyEntity extends Raider implements GeoEntity {
 		return this.cache;
 	}
 
-	@Override
-	public Vec3 getPassengerRidingPosition(Entity entity) {
-		int index = this.getPassengers().indexOf(entity);
-		Vec3 offset = getPassengerSlotOffset(index);
-		return offset;
-	}
 
 	@Override
 	protected boolean canAddPassenger(Entity entity) {
