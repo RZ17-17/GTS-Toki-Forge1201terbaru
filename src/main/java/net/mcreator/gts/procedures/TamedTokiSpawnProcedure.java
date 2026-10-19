@@ -30,9 +30,8 @@ public class TamedTokiSpawnProcedure {
             tamed.getAttribute(Attributes.MAX_HEALTH).setBaseValue(maxhealth);
         if (tamed.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED))
             tamed.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(movementspeed);
-        if (tamed instanceof LivingEntity living)
-            living.setHealth((float) Math.min(health, living.getMaxHealth()));
-        if (tamed instanceof TamableAnimal animal && entity instanceof Player owner)
-            animal.tame(owner);
+        tamed.setHealth((float) Math.min(health, tamed.getMaxHealth()));
+        if (entity instanceof Player owner)
+            tamed.tame(owner);
     }
 }
