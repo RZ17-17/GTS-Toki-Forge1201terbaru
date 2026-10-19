@@ -28,15 +28,10 @@ public class MainPage2PreviousPageProcedure {
 				}
 
 				@Override
-				public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-					return false;
-				}
-
-				@Override
 				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 					return new GtsCommonGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 				}
-			}, _bpos);
+			});
 		}
 	}
 }
