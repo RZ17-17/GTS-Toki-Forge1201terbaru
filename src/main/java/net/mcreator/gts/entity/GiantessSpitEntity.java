@@ -38,7 +38,7 @@ public class GiantessSpitEntity extends AbstractArrow implements ItemSupplier {
 	}
 
 	public GiantessSpitEntity(EntityType<? extends GiantessSpitEntity> type, double x, double y, double z, Level world, @Nullable ItemStack firedFromWeapon) {
-		super(type, x, y, z, world, PROJECTILE_ITEM);
+		super(type, x, y, z, world);
 	}
 
 	public GiantessSpitEntity(EntityType<? extends GiantessSpitEntity> type, LivingEntity entity, Level world, @Nullable ItemStack firedFromWeapon) {
