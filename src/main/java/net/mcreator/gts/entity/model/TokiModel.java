@@ -50,7 +50,8 @@ public class TokiModel extends GeoModel<TokiEntity> {
 			AnimationProcessor processor = getAnimationProcessor();
 			var bones = processor.getRegisteredBones();
 			int index = 0;
-			for (GeoBone bone : bones) {
+			for (Object boneObject : bones) {
+				GeoBone bone = (GeoBone) boneObject;
 				if (bone.getName().startsWith("S_")) {
 					Vector3d bPos = bone.getPositionVector();
 					Vec3 offset = new Vec3(bPos.x(), bPos.y(), -bPos.z()).scale((entity.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() / 16.0));
