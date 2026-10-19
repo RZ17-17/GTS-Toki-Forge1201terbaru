@@ -216,8 +216,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 			}
 		});
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
-			@Override
-			protected boolean canPerformAttack() {
+						protected boolean canPerformAttack() {
 				LivingEntity entity = this.mob.getTarget();
 				if (entity == null) return false;
 				return this.isTimeToAttack()
