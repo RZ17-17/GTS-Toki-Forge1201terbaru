@@ -49,7 +49,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         super.registerGoals();
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.2D, 8.0F, 3.0F));
+        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.2D, 8.0F, 3.0F, true));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15D, true));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
@@ -103,9 +103,9 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     }
 
     @Override
-    public boolean doHurtTarget(net.minecraft.world.level.Level level, LivingEntity target) {
-        boolean hit = super.doHurtTarget(level, target);
-        if (hit && !level.isClientSide()) {
+    public boolean doHurtTarget(Entity target) {
+        boolean hit = super.doHurtTarget(target);
+        if (hit && !this.level().isClientSide() && target instanceof LivingEntity) {
             this.triggerAnim("movement", "attack");
         }
         return hit;

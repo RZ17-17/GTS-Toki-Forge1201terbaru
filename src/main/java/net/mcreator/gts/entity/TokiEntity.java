@@ -159,7 +159,6 @@ public class TokiEntity extends Raider implements GeoEntity {
 		if (companion == null) return InteractionResult.PASS;
 		companion.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), this.getXRot());
 		companion.setTexture(this.getTexture());
-		companion.setOwner(player);
 		companion.tame(player);
 		companion.setPersistenceRequired();
 		companion.setHealth(companion.getMaxHealth());
