@@ -13,8 +13,6 @@ public class TamedGtsPlayerBreachProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		// Do not run terrain-damaging player-controlled breach logic on the authoritative server.
-		if (!world.isClientSide()) return;
 		double MeleeChoice = 0;
 		Entity TargetedTamedGTS = null;
 		if (false && !world.isClientSide() && !((entity.getVehicle()) == null) && (entity.getVehicle()).getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:tamedgiantess"))) && (entity.getVehicle()).onGround()) {
