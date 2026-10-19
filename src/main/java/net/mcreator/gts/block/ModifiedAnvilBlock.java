@@ -112,7 +112,7 @@ public class ModifiedAnvilBlock extends FallingBlock implements SimpleWaterlogge
 	public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {
 		
 		if (entity instanceof ServerPlayer player) {
-			player.openMenu(new MenuProvider() {
+			NetworkHooks.openScreen(player, new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
 					return Component.literal("Modified Anvil");
