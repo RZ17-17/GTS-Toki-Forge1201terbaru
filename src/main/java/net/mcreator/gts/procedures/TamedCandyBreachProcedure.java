@@ -13,7 +13,7 @@ public class TamedCandyBreachProcedure {
 	public static void execute(LevelAccessor world, Entity sourceentity) {
 		if (sourceentity == null)
 			return;
-		if (false && !GtsModVariables.MapVariables.get(world).DisableCandyBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
+		if (!GtsModVariables.MapVariables.get(world).DisableCandyBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
 			sourceentity.getPersistentData().putBoolean("AttackCheck", true);
 			sourceentity.getPersistentData().putBoolean("ExplosionImmunityCheck", true);
 			if (sourceentity instanceof TamedCandyEntity _datEntSetS)
