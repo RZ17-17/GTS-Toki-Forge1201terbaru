@@ -31,26 +31,15 @@ public class TokiRangeAndBreachProcedure {
 		SpeedEntity = entity.getRootVehicle();
 		TokiSpeed = Math.pow(sourceentity.getDeltaMovement().x(), 2) + Math.pow(sourceentity.getDeltaMovement().z(), 2);
 		TargetSpeed = Math.pow(SpeedEntity.getDeltaMovement().x(), 2) + Math.pow(SpeedEntity.getDeltaMovement().z(), 2);
+		// Keep ranged attacks available even when Toki or its target is standing still.
+		// Breach timing remains movement-based, while ranged timing is independent.
+		sourceentity.getPersistentData().putDouble("RangeAttack", sourceentity.getPersistentData().getDouble("RangeAttack") + 1);
 		if (TokiSpeed >= (TokiInWater ? 0.000784 : 0.01)) {
-			sourceentity.getPersistentData().putDouble("RangeAttack", (sourceentity.getPersistentData().getDouble("RangeAttack") + 1));
 			sourceentity.getPersistentData().putDouble("BreachAttack", 0);
-		} else if (TokiSpeed < (TokiInWater ? 0.000784 : 0.01)) {
-			sourceentity.getPersistentData().putDouble("BreachAttack", (sourceentity.getPersistentData().getDouble("BreachAttack") + 1));
-			sourceentity.getPersistentData().putDouble("RangeAttack", 0);
-		}
-		if (!(entity instanceof Player)) {
-			if (TargetSpeed > (TokiInWater ? 0.000784 : 0.01)) {
-				entity.getPersistentData().putDouble("TargetRangeAttack", (entity.getPersistentData().getDouble("TargetRangeAttack") + 1));
-			} else {
-				entity.getPersistentData().putDouble("TargetRangeAttack", 0);
-			}
 		} else {
-			if (GtsModVariables.getPlayerVariables(entity).Player_Speed > (TokiInWater ? 2 : 5)) {
-				entity.getPersistentData().putDouble("TargetRangeAttack", (entity.getPersistentData().getDouble("TargetRangeAttack") + 1));
-			} else {
-				entity.getPersistentData().putDouble("TargetRangeAttack", 0);
-			}
+			sourceentity.getPersistentData().putDouble("BreachAttack", sourceentity.getPersistentData().getDouble("BreachAttack") + 1);
 		}
+		entity.getPersistentData().putDouble("TargetRangeAttack", entity.getPersistentData().getDouble("TargetRangeAttack") + 1);
 		if (sourceentity.getPersistentData().getDouble("RangeAttack") >= 15) {
 			sourceentity.getPersistentData().putDouble("RangeAttack", 0);
 		}
@@ -73,6 +62,8 @@ public class TokiRangeAndBreachProcedure {
 			}
 			sourceentity.getPersistentData().putDouble("RangeAttack", 0);
 			entity.getPersistentData().putDouble("TargetRangeAttack", 0);
+			// Avoid immediately chaining a stationary breach into a ranged attack.
+			sourceentity.getPersistentData().putDouble("BreachAttack", 0);
 		}
 		if (sourceentity.getPersistentData().getDouble("BreachAttack") >= 20) {
 			Scale = sourceentity instanceof LivingEntity _livingEntity42 && _livingEntity42.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity42.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0;
