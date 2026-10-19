@@ -24,14 +24,20 @@ import net.mcreator.gts.init.GtsModMobEffects;
 import net.mcreator.gts.entity.TamedTokiEntity;
 import net.mcreator.gts.entity.TokiEntity;
 import net.mcreator.gts.entity.TokiVariantEntity;
+import net.mcreator.gts.entity.CandyEntity;
 import net.mcreator.gts.GtsMod;
 
 public class TamedTokiVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		boolean wildTokiTarget = entity instanceof TokiEntity || (entity instanceof TokiVariantEntity variant && !variant.isTame());
-		if (!(entity instanceof Monster) && !wildTokiTarget)
+		boolean wildTokiTarget = entity instanceof TokiEntity
+            || (entity instanceof TokiVariantEntity variant && !variant.isTame())
+            || entity instanceof CandyEntity;
+        boolean hostileMobTarget = entity instanceof Monster
+            && !(entity instanceof TokiEntity) && !(entity instanceof TokiVariantEntity)
+            && !(entity instanceof CandyEntity);
+		if (!hostileMobTarget && !wildTokiTarget)
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
 		sourceentity.setDeltaMovement(new Vec3(0, 0, 0));

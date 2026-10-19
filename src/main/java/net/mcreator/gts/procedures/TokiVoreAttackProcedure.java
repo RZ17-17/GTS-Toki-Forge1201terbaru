@@ -27,12 +27,18 @@ import net.minecraft.commands.arguments.EntityAnchorArgument;
 
 import net.mcreator.gts.init.GtsModMobEffects;
 import net.mcreator.gts.entity.TokiEntity;
+import net.mcreator.gts.entity.TokiVariantEntity;
+import net.mcreator.gts.entity.CandyEntity;
+import net.mcreator.gts.entity.TamedTokiEntity;
+import net.mcreator.gts.entity.TamedCandyEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.mcreator.gts.GtsMod;
 
 public class TokiVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
-		if (entity == null || sourceentity == null || (!(entity instanceof Monster) && !(entity instanceof Player)))
+		if (entity == null || sourceentity == null || !(entity instanceof Monster)
+                || entity instanceof TokiEntity || entity instanceof TokiVariantEntity
+                || entity instanceof CandyEntity || entity instanceof TamedTokiEntity || entity instanceof TamedCandyEntity)
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
 		sourceentity.getPersistentData().putBoolean("AttackCheck", true);

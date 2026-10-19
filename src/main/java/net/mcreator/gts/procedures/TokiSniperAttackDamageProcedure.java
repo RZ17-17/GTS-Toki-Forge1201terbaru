@@ -57,7 +57,7 @@ public class TokiSniperAttackDamageProcedure {
 						if (entityiterator != sourceentity
                                 && !(sourceentity instanceof TamableAnimal _tamed && entityiterator == _tamed.getOwner())
                                 && !entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction")))) {
-                            float shotDamage = (float) ((sourceentity instanceof TamedTokiEntity ? 40.0D : 2.0D) * Math.max(1.0D, Math.min(Scale, 4.0D)));
+                            float shotDamage = (float) ((sourceentity instanceof TamedTokiEntity ? 1000.0D : 2.0D) * Math.max(1.0D, Math.min(Scale, 4.0D)));
                             entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.MOB_PROJECTILE), sourceentity), shotDamage);
                         }
 					}
