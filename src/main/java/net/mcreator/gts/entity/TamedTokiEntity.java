@@ -32,7 +32,6 @@ import net.mcreator.gts.entity.TokiVariantEntity;
 import net.mcreator.gts.entity.CandyEntity;
 import net.mcreator.gts.entity.TokiEntity;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.goal.SitWhenOrderedToGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -141,7 +140,6 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
 		// Do not retaliate against players who hit Toki; protect the owner through OwnerHurtByTargetGoal.
 		this.goalSelector.addGoal(2, new OwnerHurtByTargetGoal(this) {
 			@Override
@@ -365,11 +363,11 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 						}
 						retval = InteractionResult.CONSUME;
 					} else if (itemstack.isEmpty()) {
-						// Empty-hand right-click toggles sitting; food is not used for healing.
-						
-						this.setOrderedToSit(true);
+						// Empty-hand right-click mounts the owned Toki instead of triggering a sit animation.
+						this.setOrderedToSit(false);
 						this.navigation.stop();
 						this.setTarget(null);
+						if (!this.isVehicle()) sourceentity.startRiding(this);
 						retval = InteractionResult.CONSUME;
 					} else if (this.isFood(itemstack)) {
 						// Never consume food to heal a tamed Toki; passive regeneration handles healing.
