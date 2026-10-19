@@ -94,9 +94,9 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         });
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
-        this.targetSelector.addGoal(3, new HurtByTargetGoal(this) {
+        this.targetSelector.addGoal(2, new OwnerHurtByTargetGoal(this));
+        this.targetSelector.addGoal(3, new OwnerHurtTargetGoal(this));
+        this.targetSelector.addGoal(4, new HurtByTargetGoal(this) {
             @Override
             public boolean canUse() {
                 return !TokiVariantEntity.this.isTame() && super.canUse();
@@ -107,7 +107,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             }
         });
         // Prioritize hostile monsters so tamed Ara/Firefly fight instead of repeatedly following their owner.
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<Monster>(this, Monster.class, false));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<Monster>(this, Monster.class, false) {\n            @Override public boolean canUse() {\n                return TokiVariantEntity.this.isTame() && super.canUse();\n            }\n            @Override public boolean canContinueToUse() {\n                return TokiVariantEntity.this.isTame() && super.canContinueToUse();\n            }\n        });
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<Player>(this, Player.class, false) {
             @Override
             public boolean canUse() {

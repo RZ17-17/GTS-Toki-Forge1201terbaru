@@ -515,14 +515,14 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		AttributeSupplier.Builder builder = Mob.createMobAttributes();
-		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
+		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.36);
 		builder = builder.add(Attributes.MAX_HEALTH, 500);
-		builder = builder.add(Attributes.ARMOR, 6);
+		builder = builder.add(Attributes.ARMOR, 20);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 40);
-		builder = builder.add(Attributes.FOLLOW_RANGE, 80);
+		builder = builder.add(Attributes.FOLLOW_RANGE, 96);
 		builder = builder.add(net.minecraftforge.common.ForgeMod.STEP_HEIGHT_ADDITION.get(), 2.6);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
-		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 2);
+		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 4);
 		return builder;
 	}
 
