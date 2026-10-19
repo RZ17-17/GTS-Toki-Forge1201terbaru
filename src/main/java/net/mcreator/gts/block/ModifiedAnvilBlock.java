@@ -122,7 +122,7 @@ public class ModifiedAnvilBlock extends FallingBlock implements SimpleWaterlogge
 				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 					return new TokiAnvilGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(pos));
 				}
-			}, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(pos));
+			}, buf -> buf.writeBlockPos(pos));
 		}
 		return InteractionResult.SUCCESS;
 	}
