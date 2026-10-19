@@ -190,10 +190,11 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         return InteractionResult.sidedSuccess(this.level().isClientSide());
     }
 
-    private static boolean isTamingFood(ItemStack stack) {
-        return stack.is(Items.CARROT) || stack.is(Items.GOLDEN_CARROT) || stack.is(Items.BREAD)
-            || stack.is(Items.APPLE) || stack.is(Items.BAKED_POTATO) || stack.is(Items.POTATO)
-            || stack.is(Items.BEETROOT) || stack.is(Items.MELON_SLICE);
+    private boolean isTamingFood(ItemStack stack) {
+        // Setiap varian hanya menerima item yang ditentukan, dan taming selalu berhasil.
+        if (this instanceof AraEntity) return stack.is(Items.BREAD);
+        if (this instanceof FireflyEntity) return stack.is(Items.DIAMOND);
+        return false;
     }
 
     private void applyTamedStats() {
