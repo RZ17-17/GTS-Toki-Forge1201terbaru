@@ -15,6 +15,7 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -127,10 +128,10 @@ public class TamedTokiGunSmashProcedure {
 				}
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("item.mace.smash_ground_heavy")), SoundSource.HOSTILE,
+						_level.playSound(null, BlockPos.containing(x, y, z), SoundEvents.GENERIC_EXPLODE, SoundSource.HOSTILE,
 								(float) (sourceentity instanceof LivingEntity _livingEntity51 && _livingEntity51.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity51.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0), 1);
 					} else {
-						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("item.mace.smash_ground_heavy")), SoundSource.HOSTILE,
+						_level.playLocalSound(x, y, z, SoundEvents.GENERIC_EXPLODE, SoundSource.HOSTILE,
 								(float) (sourceentity instanceof LivingEntity _livingEntity51 && _livingEntity51.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity51.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0), 1, false);
 					}
 				}
