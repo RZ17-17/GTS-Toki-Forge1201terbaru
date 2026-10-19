@@ -23,6 +23,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.raid.Raider;
@@ -173,9 +174,8 @@ public class TokiEntity extends Raider implements GeoEntity {
 	}
 
 	private static boolean isTamingFood(ItemStack stack) {
-		return stack.is(Items.CARROT) || stack.is(Items.GOLDEN_CARROT) || stack.is(Items.BREAD)
-			|| stack.is(Items.APPLE) || stack.is(Items.BAKED_POTATO) || stack.is(Items.POTATO)
-			|| stack.is(Items.BEETROOT) || stack.is(Items.MELON_SLICE);
+		// Toki liar langsung jinak dengan bunga apa pun; tidak ada peluang gagal.
+		return stack.is(ItemTags.FLOWERS);
 	}
 
 	protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
