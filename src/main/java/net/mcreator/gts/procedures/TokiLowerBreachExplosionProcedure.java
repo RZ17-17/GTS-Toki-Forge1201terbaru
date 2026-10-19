@@ -44,7 +44,7 @@ public class TokiLowerBreachExplosionProcedure {
 				if (world instanceof Level _level && !_level.isClientSide())
 					_level.explode(null, X, Y, Z,
 							(float) (3.5 * Math.atan((sourceentity instanceof LivingEntity _livingEntity16 && _livingEntity16.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity16.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) / 3)),
-							Level.ExplosionInteraction.MOB);
+							Level.ExplosionInteraction.NONE);
 				X = X + Vx * 1.5;
 				Y = Y + Vy * 1.5;
 				Z = Z + Vz * 1.5;
