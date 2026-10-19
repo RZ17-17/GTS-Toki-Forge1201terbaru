@@ -15,6 +15,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.KeyMapping;
 
+import net.mcreator.gts.GtsMod;
 import net.mcreator.gts.network.RegularAttackMessage;
 import net.mcreator.gts.network.PlayerStruggleKeyMessage;
 import net.mcreator.gts.network.BreachAttackMessage;
