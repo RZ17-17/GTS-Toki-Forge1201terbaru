@@ -28,6 +28,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.gts.procedures.TokiAnvilInputSlotProcedure;
 import net.mcreator.gts.network.TokiAnvilGUISlotMessage;
 import net.mcreator.gts.init.GtsModMenus;
+import net.mcreator.gts.GtsMod;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -65,7 +66,7 @@ public class TokiAnvilGUIMenu extends AbstractContainerMenu implements Supplier<
 				byte hand = extraData.readByte();
 				ItemStack itemstack = hand == 0 ? this.entity.getMainHandItem() : this.entity.getOffhandItem();
 				this.boundItemMatcher = () -> itemstack == (hand == 0 ? this.entity.getMainHandItem() : this.entity.getOffhandItem());
-				IItemHandler cap = itemstack.getCapability(ForgeCapabilities.ITEM_HANDLER);
+				IItemHandler cap = itemstack.getCapability(ForgeCapabilities.ITEM_HANDLER).orElse(null);
 				if (cap != null) {
 					this.internal = cap;
 					this.bound = true;
@@ -74,7 +75,7 @@ public class TokiAnvilGUIMenu extends AbstractContainerMenu implements Supplier<
 				extraData.readByte(); // drop padding
 				boundEntity = world.getEntity(extraData.readVarInt());
 				if (boundEntity != null) {
-					IItemHandler cap = boundEntity.getCapability(ForgeCapabilities.ITEM_HANDLER);
+					IItemHandler cap = boundEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).orElse(null);
 					if (cap != null) {
 						this.internal = cap;
 						this.bound = true;
@@ -258,7 +259,7 @@ public class TokiAnvilGUIMenu extends AbstractContainerMenu implements Supplier<
 	@SubscribeEvent
 	public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		if (event.phase != TickEvent.Phase.END) return;
-		Player entity = event.getEntity();
+		Player entity = event.player;
 		if (entity.containerMenu instanceof TokiAnvilGUIMenu) {
 			Level world = entity.level();
 			double x = entity.getX();
