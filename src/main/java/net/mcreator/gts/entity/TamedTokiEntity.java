@@ -453,6 +453,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		private boolean isFriendlyTamedTarget(Entity target) {
         if (target == null || target == this || this.isAlliedTo(target)) return true;
         if (target instanceof TamableAnimal tameTarget && tameTarget.isTame()) return true;
+        if (target instanceof net.minecraft.world.entity.OwnableEntity owned && owned.getOwner() != null) return true;
         if (target instanceof TamedTokiEntity || target instanceof TamedCandyEntity) return true;
         return target instanceof TokiVariantEntity variant && variant.isTame();
     }
