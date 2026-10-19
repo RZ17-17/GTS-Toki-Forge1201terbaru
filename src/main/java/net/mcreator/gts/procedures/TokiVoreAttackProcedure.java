@@ -40,7 +40,8 @@ public class TokiVoreAttackProcedure {
 		// Ordinary wild Toki must not eat mobs or trigger a healing animation.
 		if (entity == null || sourceentity == null || !(sourceentity instanceof TamedTokiEntity))
 			return;
-		if (!(entity instanceof Monster) || entity instanceof TokiEntity || entity instanceof TokiVariantEntity
+		if (!(entity instanceof Monster) || entity instanceof net.minecraft.world.entity.TamableAnimal tameTarget && tameTarget.isTame()
+				|| entity instanceof TokiEntity || entity instanceof TokiVariantEntity
 				|| entity instanceof CandyEntity || entity instanceof TamedTokiEntity || entity instanceof TamedCandyEntity)
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
