@@ -62,20 +62,23 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, true) {
             @Override public boolean canUse() {
-                return TokiVariantEntity.this.getTarget() == null && super.canUse();
+                return !TokiVariantEntity.this.isOrderedToSit() && TokiVariantEntity.this.getTarget() == null && super.canUse();
             }
             @Override public boolean canContinueToUse() {
-                return TokiVariantEntity.this.getTarget() == null && super.canContinueToUse();
+                return !TokiVariantEntity.this.isOrderedToSit() && TokiVariantEntity.this.getTarget() == null && super.canContinueToUse();
             }
         });
-        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15D, true));
+        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15D, true) {
+            @Override public boolean canUse() { return !TokiVariantEntity.this.isOrderedToSit() && super.canUse(); }
+            @Override public boolean canContinueToUse() { return !TokiVariantEntity.this.isOrderedToSit() && super.canContinueToUse(); }
+        });
         this.goalSelector.addGoal(5, new Goal() {
             private int cooldown;
             @Override
             public boolean canUse() {
                 if (this.cooldown > 0) this.cooldown--;
                 LivingEntity target = TokiVariantEntity.this.getTarget();
-                return target != null && target.isAlive()
+                return !TokiVariantEntity.this.isOrderedToSit() && target != null && target.isAlive()
                     && TokiVariantEntity.this.distanceToSqr(target) >= 16.0D
                     && TokiVariantEntity.this.distanceToSqr(target) <= 400.0D
                     && this.cooldown <= 0;
@@ -97,7 +100,10 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                 this.cooldown = 100;
             }
         });
-        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.8D) {
+            @Override public boolean canUse() { return !TokiVariantEntity.this.isOrderedToSit() && super.canUse(); }
+            @Override public boolean canContinueToUse() { return !TokiVariantEntity.this.isOrderedToSit() && super.canContinueToUse(); }
+        });
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(3, new OwnerHurtTargetGoal(this));
@@ -216,6 +222,10 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             }
             if (this.isTame() && this.getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue() < 40.0D) {
                 this.applyTamedStats();
+            }
+            if (this.isTame() && this.isOrderedToSit()) {
+                this.setTarget(null);
+                this.getNavigation().stop();
             }
             if (this.isTame() && !this.isOrderedToSit()) {
                 LivingEntity owner = this.getOwner();
