@@ -369,6 +369,9 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 						this.navigation.stop();
 						this.setTarget(null);
 						retval = InteractionResult.CONSUME;
+					} else if (this.isFood(itemstack)) {
+						// Never consume food to heal a tamed Toki; passive regeneration handles healing.
+						retval = InteractionResult.CONSUME;
 					} else {
 						retval = super.mobInteract(sourceentity, hand);
 					}
