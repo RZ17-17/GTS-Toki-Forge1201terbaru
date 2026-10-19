@@ -448,19 +448,37 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		super.travel(dir);
 	}
 
+	private void triggerHealAnimation() {
+		this.entityData.set(DATA_AnimationDecision, "Toki.Heal");
+		this.getPersistentData().putInt("TamedTokiHealAnimationTicks", 30);
+	}
+
 	@Override
 	public void aiStep() {
 		super.aiStep();
 		if (this.isAlive()) {
-			// Passive healing: restore Toki slowly, and heal its owner when nearby.
 			if (!this.level().isClientSide() && this.isTame()) {
+				// Keep the synchronized healing animation visible briefly after each real heal.
+				int healAnimationTicks = this.getPersistentData().getInt("TamedTokiHealAnimationTicks");
+				if (healAnimationTicks > 0) {
+					healAnimationTicks--;
+					this.getPersistentData().putInt("TamedTokiHealAnimationTicks", healAnimationTicks);
+					if (healAnimationTicks == 0 && "Toki.Heal".equals(this.entityData.get(DATA_AnimationDecision))) {
+						this.entityData.set(DATA_AnimationDecision, "empty");
+					}
+				}
+				// Passive healing: restore Toki slowly, and heal its owner when nearby.
 				if (this.tickCount % 100 == 0 && this.getHealth() < this.getMaxHealth()) {
+					float before = this.getHealth();
 					this.heal(1.0F);
+					if (this.getHealth() > before) this.triggerHealAnimation();
 				}
 				if (this.tickCount % 200 == 0) {
 					LivingEntity owner = this.getOwner();
 					if (owner != null && owner.isAlive() && owner.distanceToSqr(this) <= 64.0D && owner.getHealth() < owner.getMaxHealth()) {
+						float before = owner.getHealth();
 						owner.heal(1.0F);
+						if (owner.getHealth() > before) this.triggerHealAnimation();
 					}
 				}
 			}
