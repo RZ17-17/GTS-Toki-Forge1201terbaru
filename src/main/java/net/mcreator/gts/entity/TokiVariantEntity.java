@@ -120,7 +120,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                     && !TokiVariantEntity.this.isTame() && super.canContinueToUse();
             }
         });
-        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, false));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, 10, true, false, target -> !isFriendlyTamedTarget(target)));
         // Tamed variants do not hunt friendly Candy; wild variants retain the original behavior.
         this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<CandyEntity>(this, CandyEntity.class, false) {
             @Override public boolean canUse() { return !TokiVariantEntity.this.isTame() && super.canUse(); }
@@ -137,7 +137,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         ItemStack stack = player.getItemInHand(hand);
         if (this.isTame()) {
             if (this.isOwnedBy(player) && stack.isEmpty()) {
-                this.setOrderedToSit(!this.isOrderedToSit());
+                this.setOrderedToSit(true);
                 this.navigation.stop();
                 this.setTarget(null);
                 return InteractionResult.sidedSuccess(this.level().isClientSide());
@@ -215,6 +215,19 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
         return (AgeableMob) this.getType().create(level);
+    }
+
+    private boolean isFriendlyTamedTarget(Entity target) {
+        if (target == null || target == this || this.isAlliedTo(target)) return true;
+        if (target instanceof TamableAnimal tameTarget && tameTarget.isTame()) return true;
+        if (target instanceof TamedTokiEntity || target instanceof TamedCandyEntity) return true;
+        return target instanceof TokiVariantEntity variant && variant.isTame();
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        if (this.isTame() && isFriendlyTamedTarget(target)) return false;
+        return super.doHurtTarget(target);
     }
 
     @Override
