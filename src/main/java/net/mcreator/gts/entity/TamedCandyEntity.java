@@ -216,7 +216,9 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		});
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
 			@Override
-			protected boolean canPerformAttack(LivingEntity entity) {
+			protected boolean canPerformAttack() {
+				LivingEntity entity = this.mob.getTarget();
+				if (entity == null) return false;
 				return this.isTimeToAttack()
 						&& (((entity.getX() - this.mob.getX()) * (entity.getX() - this.mob.getX())) + ((entity.getZ() - this.mob.getZ()) * (entity.getZ() - this.mob.getZ()))) <= ((this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5)
 								* (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5))
@@ -524,7 +526,6 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		return this.cache;
 	}
 
-	@Override
 	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
 		int index = this.getPassengers().indexOf(entity);
 		Vec3 offset = getPassengerSlotOffset(index);
