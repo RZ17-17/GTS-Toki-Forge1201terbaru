@@ -19,6 +19,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 
@@ -43,6 +44,10 @@ import java.util.ArrayList;
 public class GtsMod {
 	public static final Logger LOGGER = LogManager.getLogger(GtsMod.class);
 	public static final String MODID = "gts";
+
+	public GtsMod() {
+		this(FMLJavaModLoadingContext.get().getModEventBus());
+	}
 
 	public GtsMod(IEventBus modEventBus) {
 		// Start of user code block mod constructor
