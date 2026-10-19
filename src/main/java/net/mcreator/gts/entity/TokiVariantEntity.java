@@ -10,6 +10,7 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animatable.GeoEntity;
 
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
@@ -42,6 +43,15 @@ public abstract class TokiVariantEntity extends Monster implements GeoEntity {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
+    @Override
+    public boolean doHurtTarget(net.minecraft.world.level.Level level, LivingEntity target) {
+        boolean hit = super.doHurtTarget(level, target);
+        if (hit && !level.isClientSide()) {
+            this.triggerAnim("movement", "attack");
+        }
+        return hit;
+    }
+
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
             .add(Attributes.MAX_HEALTH, 100.0D)
@@ -55,12 +65,12 @@ public abstract class TokiVariantEntity extends Monster implements GeoEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "movement", 5, state -> {
             if (state.isMoving()) {
-                state.getController().setAnimation(RawAnimation.begin().thenLoop("gts.walk"));
-            } else {
-                state.getController().setAnimation(RawAnimation.begin().thenLoop("gts.idle"));
+                return state.setAndContinue(RawAnimation.begin().thenLoop("gts.walk"));
             }
-            return PlayState.CONTINUE;
-        }));
+            return state.setAndContinue(RawAnimation.begin().thenLoop("gts.idle"));
+        }).triggerableAnim("attack", RawAnimation.begin().thenPlay(this instanceof FireflyEntity
+            ? "firefly.kicking"
+            : this instanceof AraEntity ? "Ara.LowAtk1" : "gts.walk")));
     }
 
     @Override
