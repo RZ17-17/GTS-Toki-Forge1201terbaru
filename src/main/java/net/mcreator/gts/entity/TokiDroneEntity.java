@@ -206,7 +206,6 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		return true;
 	}
 
-	@Override
 	public boolean fireImmune() {
 		return true;
 	}
