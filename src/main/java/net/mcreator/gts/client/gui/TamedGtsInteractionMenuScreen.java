@@ -79,7 +79,6 @@ public class TamedGtsInteractionMenuScreen extends AbstractContainerScreen<Tamed
 		button_sitstand = Button.builder(Component.translatable("gui.gts.tamed_gts_interaction_menu.button_sitstand"), e -> {
 			if (true) {
 				GtsMod.sendToServer(new TamedGtsInteractionMenuButtonMessage(0, x, y, z));
-				TamedGtsInteractionMenuButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 4, this.topPos + 15, 72, 20).build();
 		guistate.put("button:button_sitstand", button_sitstand);
@@ -87,7 +86,6 @@ public class TamedGtsInteractionMenuScreen extends AbstractContainerScreen<Tamed
 		button_size_increase = Button.builder(Component.translatable("gui.gts.tamed_gts_interaction_menu.button_size_increase"), e -> {
 			if (true) {
 				GtsMod.sendToServer(new TamedGtsInteractionMenuButtonMessage(1, x, y, z));
-				TamedGtsInteractionMenuButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 4, this.topPos + 36, 93, 20).build();
 		guistate.put("button:button_size_increase", button_size_increase);
@@ -95,7 +93,6 @@ public class TamedGtsInteractionMenuScreen extends AbstractContainerScreen<Tamed
 		button_size_decrease = Button.builder(Component.translatable("gui.gts.tamed_gts_interaction_menu.button_size_decrease"), e -> {
 			if (true) {
 				GtsMod.sendToServer(new TamedGtsInteractionMenuButtonMessage(2, x, y, z));
-				TamedGtsInteractionMenuButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 4, this.topPos + 57, 93, 20).build();
 		guistate.put("button:button_size_decrease", button_size_decrease);
