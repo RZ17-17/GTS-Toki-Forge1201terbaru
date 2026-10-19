@@ -139,7 +139,6 @@ public class TokiKissProcedure {
 						sourceentity instanceof LivingEntity _livingEntity62 && _livingEntity62.getAttributes().hasAttribute(Attributes.MAX_HEALTH) ? _livingEntity62.getAttribute(Attributes.MAX_HEALTH).getBaseValue() : 0,
 						sourceentity instanceof LivingEntity _livingEntity68 && _livingEntity68.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED) ? _livingEntity68.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue() : 0,
 						sourceentity.getXRot(),
-						sourceentity instanceof LivingEntity _livingEntity67 && _livingEntity67.getAttributes().hasAttribute(Attributes.SAFE_FALL_DISTANCE) ? _livingEntity67.getAttribute(Attributes.SAFE_FALL_DISTANCE).getBaseValue() : 0,
 						sourceentity instanceof LivingEntity _livingEntity63 && _livingEntity63.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity63.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0, sourceentity.getYRot());
 				if (!sourceentity.level().isClientSide())
 					sourceentity.discard();
