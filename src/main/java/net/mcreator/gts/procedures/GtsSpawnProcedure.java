@@ -45,8 +45,6 @@ public class GtsSpawnProcedure {
 					_livingEntity5.getAttribute(GtsModAttributes.SCALE.get()).setBaseValue(TokiSpawnScale);
 				if (entity instanceof LivingEntity _livingEntity6 && _livingEntity6.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED))
 					_livingEntity6.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((0.25 + 0.05 * TokiSpawnScale));
-				if (entity instanceof LivingEntity _livingEntity7 && _livingEntity7.getAttributes().hasAttribute(Attributes.SAFE_FALL_DISTANCE))
-					_livingEntity7.getAttribute(Attributes.SAFE_FALL_DISTANCE).setBaseValue((5 * TokiSpawnScale));
 				if (entity instanceof LivingEntity _livingEntity9 && _livingEntity9.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 					_livingEntity9.getAttribute(Attributes.MAX_HEALTH)
 							.setBaseValue(((entity instanceof LivingEntity _livingEntity8 && _livingEntity8.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity8.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 125));
@@ -58,9 +56,6 @@ public class GtsSpawnProcedure {
 				if (entity instanceof LivingEntity _livingEntity14 && _livingEntity14.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 					_livingEntity14.getAttribute(Attributes.MAX_HEALTH)
 							.setBaseValue(((entity instanceof LivingEntity _livingEntity13 && _livingEntity13.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity13.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 125));
-				if (entity instanceof LivingEntity _livingEntity16 && _livingEntity16.getAttributes().hasAttribute(Attributes.SAFE_FALL_DISTANCE))
-					_livingEntity16.getAttribute(Attributes.SAFE_FALL_DISTANCE)
-							.setBaseValue((5 * (entity instanceof LivingEntity _livingEntity15 && _livingEntity15.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity15.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)));
 				if (entity instanceof LivingEntity _livingEntity18 && _livingEntity18.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED))
 					_livingEntity18.getAttribute(Attributes.MOVEMENT_SPEED)
 							.setBaseValue((0.25 + 0.05 * (entity instanceof LivingEntity _livingEntity17 && _livingEntity17.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity17.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)));
