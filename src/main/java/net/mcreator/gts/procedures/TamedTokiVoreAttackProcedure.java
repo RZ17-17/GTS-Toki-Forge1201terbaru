@@ -93,8 +93,7 @@ public class TamedTokiVoreAttackProcedure {
 				entity.getPersistentData().putBoolean("BeingGrabbed", false);
 				// Healing is granted only after a valid wild target is fully swallowed; this includes wild Toki.
 				if (sourceentity instanceof LivingEntity _entity) {
-					float maxHealth = _entity.getMaxHealth();
-					_entity.setHealth(Math.min(maxHealth, _entity.getHealth() + maxHealth / 10.0F));
+					_entity.setHealth(_entity.getMaxHealth());
 				}
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
