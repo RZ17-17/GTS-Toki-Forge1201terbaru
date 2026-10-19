@@ -6,6 +6,8 @@ import net.mcreator.gts.entity.CandyEntity;
 import net.mcreator.gts.entity.TamedCandyEntity;
 import net.mcreator.gts.entity.TokiVariantEntity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.event.entity.living.LivingDestroyBlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -28,6 +30,18 @@ public final class PreventTamedCompanionBlockBreakProcedure {
                 || entity instanceof TamedCandyEntity
                 || entity instanceof TokiVariantEntity) {
             event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onCompanionExplosion(ExplosionEvent.Detonate event) {
+        Entity source = event.getExplosion().getExploder();
+        if (source instanceof TokiEntity
+                || source instanceof TamedTokiEntity
+                || source instanceof CandyEntity
+                || source instanceof TamedCandyEntity
+                || source instanceof TokiVariantEntity) {
+            event.getAffectedBlocks().clear();
         }
     }
 }
