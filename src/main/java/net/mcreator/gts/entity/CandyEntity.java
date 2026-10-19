@@ -11,7 +11,7 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animatable.GeoEntity;
 
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
-import net.minecraftforge.fml.common.asm.enumextension.EnumProxy;
+
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
