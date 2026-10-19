@@ -27,7 +27,7 @@ public class TamedTokiThrowProcedure {
 			_mobSetNoAi.setNoAi(true);
 		}
 		if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER, 35, 1, false, false));
+			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER.get(), 35, 1, false, false));
 		if (sourceentity.getXRot() < -35) {
 			{
 				Entity _ent = sourceentity;
