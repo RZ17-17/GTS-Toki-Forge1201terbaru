@@ -17,6 +17,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.core.registries.Registries;
 
 import net.mcreator.gts.entity.TokiEntity;
+import net.mcreator.gts.entity.AraEntity;
+import net.mcreator.gts.entity.FireflyEntity;
 import net.mcreator.gts.entity.TokiDroneEntity;
 import net.mcreator.gts.entity.TamedTokiEntity;
 import net.mcreator.gts.entity.TamedCandyEntity;
@@ -51,6 +53,11 @@ public class GtsModEntities {
 
 					.sized(0.4f, 2.96f));
 
+	public static final RegistryObject<EntityType<AraEntity>> ARA = register("ara",
+			EntityType.Builder.<AraEntity>of(AraEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).sized(0.6f, 2.8f));
+	public static final RegistryObject<EntityType<FireflyEntity>> FIREFLY = register("firefly",
+			EntityType.Builder.<FireflyEntity>of(FireflyEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).sized(0.6f, 2.8f));
+
 	// Start of user code block custom entities
 	// End of user code block custom entities
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
@@ -73,5 +80,7 @@ public class GtsModEntities {
 		event.put(CANDY.get(), CandyEntity.createAttributes().build());
 		event.put(TAMED_TOKI.get(), TamedTokiEntity.createAttributes().build());
 		event.put(TAMED_CANDY.get(), TamedCandyEntity.createAttributes().build());
+		event.put(ARA.get(), AraEntity.createAttributes().build());
+		event.put(FIREFLY.get(), FireflyEntity.createAttributes().build());
 	}
 }
