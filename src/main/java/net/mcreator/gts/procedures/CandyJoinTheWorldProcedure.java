@@ -42,7 +42,7 @@ public class CandyJoinTheWorldProcedure {
 			entity.getPersistentData().putBoolean("AttackCheck", false);
 			entity.getPersistentData().putBoolean("ExplosionImmunityCheck", false);
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER, 60, 1, false, false));
+				_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER.get(), 60, 1, false, false));
 			if ((entity instanceof CandyEntity animatable ? animatable.getTexture() : "null").equals("candyspawntexture")) {
 				if (entity instanceof Mob _mobSetNoAi) {
 					_mobSetNoAi.setNoAi(true);
