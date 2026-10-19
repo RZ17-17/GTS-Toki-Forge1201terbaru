@@ -133,7 +133,7 @@ public class TokiVoreAttackProcedure {
 				}
 				entity.getPersistentData().putBoolean("BeingGrabbed", false);
 				if (sourceentity instanceof LivingEntity _entity)
-					_entity.setHealth((float) ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) + (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) / 10));
+					_entity.setHealth(_entity.getMaxHealth());
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
 						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("gts:toki_swallow")), SoundSource.HOSTILE,
