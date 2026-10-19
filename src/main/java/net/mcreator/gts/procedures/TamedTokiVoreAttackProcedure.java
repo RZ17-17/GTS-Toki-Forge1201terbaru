@@ -7,6 +7,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -25,7 +26,7 @@ import net.mcreator.gts.GtsMod;
 
 public class TamedTokiVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
-		if (entity == null || sourceentity == null)
+		if (entity == null || sourceentity == null || !(entity instanceof Monster))
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
 		sourceentity.setDeltaMovement(new Vec3(0, 0, 0));

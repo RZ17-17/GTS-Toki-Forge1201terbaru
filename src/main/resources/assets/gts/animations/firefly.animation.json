@@ -58,7 +58,7 @@
 				},
 				"LeftForeArm": {
 					"rotation": {
-						"vector": [-201.46149, 76.55188, -99.50942]
+						"vector": [0, 0, 0]
 					}
 				},
 				"RightArm": {

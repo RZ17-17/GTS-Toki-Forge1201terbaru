@@ -258,7 +258,7 @@ public class TokiEntity extends Raider implements GeoEntity {
 	public void aiStep() {
 		super.aiStep();
 		if (this.isAlive()) {
-			if ((this.horizontalCollision || this.verticalCollision) && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
+			if ((this.horizontalCollision || this.verticalCollision) && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk && !this.getPersistentData().getBoolean("AttackCheck")) {
 				boolean flag = false;
 				AABB aabb = this.getBoundingBox().inflate(1);
 				for (BlockPos blockpos : BlockPos.betweenClosed(Mth.floor(aabb.minX), Mth.floor(aabb.minY), Mth.floor(aabb.minZ), Mth.floor(aabb.maxX), Mth.floor(aabb.maxY), Mth.floor(aabb.maxZ))) {

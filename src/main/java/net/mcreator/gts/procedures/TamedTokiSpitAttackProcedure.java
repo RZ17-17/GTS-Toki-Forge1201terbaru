@@ -73,10 +73,11 @@ public class TamedTokiSpitAttackProcedure {
 								}
 							}.getArrow(projectileLevel, sourceentity, 0, 0, (byte) 0);
 							Vec3 spitDirection = _shootFrom.getLookAngle().normalize();
+							double spitOffset = Math.max(1.2D, _shootFrom.getBbWidth() * 0.75D);
 							_entityToSpawn.setPos(
-								_shootFrom.getX() + spitDirection.x * Math.max(0.6D, _shootFrom.getBbWidth() * 0.45D),
-								_shootFrom.getEyeY() - 0.1D,
-								_shootFrom.getZ() + spitDirection.z * Math.max(0.6D, _shootFrom.getBbWidth() * 0.45D));
+								_shootFrom.getX() + spitDirection.x * spitOffset,
+								_shootFrom.getEyeY() + spitDirection.y * spitOffset - 0.1D,
+								_shootFrom.getZ() + spitDirection.z * spitOffset);
 							_entityToSpawn.shoot(spitDirection.x, spitDirection.y, spitDirection.z,
 								(float) Math.max(1.2D, (sourceentity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity10.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) / 3D), 0.25F);
 							projectileLevel.addFreshEntity(_entityToSpawn);
