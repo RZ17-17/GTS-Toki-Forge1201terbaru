@@ -72,9 +72,13 @@ public class TamedTokiSpitAttackProcedure {
 									return entityToSpawn;
 								}
 							}.getArrow(projectileLevel, sourceentity, 0, 0, (byte) 0);
-							_entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
-							_entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z,
-									(float) ((sourceentity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity10.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) / 3), 1);
+							Vec3 spitDirection = _shootFrom.getLookAngle().normalize();
+							_entityToSpawn.setPos(
+								_shootFrom.getX() + spitDirection.x * Math.max(0.6D, _shootFrom.getBbWidth() * 0.45D),
+								_shootFrom.getEyeY() - 0.1D,
+								_shootFrom.getZ() + spitDirection.z * Math.max(0.6D, _shootFrom.getBbWidth() * 0.45D));
+							_entityToSpawn.shoot(spitDirection.x, spitDirection.y, spitDirection.z,
+								(float) Math.max(1.2D, (sourceentity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity10.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) / 3D), 0.25F);
 							projectileLevel.addFreshEntity(_entityToSpawn);
 						}
 					}
