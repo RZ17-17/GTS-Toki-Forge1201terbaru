@@ -26,6 +26,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
+import net.mcreator.gts.entity.TokiVariantEntity;
+import net.mcreator.gts.entity.CandyEntity;
+import net.mcreator.gts.entity.TokiEntity;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
@@ -214,6 +217,10 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedCandyMobAggroCheckProcedure.execute(world, entity);
 			}
 		});
+		// Defend the owner against wild Toki-family entities.
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, false));
+		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, CandyEntity.class, false));
+		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> !target.isTame()));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
 						protected boolean canPerformAttack() {
 				LivingEntity entity = this.mob.getTarget();
@@ -221,7 +228,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				return this.isTimeToAttack()
 						&& (((entity.getX() - this.mob.getX()) * (entity.getX() - this.mob.getX())) + ((entity.getZ() - this.mob.getZ()) * (entity.getZ() - this.mob.getZ()))) <= ((this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5)
 								* (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5))
-						&& (entity.getY() - this.mob.getY()) >= -1 && (entity.getY() - this.mob.getY()) < (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() * 3) && this.mob.getSensing().hasLineOfSight(entity);
+						&& (entity.getY() - this.mob.getY()) >= -1 && (entity.getY() - this.mob.getY()) < (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() * 3) && (this.mob.isUnderWater() || entity.isUnderWater() || this.mob.getSensing().hasLineOfSight(entity));
 			}
 
 			@Override

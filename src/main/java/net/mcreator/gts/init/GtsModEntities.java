@@ -21,6 +21,8 @@ import net.mcreator.gts.entity.AraEntity;
 import net.mcreator.gts.entity.FireflyEntity;
 import net.mcreator.gts.entity.TokiDroneEntity;
 import net.mcreator.gts.entity.TamedTokiEntity;
+import net.mcreator.gts.entity.TamedAraEntity;
+import net.mcreator.gts.entity.TamedFireflyEntity;
 import net.mcreator.gts.entity.TamedCandyEntity;
 import net.mcreator.gts.entity.HeartBulletEntity;
 import net.mcreator.gts.entity.GiantessSpitEntity;
@@ -53,6 +55,11 @@ public class GtsModEntities {
 
 					.sized(0.4f, 2.96f));
 
+	public static final RegistryObject<EntityType<TamedAraEntity>> TAMED_ARA = register("tamed_ara",
+			EntityType.Builder.<TamedAraEntity>of(TamedAraEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).sized(0.6f, 2.8f));
+	public static final RegistryObject<EntityType<TamedFireflyEntity>> TAMED_FIREFLY = register("tamed_firefly",
+			EntityType.Builder.<TamedFireflyEntity>of(TamedFireflyEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).sized(0.6f, 2.8f));
+
 	public static final RegistryObject<EntityType<AraEntity>> ARA = register("ara",
 			EntityType.Builder.<AraEntity>of(AraEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).sized(0.6f, 2.8f));
 	public static final RegistryObject<EntityType<FireflyEntity>> FIREFLY = register("firefly",
@@ -80,6 +87,8 @@ public class GtsModEntities {
 		event.put(CANDY.get(), CandyEntity.createAttributes().build());
 		event.put(TAMED_TOKI.get(), TamedTokiEntity.createAttributes().build());
 		event.put(TAMED_CANDY.get(), TamedCandyEntity.createAttributes().build());
+		event.put(TAMED_ARA.get(), TamedAraEntity.createAttributes().build());
+		event.put(TAMED_FIREFLY.get(), TamedFireflyEntity.createAttributes().build());
 		event.put(ARA.get(), AraEntity.createAttributes().build());
 		event.put(FIREFLY.get(), FireflyEntity.createAttributes().build());
 	}

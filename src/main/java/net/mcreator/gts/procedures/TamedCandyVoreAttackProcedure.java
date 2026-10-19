@@ -8,6 +8,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Monster;
+import net.mcreator.gts.entity.TokiEntity;
+import net.mcreator.gts.entity.TokiVariantEntity;
+import net.mcreator.gts.entity.CandyEntity;
+import net.mcreator.gts.entity.TamedTokiEntity;
+import net.mcreator.gts.entity.TamedCandyEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.util.RandomSource;
@@ -26,6 +32,11 @@ import net.mcreator.gts.GtsMod;
 public class TamedCandyVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
+			return;
+		// Swallow only hostile mobs; protect passive mobs and all Toki-family entities.
+		if (!(entity instanceof Monster) || entity instanceof TokiEntity
+				|| entity instanceof TokiVariantEntity || entity instanceof CandyEntity
+				|| entity instanceof TamedTokiEntity || entity instanceof TamedCandyEntity)
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
 		sourceentity.setDeltaMovement(new Vec3(0, 0, 0));
@@ -75,8 +86,10 @@ public class TamedCandyVoreAttackProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 				entity.getPersistentData().putBoolean("BeingGrabbed", false);
-				if (sourceentity instanceof LivingEntity _entity)
-					_entity.setHealth((float) ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) + (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) / 10));
+				if (sourceentity instanceof LivingEntity _entity) {
+					float maxHealth = _entity.getMaxHealth();
+					_entity.setHealth(Math.min(maxHealth, _entity.getHealth() + maxHealth / 10.0F));
+				}
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
 						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("gts:candy.swallow")), SoundSource.HOSTILE,

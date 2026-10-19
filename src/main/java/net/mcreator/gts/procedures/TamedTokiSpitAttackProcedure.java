@@ -71,7 +71,7 @@ public class TamedTokiSpitAttackProcedure {
 									entityToSpawn.setSilent(true);
 									return entityToSpawn;
 								}
-							}.getArrow(projectileLevel, sourceentity, 40.0F, 0, (byte) 0);
+							}.getArrow(projectileLevel, sourceentity, 1000.0F, 0, (byte) 0);
 							Vec3 spitDirection = _shootFrom.getLookAngle().normalize();
 							double spitOffset = Math.max(1.2D, _shootFrom.getBbWidth() * 0.75D);
 							_entityToSpawn.setPos(

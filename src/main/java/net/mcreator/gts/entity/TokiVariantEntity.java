@@ -10,6 +10,9 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animatable.GeoEntity;
 
 import net.minecraft.world.entity.monster.Monster;
+import net.mcreator.gts.entity.AraEntity;
+import net.mcreator.gts.entity.FireflyEntity;
+import net.mcreator.gts.init.GtsModEntities;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -106,7 +109,13 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                 return !TokiVariantEntity.this.isTame() && super.canContinueToUse();
             }
         });
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<Monster>(this, Monster.class, false) {
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, false));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<CandyEntity>(this, CandyEntity.class, false));
+        this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> !target.isTame()) {
+            @Override public boolean canUse() { return TokiVariantEntity.this.isTame() && super.canUse(); }
+            @Override public boolean canContinueToUse() { return TokiVariantEntity.this.isTame() && super.canContinueToUse(); }
+        });
+        this.targetSelector.addGoal(8, new NearestAttackableTargetGoal<Monster>(this, Monster.class, false) {
             @Override
             public boolean canUse() {
                 return super.canUse();
@@ -132,12 +141,22 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         }
         if (!isTamingFood(stack)) return super.mobInteract(player, hand);
         if (!this.level().isClientSide()) {
+            TokiVariantEntity companion = null;
+            if (this instanceof AraEntity) companion = GtsModEntities.TAMED_ARA.get().create(this.level());
+            else if (this instanceof FireflyEntity) companion = GtsModEntities.TAMED_FIREFLY.get().create(this.level());
+            if (companion == null) return InteractionResult.PASS;
+            companion.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), this.getXRot());
+            companion.tame(player);
+            companion.applyTamedStats();
+            companion.setOrderedToSit(false);
+            companion.setPersistenceRequired();
+            if (this.hasCustomName()) {
+                companion.setCustomName(this.getCustomName());
+                companion.setCustomNameVisible(this.isCustomNameVisible());
+            }
             if (!player.getAbilities().instabuild) stack.shrink(1);
-            this.tame(player);
-            this.applyTamedStats();
-            this.setOrderedToSit(false);
-            this.setPersistenceRequired();
-            this.level().broadcastEntityEvent(this, (byte) 7);
+            this.level().addFreshEntity(companion);
+            this.discard();
         }
         return InteractionResult.sidedSuccess(this.level().isClientSide());
     }
