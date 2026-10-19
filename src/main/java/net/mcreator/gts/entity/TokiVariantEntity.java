@@ -85,9 +85,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
-        this.targetSelector.addGoal(3, new HurtByTargetGoal(this));
-        // Wild Ara and Firefly must acquire players as targets so their ranged spit goal can run.
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<Player>(this, Player.class, true) {
+        this.targetSelector.addGoal(3, new HurtByTargetGoal(this) {
             @Override
             public boolean canUse() {
                 return !TokiVariantEntity.this.isTame() && super.canUse();
@@ -97,7 +95,8 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                 return !TokiVariantEntity.this.isTame() && super.canContinueToUse();
             }
         });
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<Monster>(this, Monster.class, true) {
+        // Wild Ara and Firefly must acquire players as targets so their ranged spit goal can run.
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<Player>(this, Player.class, false) {
             @Override
             public boolean canUse() {
                 return !TokiVariantEntity.this.isTame() && super.canUse();
@@ -105,6 +104,16 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             @Override
             public boolean canContinueToUse() {
                 return !TokiVariantEntity.this.isTame() && super.canContinueToUse();
+            }
+        });
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<Monster>(this, Monster.class, false) {
+            @Override
+            public boolean canUse() {
+                return super.canUse();
+            }
+            @Override
+            public boolean canContinueToUse() {
+                return super.canContinueToUse();
             }
         });
     }
@@ -125,6 +134,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         if (!this.level().isClientSide()) {
             if (!player.getAbilities().instabuild) stack.shrink(1);
             this.tame(player);
+            this.applyTamedStats();
             this.setOrderedToSit(false);
             this.setPersistenceRequired();
             this.level().broadcastEntityEvent(this, (byte) 7);
@@ -136,6 +146,26 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         return stack.is(Items.CARROT) || stack.is(Items.GOLDEN_CARROT) || stack.is(Items.BREAD)
             || stack.is(Items.APPLE) || stack.is(Items.BAKED_POTATO) || stack.is(Items.POTATO)
             || stack.is(Items.BEETROOT) || stack.is(Items.MELON_SLICE);
+    }
+
+    private void applyTamedStats() {
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(500.0D);
+        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.36D);
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(40.0D);
+        this.getAttribute(Attributes.ARMOR).setBaseValue(20.0D);
+        this.getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(96.0D);
+        this.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+        this.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(4.0D);
+        this.setHealth(this.getMaxHealth());
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (!this.level().isClientSide() && this.isTame()
+                && this.getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue() < 40.0D) {
+            this.applyTamedStats();
+        }
     }
 
     @Override
@@ -154,13 +184,13 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
 
     public static AttributeSupplier.Builder createAttributes() {
         return TamableAnimal.createMobAttributes()
-            .add(Attributes.MAX_HEALTH, 300.0D)
-            .add(Attributes.MOVEMENT_SPEED, 0.32D)
-            .add(Attributes.ATTACK_DAMAGE, 35.0D)
-            .add(Attributes.ARMOR, 16.0D)
-            .add(Attributes.FOLLOW_RANGE, 64.0D)
-            .add(Attributes.KNOCKBACK_RESISTANCE, 0.9D)
-            .add(Attributes.ATTACK_KNOCKBACK, 3.0D);
+            .add(Attributes.MAX_HEALTH, 180.0D)
+            .add(Attributes.MOVEMENT_SPEED, 0.30D)
+            .add(Attributes.ATTACK_DAMAGE, 12.0D)
+            .add(Attributes.ARMOR, 8.0D)
+            .add(Attributes.FOLLOW_RANGE, 48.0D)
+            .add(Attributes.KNOCKBACK_RESISTANCE, 0.5D)
+            .add(Attributes.ATTACK_KNOCKBACK, 1.5D);
     }
 
     @Override

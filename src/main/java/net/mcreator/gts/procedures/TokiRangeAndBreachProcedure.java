@@ -63,7 +63,7 @@ public class TokiRangeAndBreachProcedure {
 				TargetHeight = entity.getY() - sourceentity.getY();
 				Scale = sourceentity instanceof LivingEntity _livingEntity32 && _livingEntity32.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity32.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0;
 				sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY() + 1), (entity.getZ())));
-				if (DistanceToTarget >= Scale * Scale * 100 && (sourceentity instanceof LivingEntity _liveEnt && entity != null ? _liveEnt.hasLineOfSight(entity) : false)) {
+				if (DistanceToTarget >= Scale * Scale * 100 && (sourceentity instanceof LivingEntity _liveEnt && entity != null ? (_liveEnt.hasLineOfSight(entity) || entity.isUnderWater() || sourceentity.isUnderWater()) : false)) {
 					TokiSniperAttackProcedure.execute(world, entity, sourceentity);
 				} else if (DistanceToTarget <= Scale * Scale * 16 && DistanceToTarget > (Scale + 0.5) * (Scale + 0.5) && Math.abs(TargetHeight) <= Scale * 2) {
 					TokiSpitAttackProcedure.execute(world, entity, sourceentity);

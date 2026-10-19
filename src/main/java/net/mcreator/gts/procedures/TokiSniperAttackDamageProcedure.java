@@ -9,6 +9,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
@@ -53,9 +54,12 @@ public class TokiSniperAttackDamageProcedure {
 					final Vec3 _center = new Vec3(X, Y, Z);
 					List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(3 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 					for (Entity entityiterator : _entfound) {
-						if (!entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction")))) {
-							entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.MOB_PROJECTILE), sourceentity), (float) ((sourceentity instanceof TamedTokiEntity ? 30 : 5) * Scale));
-						}
+						if (entityiterator != sourceentity
+                                && !(sourceentity instanceof TamableAnimal _tamed && entityiterator == _tamed.getOwner())
+                                && !entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction")))) {
+                            float shotDamage = (float) ((sourceentity instanceof TamedTokiEntity ? 40.0D : 2.0D) * Math.max(1.0D, Math.min(Scale, 4.0D)));
+                            entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.MOB_PROJECTILE), sourceentity), shotDamage);
+                        }
 					}
 				}
 				X = X + sourceentity.getLookAngle().x * 3;

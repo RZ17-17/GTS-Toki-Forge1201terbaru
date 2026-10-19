@@ -37,7 +37,7 @@ public class GiantessSpitHitsEntityProcedure {
 								(1 + 2 * (sourceentity instanceof LivingEntity _livingEntity5 && _livingEntity5.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity5.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)) / 2d),
 						e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 				for (Entity entityiterator : _entfound) {
-					if (!(entityiterator instanceof TokiEntity)) {
+					if (entityiterator != sourceentity && entityiterator != immediatesourceentity.getOwner() && !(entityiterator instanceof TokiEntity)) {
 						if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide())
 							_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1));
 					}

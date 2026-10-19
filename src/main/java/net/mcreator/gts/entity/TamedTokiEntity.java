@@ -137,27 +137,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.targetSelector.addGoal(1, new HurtByTargetGoal(this) {
-			@Override
-			public boolean canUse() {
-				double x = TamedTokiEntity.this.getX();
-				double y = TamedTokiEntity.this.getY();
-				double z = TamedTokiEntity.this.getZ();
-				Entity entity = TamedTokiEntity.this;
-				Level world = TamedTokiEntity.this.level();
-				return super.canUse() && TamedTokiAiConditionProcedure.execute(entity);
-			}
-
-			@Override
-			public boolean canContinueToUse() {
-				double x = TamedTokiEntity.this.getX();
-				double y = TamedTokiEntity.this.getY();
-				double z = TamedTokiEntity.this.getZ();
-				Entity entity = TamedTokiEntity.this;
-				Level world = TamedTokiEntity.this.level();
-				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
-			}
-		}.setAlertOthers());
+		// Do not retaliate against players who hit Toki; protect the owner through OwnerHurtByTargetGoal.
 		this.goalSelector.addGoal(2, new OwnerHurtByTargetGoal(this) {
 			@Override
 			public boolean canUse() {

@@ -51,7 +51,7 @@ public class TamedTokiRangeAndBreachProcedure {
 				DistanceToTarget = Math.pow(sourceentity.getX() - entity.getX(), 2) + Math.pow(sourceentity.getZ() - entity.getZ(), 2);
 				TargetHeight = entity.getY() - sourceentity.getY();
 				sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY() + 1), (entity.getZ())));
-				if (DistanceToTarget >= Scale * Scale * 16 && (sourceentity instanceof LivingEntity _liveEnt && entity != null ? _liveEnt.hasLineOfSight(entity) : false)) {
+				if (DistanceToTarget >= Scale * Scale * 16 && (sourceentity instanceof LivingEntity _liveEnt && entity != null ? (_liveEnt.hasLineOfSight(entity) || entity.isUnderWater() || sourceentity.isUnderWater()) : false)) {
 					TamedTokiSniperAttackProcedure.execute(world, entity, sourceentity);
 				} else if (DistanceToTarget <= Scale * Scale * 16 && DistanceToTarget > (Scale + 0.5) * (Scale + 0.5) && Math.abs(TargetHeight) <= Scale * Scale * 4) {
 					TamedTokiSpitAttackProcedure.execute(world, entity, sourceentity);

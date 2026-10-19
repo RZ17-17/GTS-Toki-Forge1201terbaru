@@ -28,8 +28,10 @@ import net.mcreator.gts.GtsMod;
 
 public class TamedTokiVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
+		if (entity == null || sourceentity == null)
+			return;
 		boolean wildTokiTarget = entity instanceof TokiEntity || (entity instanceof TokiVariantEntity variant && !variant.isTame());
-		if (entity == null || sourceentity == null || (!(entity instanceof Monster) && !wildTokiTarget))
+		if (!(entity instanceof Monster) && !wildTokiTarget)
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
 		sourceentity.setDeltaMovement(new Vec3(0, 0, 0));
@@ -83,8 +85,11 @@ public class TamedTokiVoreAttackProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 				entity.getPersistentData().putBoolean("BeingGrabbed", false);
-				if (sourceentity instanceof LivingEntity _entity)
-					_entity.setHealth((float) ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) + (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) / 10));
+				// Wild Toki may be eaten, but only hostile non-Toki mobs restore health.
+				if (!wildTokiTarget && sourceentity instanceof LivingEntity _entity) {
+					float maxHealth = _entity.getMaxHealth();
+					_entity.setHealth(Math.min(maxHealth, _entity.getHealth() + maxHealth / 10.0F));
+				}
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
 						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("gts:toki_swallow")), SoundSource.HOSTILE,

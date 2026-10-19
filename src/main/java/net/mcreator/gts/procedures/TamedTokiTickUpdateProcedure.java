@@ -15,6 +15,8 @@ public class TamedTokiTickUpdateProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		// Do not run ranged or breach attacks during an active melee animation.
+		if (entity.getPersistentData().getBoolean("AttackCheck")) return;
 		Entity targetEntity = null;
 		if (!world.isClientSide() && !((entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null) == null)) {
 			targetEntity = entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null;
