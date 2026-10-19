@@ -13,9 +13,7 @@ public class TamedTokiTrappedBreachProcedure {
 	public static void execute(LevelAccessor world, Entity sourceentity) {
 		if (sourceentity == null)
 			return;
-		// Terrain damage is disabled for tamed companions; preserve blocks in all combat paths.
-		return;
-		if (!GtsModVariables.MapVariables.get(world).DisableTrappedBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
+		if (false && !GtsModVariables.MapVariables.get(world).DisableTrappedBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
 			sourceentity.getPersistentData().putBoolean("AttackCheck", true);
 			sourceentity.getPersistentData().putBoolean("ExplosionImmunityCheck", true);
 			if (sourceentity instanceof TamedTokiEntity _datEntSetS)
