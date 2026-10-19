@@ -7,6 +7,8 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.MultiBufferSource;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.mcreator.gts.entity.model.TokiDroneModel;
