@@ -2,6 +2,7 @@ package net.mcreator.gts.procedures;
 
 
 import net.mcreator.gts.init.GtsModAttributes;
+import net.mcreator.gts.entity.TamedTokiEntity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
@@ -53,7 +54,7 @@ public class TokiSniperAttackDamageProcedure {
 					List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(3 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 					for (Entity entityiterator : _entfound) {
 						if (!entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction")))) {
-							entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.MOB_PROJECTILE), sourceentity), (float) (15 * Scale));
+							entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.MOB_PROJECTILE), sourceentity), (float) ((sourceentity instanceof TamedTokiEntity ? 30 : 5) * Scale));
 						}
 					}
 				}
