@@ -245,27 +245,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, (float) 10, (float) 4, false) {
-			@Override
-			public boolean canUse() {
-				double x = TamedTokiEntity.this.getX();
-				double y = TamedTokiEntity.this.getY();
-				double z = TamedTokiEntity.this.getZ();
-				Entity entity = TamedTokiEntity.this;
-				Level world = TamedTokiEntity.this.level();
-				return super.canUse() && TamedTokiAiConditionProcedure.execute(entity);
-			}
-
-			@Override
-			public boolean canContinueToUse() {
-				double x = TamedTokiEntity.this.getX();
-				double y = TamedTokiEntity.this.getY();
-				double z = TamedTokiEntity.this.getZ();
-				Entity entity = TamedTokiEntity.this;
-				Level world = TamedTokiEntity.this.level();
-				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
-			}
-		});
+		this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.25D, 4.0F, 2.0F, false));
 		this.goalSelector.addGoal(7, new FloatGoal(this));
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1) {
 			@Override
@@ -462,6 +442,16 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	public void aiStep() {
 		super.aiStep();
 		if (this.isAlive()) {
+			// Drop stale or distant combat targets so following the owner resumes after a fight.
+			if (!this.level().isClientSide() && this.isTame() && !this.isOrderedToSit()) {
+				LivingEntity owner = this.getOwner();
+				LivingEntity target = this.getTarget();
+				if (target != null && (!target.isAlive() || (owner != null && owner.isAlive()
+						&& this.distanceToSqr(owner) > 256.0D && target.distanceToSqr(owner) > 256.0D))) {
+					this.setTarget(null);
+					this.getNavigation().stop();
+				}
+			}
 			if (!this.level().isClientSide() && this.isTame()) {
 				// Keep the synchronized healing animation visible briefly after each real heal.
 				int healAnimationTicks = this.getPersistentData().getInt("TamedTokiHealAnimationTicks");
