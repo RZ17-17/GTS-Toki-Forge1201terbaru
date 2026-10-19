@@ -149,10 +149,10 @@ public class GtsNavigation extends GroundPathNavigation {
 						if (!block.isPathfindable(this.level, pos, PathComputationType.LAND))
 							return false;
 					}
-					BlockPathTypes below = WalkNodeEvaluator.getBlockPathTypeStatic(this.level, BlockPos.containing(x, y0 - 1, z));
+					BlockPathTypes below = WalkNodeEvaluator.getBlockPathTypeStatic(this.level, new BlockPos.MutableBlockPos(x, y0 - 1, z));
 					if (below == BlockPathTypes.WATER || below == BlockPathTypes.LAVA || below == BlockPathTypes.OPEN)
 						return false;
-					BlockPathTypes in = WalkNodeEvaluator.getBlockPathTypeStatic(this.level, BlockPos.containing(x, y0, z));
+					BlockPathTypes in = WalkNodeEvaluator.getBlockPathTypeStatic(this.level, new BlockPos.MutableBlockPos(x, y0, z));
 					float priority = this.mob.getPathfindingMalus(in);
 					if (priority < 0.0F || priority >= 8.0F)
 						return false;
