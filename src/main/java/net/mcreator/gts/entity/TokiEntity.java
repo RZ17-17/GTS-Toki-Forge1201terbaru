@@ -22,6 +22,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.entity.player.Player;
@@ -145,6 +148,35 @@ public class TokiEntity extends Raider implements GeoEntity {
 		this.goalSelector.addGoal(6, new FloatGoal(this));
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1));
+	}
+
+	@Override
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+		ItemStack stack = player.getItemInHand(hand);
+		if (!isTamingFood(stack)) return super.mobInteract(player, hand);
+		if (this.level().isClientSide()) return InteractionResult.SUCCESS;
+		TamedTokiEntity companion = GtsModEntities.TAMED_TOKI.get().create(this.level());
+		if (companion == null) return InteractionResult.PASS;
+		companion.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), this.getXRot());
+		companion.setTexture(this.getTexture());
+		companion.setOwner(player);
+		companion.tame(player);
+		companion.setPersistenceRequired();
+		companion.setHealth(companion.getMaxHealth());
+		if (this.hasCustomName()) {
+			companion.setCustomName(this.getCustomName());
+			companion.setCustomNameVisible(this.isCustomNameVisible());
+		}
+		if (!player.getAbilities().instabuild) stack.shrink(1);
+		this.level().addFreshEntity(companion);
+		this.discard();
+		return InteractionResult.CONSUME;
+	}
+
+	private static boolean isTamingFood(ItemStack stack) {
+		return stack.is(Items.CARROT) || stack.is(Items.GOLDEN_CARROT) || stack.is(Items.BREAD)
+			|| stack.is(Items.APPLE) || stack.is(Items.BAKED_POTATO) || stack.is(Items.POTATO)
+			|| stack.is(Items.BEETROOT) || stack.is(Items.MELON_SLICE);
 	}
 
 	protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
