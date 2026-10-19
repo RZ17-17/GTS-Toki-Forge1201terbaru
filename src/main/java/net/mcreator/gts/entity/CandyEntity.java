@@ -78,8 +78,7 @@ public class CandyEntity extends Raider implements GeoEntity {
 	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.STRING);
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.STRING);
-	public static final EnumProxy<Raid.RaiderType> RAIDER_TYPE = new EnumProxy<>(Raid.RaiderType.class, GtsModEntities.CANDY, new int[]{0, 0, 0, 1, 1, 1, 1, 1});
-	public static final EntityDataAccessor<Integer> DATA_passengerSlots = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.INT);
+		public static final EntityDataAccessor<Integer> DATA_passengerSlots = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<String> DATA_AnimationDecision = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.STRING);
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	private boolean swinging;
