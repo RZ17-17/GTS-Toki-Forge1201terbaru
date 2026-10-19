@@ -68,7 +68,7 @@ public class WaveEffect {
 					// Damage entities within the current position
 					AABB aabb = new AABB(pos).inflate(0.5);
 					for (Entity entity : world.getEntitiesOfClass(LivingEntity.class, aabb)) {
-						if (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction"))) || (entity instanceof LivingEntity _livEnt0 && _livEnt0.hasEffect(GtsModMobEffects.SHOCK_WAVE_IMMUNE))) {
+						if (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction"))) || (entity instanceof LivingEntity _livEnt0 && _livEnt0.hasEffect(GtsModMobEffects.SHOCK_WAVE_IMMUNE.get()))) {
 							continue;
 						}
 						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.FALL)), damage);
