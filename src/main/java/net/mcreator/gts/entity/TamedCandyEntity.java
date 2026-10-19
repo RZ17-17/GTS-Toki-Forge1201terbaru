@@ -371,7 +371,13 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		} else {
 			if (this.isTame()) {
 				if (this.isOwnedBy(sourceentity)) {
-					if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
+					if (itemstack.isEmpty()) {
+						// Empty-hand right-click toggles sitting for the owner.
+						this.setOrderedToSit(!this.isOrderedToSit());
+						this.navigation.stop();
+						this.setTarget(null);
+						retval = InteractionResult.CONSUME;
+					} else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
 						this.usePlayerItem(sourceentity, hand, itemstack);
 						FoodProperties foodproperties = itemstack.getFoodProperties(this);
 						float nutrition = foodproperties != null ? (float) foodproperties.getNutrition() : 1;
@@ -401,7 +407,10 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 					this.setPersistenceRequired();
 			}
 		}
-		sourceentity.startRiding(this);
+		// Preserve Candy's ride interaction when holding an item, but an empty-hand
+		// owner interaction is reserved for the sit/stand toggle.
+		if (!(this.isTame() && this.isOwnedBy(sourceentity) && itemstack.isEmpty()))
+			sourceentity.startRiding(this);
 		return retval;
 	}
 
