@@ -215,11 +215,10 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 			}
 		});
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
-			protected boolean canPerformAttack(LivingEntity entity) {
-				return this.isTimeToAttack()
-						&& (((entity.getX() - this.mob.getX()) * (entity.getX() - this.mob.getX())) + ((entity.getZ() - this.mob.getZ()) * (entity.getZ() - this.mob.getZ()))) <= ((this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5)
-								* (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5))
-						&& (entity.getY() - this.mob.getY()) >= -1 && (entity.getY() - this.mob.getY()) < (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() * 3) && this.mob.getSensing().hasLineOfSight(entity);
+			@Override
+			protected double getAttackReachSqr(LivingEntity entity) {
+				double reach = this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5;
+				return reach * reach;
 			}
 
 			@Override
@@ -523,7 +522,8 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		return this.cache;
 	}
 
-	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
+	@Override
+	public Vec3 getPassengerRidingPosition(Entity entity) {
 		int index = this.getPassengers().indexOf(entity);
 		Vec3 offset = getPassengerSlotOffset(index);
 		return offset;
