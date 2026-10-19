@@ -22,11 +22,14 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.gts.init.GtsModMobEffects;
 import net.mcreator.gts.entity.TamedTokiEntity;
+import net.mcreator.gts.entity.TokiEntity;
+import net.mcreator.gts.entity.TokiVariantEntity;
 import net.mcreator.gts.GtsMod;
 
 public class TamedTokiVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
-		if (entity == null || sourceentity == null || !(entity instanceof Monster))
+		boolean wildTokiTarget = entity instanceof TokiEntity || (entity instanceof TokiVariantEntity variant && !variant.isTame());
+		if (entity == null || sourceentity == null || (!(entity instanceof Monster) && !wildTokiTarget))
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
 		sourceentity.setDeltaMovement(new Vec3(0, 0, 0));
