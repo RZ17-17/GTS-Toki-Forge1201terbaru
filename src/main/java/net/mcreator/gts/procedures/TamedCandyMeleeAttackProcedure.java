@@ -60,7 +60,7 @@ public class TamedCandyMeleeAttackProcedure {
 				entity.getPersistentData().putDouble("TargetRangeAttack", 0);
 				sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY()), (entity.getZ())));
 				TargetHeight = entity.getY() - sourceentity.getY();
-				if (!(sourceentity instanceof LivingEntity _livEnt13 && _livEnt13.hasEffect(GtsModMobEffects.GTS_TIMER)) && !entity.getPersistentData().getBoolean("BeingGrabbed") && !GtsModVariables.MapVariables.get(world).DisableVore
+				if (!(sourceentity instanceof LivingEntity _livEnt13 && _livEnt13.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed") && !GtsModVariables.MapVariables.get(world).DisableVore
 						&& (sourceentity instanceof LivingEntity _livingEntity15 && _livingEntity15.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity15.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > 2 && !(entity instanceof Player)
 						&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 50
 						&& (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 0.7
