@@ -12,6 +12,7 @@ import software.bernie.geckolib.animatable.GeoEntity;
 
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -55,7 +56,11 @@ import net.minecraft.util.Mth;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -69,6 +74,7 @@ import net.mcreator.gts.procedures.TamedTokiAiConditionProcedure;
 import net.mcreator.gts.procedures.GtsDeathProcedure;
 import net.mcreator.gts.network.GtsModVariables;
 import net.mcreator.gts.init.GtsModEntities;
+import net.mcreator.gts.world.inventory.TamedGtsInteractionMenuMenu;
 import net.mcreator.gts.init.GtsModAttributes;
 import net.mcreator.gts.GtsNavigation;
 import net.mcreator.gts.GtsMoveHelper;
@@ -348,8 +354,18 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		} else {
 			if (this.isTame()) {
 				if (this.isOwnedBy(sourceentity)) {
-					// Empty-hand right-click toggles sitting; food is not used for healing.
-					if (itemstack.isEmpty() && !sourceentity.isShiftKeyDown()) {
+					// Shift-right-click opens the owner controls and selects this Toki for size changes.
+					if (itemstack.isEmpty() && sourceentity.isShiftKeyDown()) {
+						sourceentity.getPersistentData().putString("targetedTamedGiantess", this.getUUID().toString());
+						if (sourceentity instanceof ServerPlayer serverPlayer) {
+							NetworkHooks.openScreen(serverPlayer,
+									new SimpleMenuProvider((id, inventory, player) -> new TamedGtsInteractionMenuMenu(id, inventory, null), Component.literal("Toki Controls")),
+									buf -> buf.writeBlockPos(this.blockPosition()));
+						}
+						retval = InteractionResult.CONSUME;
+					} else if (itemstack.isEmpty()) {
+						// Empty-hand right-click toggles sitting; food is not used for healing.
+						
 						this.setOrderedToSit(!this.isOrderedToSit());
 						this.navigation.stop();
 						this.setTarget(null);
