@@ -31,7 +31,9 @@ public class TamedTokiVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || !(sourceentity instanceof TamedTokiEntity))
 			return;
-		// Healing/eating is restricted to hostile monsters. Never consume wild Toki, Ara, Firefly, or other companions.
+		// A tamed Toki may eat hostile monsters or wild Toki variants, but never tamed companions.
+		boolean wildTokiTarget = entity instanceof TokiEntity
+				|| (entity instanceof TokiVariantEntity variantTarget && !variantTarget.isTame());
 		boolean hostileMobTarget = entity instanceof Monster
 				&& !(entity instanceof net.minecraft.world.entity.TamableAnimal tameTarget && tameTarget.isTame())
 				&& !(entity instanceof TokiEntity)
@@ -39,7 +41,7 @@ public class TamedTokiVoreAttackProcedure {
 				&& !(entity instanceof CandyEntity)
 				&& !(entity instanceof TamedTokiEntity)
 				&& !(entity instanceof net.mcreator.gts.entity.TamedCandyEntity);
-		if (!hostileMobTarget)
+		if (!hostileMobTarget && !wildTokiTarget)
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
 		sourceentity.setDeltaMovement(new Vec3(0, 0, 0));
@@ -93,7 +95,7 @@ public class TamedTokiVoreAttackProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 				entity.getPersistentData().putBoolean("BeingGrabbed", false);
-				// Healing is granted only after a hostile monster is fully swallowed.
+				// Healing is granted only after an allowed target is fully swallowed.
 				if (sourceentity instanceof LivingEntity _entity) {
 					_entity.setHealth(_entity.getMaxHealth());
 				}
