@@ -19,6 +19,8 @@ public class TamedTokiUpperBreachProcedure {
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
+		// Terrain damage is disabled for tamed companions; preserve blocks in all combat paths.
+		return;
 		if (!GtsModVariables.MapVariables.get(world).DisableUpperBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
 			if (sourceentity instanceof TamedTokiEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(TamedTokiEntity.DATA_AnimationDecision, "Toki.UpperBreach");
