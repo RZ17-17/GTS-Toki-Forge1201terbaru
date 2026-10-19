@@ -11,7 +11,7 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animatable.GeoEntity;
 
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
-import net.minecraftforge.fml.common.asm.enumextension.EnumProxy;
+
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -81,8 +81,7 @@ public class TokiEntity extends Raider implements GeoEntity {
 	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.STRING);
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.STRING);
-	public static final EnumProxy<Raid.RaiderType> RAIDER_TYPE = new EnumProxy<>(Raid.RaiderType.class, GtsModEntities.TOKI, new int[]{0, 0, 0, 1, 1, 1, 1, 1});
-	public static final EntityDataAccessor<Integer> DATA_passengerSlots = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.INT);
+		public static final EntityDataAccessor<Integer> DATA_passengerSlots = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<String> DATA_AnimationDecision = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.STRING);
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	private boolean swinging;
