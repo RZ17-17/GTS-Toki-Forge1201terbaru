@@ -15,6 +15,7 @@ import net.mcreator.gts.entity.FireflyEntity;
 import net.mcreator.gts.init.GtsModEntities;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.AgeableMob;
@@ -28,7 +29,6 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.FollowOwnerGoal;
-import net.minecraft.world.entity.ai.goal.SitWhenOrderedToGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -60,7 +60,6 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
         this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, true) {
             @Override public boolean canUse() {
                 return TokiVariantEntity.this.getTarget() == null && super.canUse();
@@ -154,7 +153,10 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                             buf -> buf.writeBlockPos(this.blockPosition()));
                     }
                 } else {
-                    this.setOrderedToSit(true);
+                    this.setOrderedToSit(false);
+                    if (!this.level().isClientSide() && !this.isVehicle()) {
+                        player.startRiding(this);
+                    }
                 }
                 return InteractionResult.sidedSuccess(this.level().isClientSide());
             }
@@ -226,6 +228,23 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                 }
             }
         }
+    }
+
+    @Override
+    public void travel(Vec3 travelVector) {
+        if (this.isVehicle() && this.getPassengers().get(0) instanceof LivingEntity rider) {
+            this.setYRot(rider.getYRot());
+            this.yRotO = this.getYRot();
+            this.setXRot(rider.getXRot() * 0.5F);
+            this.setRot(this.getYRot(), this.getXRot());
+            this.yBodyRot = rider.getYRot();
+            this.yHeadRot = rider.getYRot();
+            this.setSpeed((float) this.getAttributeValue(Attributes.MOVEMENT_SPEED));
+            super.travel(new Vec3(rider.xxa, 0.0D, rider.zza));
+            this.calculateEntityAnimation(true);
+            return;
+        }
+        super.travel(travelVector);
     }
 
     @Override
