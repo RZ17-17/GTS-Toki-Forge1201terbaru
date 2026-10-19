@@ -242,7 +242,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedCandyAiConditionProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, (float) 10, (float) 4) {
+		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, (float) 10, (float) 4, false) {
 			@Override
 			public boolean canUse() {
 				double x = TamedCandyEntity.this.getX();
@@ -365,7 +365,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 					if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
 						this.usePlayerItem(sourceentity, hand, itemstack);
 						FoodProperties foodproperties = itemstack.getFoodProperties(this);
-						float nutrition = foodproperties != null ? (float) foodproperties.nutrition() : 1;
+						float nutrition = foodproperties != null ? (float) foodproperties.getNutrition() : 1;
 						this.heal(nutrition);
 						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
 					} else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
@@ -404,8 +404,8 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
-	public EntityDimensions getDefaultDimensions(Pose pose) {
-		return super.getDefaultDimensions(pose).scale(1f);
+	public EntityDimensions getDimensions(Pose pose) {
+		return super.getDimensions(pose).scale(1f);
 	}
 
 	@Override
@@ -478,7 +478,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 6);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 25);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 80);
-		builder = builder.add(Attributes.STEP_HEIGHT, 2.6);
+		builder = builder.add(net.minecraftforge.common.ForgeMod.STEP_HEIGHT_ADDITION.get(), 2.6);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 2);
 		return builder;
@@ -501,7 +501,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		++this.deathTime;
 		if (this.deathTime == 45) {
 			this.remove(TamedCandyEntity.RemovalReason.KILLED);
-			this.dropExperience(this);
+			this.dropExperience();
 		}
 	}
 
