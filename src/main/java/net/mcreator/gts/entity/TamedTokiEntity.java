@@ -149,7 +149,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				double z = TamedTokiEntity.this.getZ();
 				Entity entity = TamedTokiEntity.this;
 				Level world = TamedTokiEntity.this.level();
-				return super.canUse() && TamedTokiAiConditionProcedure.execute(entity);
+				return !TamedTokiEntity.this.getEntityData().get(TamedTokiEntity.DATA_Sleep) && super.canUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 
 			@Override
@@ -159,7 +159,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				double z = TamedTokiEntity.this.getZ();
 				Entity entity = TamedTokiEntity.this;
 				Level world = TamedTokiEntity.this.level();
-				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
+				return !TamedTokiEntity.this.getEntityData().get(TamedTokiEntity.DATA_Sleep) && super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 		});
 		this.targetSelector.addGoal(3, new OwnerHurtTargetGoal(this) {
@@ -241,11 +241,11 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.35D, 3.0F, 1.5F, false) {
             @Override
             public boolean canUse() {
-                return TamedTokiEntity.this.getTarget() == null && super.canUse();
+                return !TamedTokiEntity.this.getEntityData().get(TamedTokiEntity.DATA_Sleep) && TamedTokiEntity.this.getTarget() == null && super.canUse();
             }
             @Override
             public boolean canContinueToUse() {
-                return TamedTokiEntity.this.getTarget() == null && super.canContinueToUse();
+                return !TamedTokiEntity.this.getEntityData().get(TamedTokiEntity.DATA_Sleep) && TamedTokiEntity.this.getTarget() == null && super.canContinueToUse();
             }
         });
 		this.goalSelector.addGoal(7, new FloatGoal(this));
