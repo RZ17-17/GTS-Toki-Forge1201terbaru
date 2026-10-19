@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 public class TokiDroneBehaviorProcedure {
 	@SubscribeEvent
 	public static void onEntitySetsAttackTarget(LivingChangeTargetEvent event) {
-		execute(event, event.getEntity().level(), event.getOriginalAboutToBeSetTarget(), event.getEntity());
+		execute(event, event.getEntity().level(), event.getNewTarget(), event.getEntity());
 	}
 
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
