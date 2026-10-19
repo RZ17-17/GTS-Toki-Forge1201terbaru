@@ -363,15 +363,8 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		} else {
 			if (this.isTame()) {
 				if (this.isOwnedBy(sourceentity)) {
-					if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-						this.usePlayerItem(sourceentity, hand, itemstack);
-						FoodProperties foodproperties = itemstack.getFoodProperties(this);
-						float nutrition = foodproperties != null ? (float) foodproperties.nutrition() : 1;
-						this.heal(nutrition);
-						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-					} else {
-						retval = super.mobInteract(sourceentity, hand);
-					}
+					// Tamed Toki heals through its passive regeneration, not by eating food.
+					retval = super.mobInteract(sourceentity, hand);
 				}
 			} else if (this.isFood(itemstack)) {
 				this.usePlayerItem(sourceentity, hand, itemstack);
