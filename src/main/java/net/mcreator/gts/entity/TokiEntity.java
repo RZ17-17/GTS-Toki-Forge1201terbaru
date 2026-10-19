@@ -82,7 +82,6 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class TokiEntity extends Raider implements GeoEntity {
-	public static final EntityDataAccessor<Boolean> IS_TAMED = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.STRING);
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(TokiEntity.class, EntityDataSerializers.STRING);
@@ -94,7 +93,6 @@ public class TokiEntity extends Raider implements GeoEntity {
 	private long lastSwing;
 	public String animationprocedure = "empty";
 	private Map<Integer, Vec3> passengerSlots;
-	@Nullable private java.util.UUID tokiOwner;
 
 	public TokiEntity(EntityType<TokiEntity> type, Level world) {
 		super(type, world);
@@ -116,7 +114,6 @@ public class TokiEntity extends Raider implements GeoEntity {
 	@Override
 	protected void defineSynchedData() {
 		super.defineSynchedData();
-		this.entityData.define(IS_TAMED, false);
 		this.entityData.define(SHOOT, false);
 		this.entityData.define(ANIMATION, "undefined");
 		this.entityData.define(TEXTURE, "asuma_toki_spawn");
@@ -193,8 +190,6 @@ public class TokiEntity extends Raider implements GeoEntity {
 	@Override
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
-		compound.putBoolean("TokiTamed", this.isTokiTamed());
-		if (this.tokiOwner != null) compound.putUUID("TokiOwner", this.tokiOwner);
 		compound.putString("Texture", this.getTexture());
 		compound.putInt("DatapassengerSlots", this.entityData.get(DATA_passengerSlots));
 		compound.putString("DataAnimationDecision", this.entityData.get(DATA_AnimationDecision));
@@ -203,8 +198,6 @@ public class TokiEntity extends Raider implements GeoEntity {
 	@Override
 	public void readAdditionalSaveData(CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
-		this.entityData.set(IS_TAMED, compound.getBoolean("TokiTamed"));
-		this.tokiOwner = compound.hasUUID("TokiOwner") ? compound.getUUID("TokiOwner") : null;
 		if (compound.contains("Texture"))
 			this.setTexture(compound.getString("Texture"));
 		if (compound.contains("DatapassengerSlots"))
@@ -248,38 +241,6 @@ public class TokiEntity extends Raider implements GeoEntity {
 			}
 		}
 		this.updateSwingTime();
-	}
-
-	public boolean isTokiTamed() {
-		return this.entityData.get(IS_TAMED);
-	}
-
-	public void setTokiTamed(boolean tamed, @Nullable Player owner) {
-		this.entityData.set(IS_TAMED, tamed);
-		this.tokiOwner = owner == null ? null : owner.getUUID();
-		if (tamed) {
-			this.setTarget(null);
-			this.setPersistenceRequired();
-		}
-	}
-
-	@Override
-	public InteractionResult mobInteract(Player player, InteractionHand hand) {
-		ItemStack stack = player.getItemInHand(hand);
-		if (!this.isTokiTamed() && stack.is(GtsModItems.TOKI_CRYSTAL.get())) {
-			if (!this.level().isClientSide) {
-				this.setTokiTamed(true, player);
-				if (!player.getAbilities().instabuild) stack.shrink(1);
-				this.level().broadcastEntityEvent(this, (byte) 7);
-			}
-			return InteractionResult.sidedSuccess(this.level().isClientSide);
-		}
-		return super.mobInteract(player, hand);
-	}
-
-	@Override
-	public boolean canAttack(LivingEntity target) {
-		return !this.isTokiTamed() && super.canAttack(target);
 	}
 
 	private static boolean isInTrialChambers(ServerLevelAccessor world, BlockPos pos) {
