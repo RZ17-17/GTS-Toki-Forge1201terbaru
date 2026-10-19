@@ -461,6 +461,8 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	public boolean hurt(DamageSource source, float amount) {
 		Entity attacker = source.getEntity();
+		// Prevent hits from the owner and allied tamed companions.
+		if (this.isTame() && attacker != null && this.isAlliedTo(attacker)) return false;
 		if (this.isTame() && attacker instanceof TamableAnimal tameAttacker && tameAttacker.isTame()
 				&& (attacker instanceof TamedTokiEntity || attacker instanceof TamedCandyEntity || attacker instanceof TokiVariantEntity)) return false;
 		return super.hurt(source, amount);
