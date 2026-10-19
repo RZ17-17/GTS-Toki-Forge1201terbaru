@@ -19,7 +19,7 @@ public class TamedTokiUpperBreachProcedure {
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		if (false && !GtsModVariables.MapVariables.get(world).DisableUpperBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
+		if (!GtsModVariables.MapVariables.get(world).DisableUpperBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
 			if (sourceentity instanceof TamedTokiEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(TamedTokiEntity.DATA_AnimationDecision, "Toki.UpperBreach");
 			if (sourceentity instanceof Mob _mobSetNoAi) {
@@ -39,7 +39,7 @@ public class TamedTokiUpperBreachProcedure {
 								(sourceentity.getZ() + sourceentity.getLookAngle().z
 										* (sourceentity instanceof LivingEntity _livingEntity17 && _livingEntity17.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity17.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)),
 								(float) ((sourceentity instanceof LivingEntity _livingEntity18 && _livingEntity18.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity18.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 2),
-								Level.ExplosionInteraction.MOB);
+								Level.ExplosionInteraction.NONE);
 				}
 			});
 			GtsMod.queueServerWork(40, () -> {
