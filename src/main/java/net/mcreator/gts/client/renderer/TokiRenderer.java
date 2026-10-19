@@ -29,11 +29,11 @@ public class TokiRenderer extends GeoEntityRenderer<TokiEntity> {
 	}
 
 	@Override
-	public void preRender(PoseStack poseStack, TokiEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int color) {
+	public void preRender(PoseStack poseStack, TokiEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		float scale = 1f;
 		this.scaleHeight = scale;
 		this.scaleWidth = scale;
-		super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, color);
+		super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
 	@Override
