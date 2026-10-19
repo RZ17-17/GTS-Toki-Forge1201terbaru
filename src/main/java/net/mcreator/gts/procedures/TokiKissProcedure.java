@@ -37,7 +37,7 @@ public class TokiKissProcedure {
 		}
 		sourceentity.setDeltaMovement(new Vec3(0, 0, 0));
 		if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER, (int) WaitTime, 1, false, false));
+			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER.get(), (int) WaitTime, 1, false, false));
 		sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY()), (entity.getZ())));
 		if (sourceentity.getXRot() < -35) {
 			{
