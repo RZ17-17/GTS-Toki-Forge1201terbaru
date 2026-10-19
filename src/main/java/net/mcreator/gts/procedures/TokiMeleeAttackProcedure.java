@@ -64,7 +64,7 @@ public class TokiMeleeAttackProcedure {
 						&& (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) <= 4
 								* (sourceentity instanceof LivingEntity _livingEntity12 && _livingEntity12.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity12.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)
 						&& Mth.nextInt(RandomSource.create(), 0, (int) Math.round(((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)) * 10)) == 0
-						&& !(sourceentity instanceof LivingEntity _livEnt16 && _livEnt16.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed") && true) {
+						&& !(sourceentity instanceof LivingEntity _livEnt16 && _livEnt16.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed") && false) { // Wild Toki must not swallow entities; only tamed Toki can use the vore/heal mechanic.
 					if ((sourceentity instanceof LivingEntity _livingEntity18 && _livingEntity18.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity18.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > TargetHeight) {
 						if (sourceentity instanceof TokiEntity _datEntSetS)
 							_datEntSetS.getEntityData().set(TokiEntity.DATA_AnimationDecision, "Toki.LowerVoreAttack");
