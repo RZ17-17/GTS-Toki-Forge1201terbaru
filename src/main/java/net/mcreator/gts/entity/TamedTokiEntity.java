@@ -243,7 +243,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, (float) 10, (float) 4) {
+		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, (float) 10, (float) 4, false) {
 			@Override
 			public boolean canUse() {
 				double x = TamedTokiEntity.this.getX();
@@ -405,8 +405,8 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
-	public EntityDimensions getDefaultDimensions(Pose pose) {
-		return super.getDefaultDimensions(pose).scale(1f);
+	public EntityDimensions getDimensions(Pose pose) {
+		return super.getDimensions(pose).scale(1f);
 	}
 
 	@Override
@@ -499,7 +499,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 6);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 20);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 32);
-		builder = builder.add(Attributes.STEP_HEIGHT, 2.6);
+		builder = builder.add(net.minecraftforge.common.ForgeMod.STEP_HEIGHT_ADDITION.get(), 2.6);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 2);
 		return builder;
@@ -522,7 +522,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		++this.deathTime;
 		if (this.deathTime == 45) {
 			this.remove(TamedTokiEntity.RemovalReason.KILLED);
-			this.dropExperience(this);
+			this.dropExperience();
 		}
 	}
 
