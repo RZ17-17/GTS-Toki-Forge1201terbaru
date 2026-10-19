@@ -251,7 +251,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedCandyAiConditionProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, (float) 10, (float) 4, false) {
+		this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, false) {
 			@Override
 			public boolean canUse() {
 				double x = TamedCandyEntity.this.getX();
@@ -461,6 +461,25 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	public void aiStep() {
 		super.aiStep();
+		if (!this.level().isClientSide()) {
+			if (!this.isTame()) {
+				Player nearby = this.level().getNearestPlayer(this, 24.0D);
+				if (nearby != null) {
+					this.tame(nearby);
+					this.setPersistenceRequired();
+				}
+			}
+			if (this.isTame() && !this.isOrderedToSit()) {
+				LivingEntity owner = this.getOwner();
+				LivingEntity target = this.getTarget();
+				if (target != null && (!target.isAlive()
+						|| (owner != null && owner.isAlive() && this.distanceToSqr(owner) > 256.0D
+							&& target.distanceToSqr(owner) > 256.0D))) {
+					this.setTarget(null);
+					this.getNavigation().stop();
+				}
+			}
+		}
 		if (this.isAlive()) {
 			if ((this.horizontalCollision || this.verticalCollision) && !this.getPersistentData().getBoolean("AttackCheck") && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
 				boolean flag = false;

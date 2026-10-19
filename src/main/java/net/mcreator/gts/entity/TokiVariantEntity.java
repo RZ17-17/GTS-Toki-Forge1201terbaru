@@ -102,11 +102,13 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<Player>(this, Player.class, false) {
             @Override
             public boolean canUse() {
-                return !TokiVariantEntity.this.isTame() && super.canUse();
+                return (TokiVariantEntity.this instanceof AraEntity || TokiVariantEntity.this instanceof FireflyEntity)
+                    && !TokiVariantEntity.this.isTame() && super.canUse();
             }
             @Override
             public boolean canContinueToUse() {
-                return !TokiVariantEntity.this.isTame() && super.canContinueToUse();
+                return (TokiVariantEntity.this instanceof AraEntity || TokiVariantEntity.this instanceof FireflyEntity)
+                    && !TokiVariantEntity.this.isTame() && super.canContinueToUse();
             }
         });
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, false));
@@ -181,9 +183,29 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     @Override
     public void aiStep() {
         super.aiStep();
-        if (!this.level().isClientSide() && this.isTame()
-                && this.getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue() < 40.0D) {
-            this.applyTamedStats();
+        if (!this.level().isClientSide()) {
+            // Spawned tamed variants bind to a nearby player, rather than treating that player as prey.
+            if (!this.isTame() && (this instanceof TamedAraEntity || this instanceof TamedFireflyEntity)) {
+                Player nearby = this.level().getNearestPlayer(this, 24.0D);
+                if (nearby != null) {
+                    this.tame(nearby);
+                    this.setPersistenceRequired();
+                    this.applyTamedStats();
+                }
+            }
+            if (this.isTame() && this.getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue() < 40.0D) {
+                this.applyTamedStats();
+            }
+            if (this.isTame() && !this.isOrderedToSit()) {
+                LivingEntity owner = this.getOwner();
+                LivingEntity target = this.getTarget();
+                if (target != null && (!target.isAlive()
+                        || (owner != null && owner.isAlive() && this.distanceToSqr(owner) > 256.0D
+                            && target.distanceToSqr(owner) > 256.0D))) {
+                    this.setTarget(null);
+                    this.getNavigation().stop();
+                }
+            }
         }
     }
 
@@ -219,9 +241,9 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                 return state.setAndContinue(RawAnimation.begin().thenLoop("gts.walk"));
             }
             return state.setAndContinue(RawAnimation.begin().thenLoop("gts.idle"));
-        }).triggerableAnim("attack", RawAnimation.begin().thenPlay(this instanceof FireflyEntity
-            ? "firefly.swordswing"
-            : this instanceof AraEntity ? "Ara.WaistAtk1" : "gts.walk")));
+        }).triggerableAnim("attack", RawAnimation.begin().thenPlay(
+            (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) ? "firefly.swordswing"
+            : (this instanceof AraEntity || this instanceof TamedAraEntity) ? "Ara.WaistAtk1" : "gts.walk")));
     }
 
     @Override

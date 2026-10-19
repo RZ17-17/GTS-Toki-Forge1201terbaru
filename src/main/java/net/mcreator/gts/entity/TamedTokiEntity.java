@@ -453,6 +453,13 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	public void aiStep() {
 		super.aiStep();
+		if (!this.level().isClientSide() && !this.isTame()) {
+			Player nearby = this.level().getNearestPlayer(this, 24.0D);
+			if (nearby != null) {
+				this.tame(nearby);
+				this.setPersistenceRequired();
+			}
+		}
 		if (this.isAlive()) {
 			// Drop stale or distant combat targets so following the owner resumes after a fight.
 			if (!this.level().isClientSide() && this.isTame() && !this.isOrderedToSit()) {

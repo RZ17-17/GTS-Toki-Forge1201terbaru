@@ -32,8 +32,7 @@ public class TamedTokiVoreAttackProcedure {
 		if (entity == null || sourceentity == null)
 			return;
 		boolean wildTokiTarget = entity instanceof TokiEntity
-            || (entity instanceof TokiVariantEntity variant && !variant.isTame())
-            || entity instanceof CandyEntity;
+            || (entity instanceof TokiVariantEntity variant && !variant.isTame());
         boolean hostileMobTarget = entity instanceof Monster
             && !(entity instanceof TokiEntity) && !(entity instanceof TokiVariantEntity)
             && !(entity instanceof CandyEntity);
