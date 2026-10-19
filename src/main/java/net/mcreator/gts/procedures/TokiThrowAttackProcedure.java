@@ -29,7 +29,7 @@ public class TokiThrowAttackProcedure {
 		}
 		sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY()), (entity.getZ())));
 		if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER, 35, 1, false, false));
+			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER.get(), 35, 1, false, false));
 		sourceentity.getPersistentData().putDouble("TargetStruggleCount", 0);
 		if (sourceentity.getXRot() < -35) {
 			{
