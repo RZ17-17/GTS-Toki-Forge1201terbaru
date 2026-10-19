@@ -42,7 +42,7 @@ public class CandyVoreAttackProcedure {
 		sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY()), (entity.getZ())));
 		sourceentity.getPersistentData().putDouble("TargetStruggleCount", 0);
 		if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER, 100, 1, false, false));
+			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER.get(), 100, 1, false, false));
 		GtsMod.queueServerWork(15, () -> {
 			if (sourceentity.isAlive() && !entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction")))) {
 				entity.setShiftKeyDown(false);
@@ -61,7 +61,7 @@ public class CandyVoreAttackProcedure {
 					}
 				}
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT, 90, 0));
+					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT.get(), 90, 0));
 			}
 		});
 		GtsMod.queueServerWork(20, () -> {
@@ -73,7 +73,7 @@ public class CandyVoreAttackProcedure {
 		GtsMod.queueServerWork(50, () -> {
 			if ((entity.getVehicle()) == sourceentity && sourceentity.isAlive()) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GIANTESS_SPIT_OVERLAY_EFFECT, 60, 1, false, false));
+					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GIANTESS_SPIT_OVERLAY_EFFECT.get(), 60, 1, false, false));
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
 						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("gts:toki.lick")), SoundSource.HOSTILE,
@@ -84,7 +84,7 @@ public class CandyVoreAttackProcedure {
 					}
 				}
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT, 55, 1));
+					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT.get(), 55, 1));
 			}
 		});
 		GtsMod.queueServerWork(100, () -> {
