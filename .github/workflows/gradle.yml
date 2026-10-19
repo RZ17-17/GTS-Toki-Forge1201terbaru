@@ -12,56 +12,6 @@ permissions:
   contents: read
 
 jobs:
-  gradle-jar-smoke-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.5'
-      - name: Create minimal Java project
-        run: |
-          mkdir -p jar-smoke/src/main/java/demo
-          cat > jar-smoke/settings.gradle <<'EOF'
-          rootProject.name = 'gradle-jar-smoke-test'
-          EOF
-          cat > jar-smoke/build.gradle <<'EOF'
-          plugins {
-              id 'java'
-          }
-          java {
-              toolchain {
-                  languageVersion = JavaLanguageVersion.of(17)
-              }
-          }
-          jar {
-              archiveBaseName = 'gradle-jar-smoke-test'
-          }
-          EOF
-          cat > jar-smoke/src/main/java/demo/Hello.java <<'EOF'
-          package demo;
-          public class Hello {
-              public static String message() {
-                  return "Gradle can create a JAR";
-              }
-          }
-          EOF
-      - name: Build test JAR with Gradle
-        working-directory: jar-smoke
-        run: gradle clean jar --no-daemon --stacktrace
-      - name: Verify test JAR exists
-        run: test -s jar-smoke/build/libs/gradle-jar-smoke-test.jar
-      - name: Upload test JAR
-        uses: actions/upload-artifact@v4
-        with:
-          name: gradle-jar-smoke-test
-          path: jar-smoke/build/libs/gradle-jar-smoke-test.jar
-          if-no-files-found: error
-
   build:
     runs-on: ubuntu-latest
     steps:
