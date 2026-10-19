@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 
 import net.mcreator.gts.entity.TamedTokiEntity;
 import net.mcreator.gts.entity.TamedCandyEntity;
+import net.mcreator.gts.entity.TokiVariantEntity;
 
 import java.util.UUID;
 
@@ -31,6 +32,10 @@ public class TamedGtsSitProcedure {
 			TamedCandySitandStandProcedure.execute(world, TamedGts);
 		} else if (TamedGts instanceof TamedTokiEntity) {
 			TamedTokiSitAndStandProcedure.execute(world, TamedGts);
+		} else if (TamedGts instanceof TokiVariantEntity variant && variant.isTame() && variant.isOwnedBy(entity)) {
+			variant.setOrderedToSit(!variant.isOrderedToSit());
+			variant.getNavigation().stop();
+			variant.setTarget(null);
 		}
 	}
 }
