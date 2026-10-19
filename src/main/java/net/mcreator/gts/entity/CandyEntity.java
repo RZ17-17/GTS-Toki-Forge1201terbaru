@@ -131,7 +131,6 @@ public class CandyEntity extends Raider implements GeoEntity {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractGolem.class, false, false));
 		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, Villager.class, false, false));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, true) {
-			@Override
 			protected boolean canPerformAttack(LivingEntity entity) {
 				return this.isTimeToAttack()
 						&& (((entity.getX() - this.mob.getX()) * (entity.getX() - this.mob.getX())) + ((entity.getZ() - this.mob.getZ()) * (entity.getZ() - this.mob.getZ()))) <= ((this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5)
@@ -293,7 +292,6 @@ public class CandyEntity extends Raider implements GeoEntity {
 		return this.cache;
 	}
 
-	@Override
 	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
 		int index = this.getPassengers().indexOf(entity);
 		Vec3 offset = getPassengerSlotOffset(index);
