@@ -20,6 +20,8 @@ public class TamedTokiSitAndStandProcedure {
 					&& (entity instanceof TamedTokiEntity _datEntS ? _datEntS.getEntityData().get(TamedTokiEntity.DATA_AnimationDecision) : "").equals("empty") && !(world instanceof Level _lvl6 && _lvl6.isDay())) {
 				if (entity instanceof TamedTokiEntity _datEntSetL)
 					_datEntSetL.getEntityData().set(TamedTokiEntity.DATA_Sleep, true);
+				((TamedTokiEntity) entity).getNavigation().stop();
+				((TamedTokiEntity) entity).setTarget(null);
 				if (entity instanceof TamedTokiEntity _datEntSetS)
 					_datEntSetS.getEntityData().set(TamedTokiEntity.DATA_AnimationDecision, "Toki.sleep");
 			} else if (!(entity instanceof TamedTokiEntity _datEntL9 && _datEntL9.getEntityData().get(TamedTokiEntity.DATA_Sleep))
