@@ -55,7 +55,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         super.registerGoals();
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, true) {
+        this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, true) {
             @Override public boolean canUse() {
                 return TokiVariantEntity.this.getTarget() == null && super.canUse();
             }
@@ -106,8 +106,9 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                 return !TokiVariantEntity.this.isTame() && super.canContinueToUse();
             }
         });
-        // Wild Ara and Firefly must acquire players as targets so their ranged spit goal can run.
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<Player>(this, Player.class, false) {
+        // Prioritize hostile monsters so tamed Ara/Firefly fight instead of repeatedly following their owner.
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<Monster>(this, Monster.class, false));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<Player>(this, Player.class, false) {
             @Override
             public boolean canUse() {
                 return (TokiVariantEntity.this instanceof AraEntity || TokiVariantEntity.this instanceof FireflyEntity)
@@ -119,21 +120,15 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                     && !TokiVariantEntity.this.isTame() && super.canContinueToUse();
             }
         });
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, false));
-        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<CandyEntity>(this, CandyEntity.class, false));
-        this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame()) {
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, false));
+        // Tamed variants do not hunt friendly Candy; wild variants retain the original behavior.
+        this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<CandyEntity>(this, CandyEntity.class, false) {
+            @Override public boolean canUse() { return !TokiVariantEntity.this.isTame() && super.canUse(); }
+            @Override public boolean canContinueToUse() { return !TokiVariantEntity.this.isTame() && super.canContinueToUse(); }
+        });
+        this.targetSelector.addGoal(8, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame()) {
             @Override public boolean canUse() { return TokiVariantEntity.this.isTame() && super.canUse(); }
             @Override public boolean canContinueToUse() { return TokiVariantEntity.this.isTame() && super.canContinueToUse(); }
-        });
-        this.targetSelector.addGoal(8, new NearestAttackableTargetGoal<Monster>(this, Monster.class, false) {
-            @Override
-            public boolean canUse() {
-                return super.canUse();
-            }
-            @Override
-            public boolean canContinueToUse() {
-                return super.canContinueToUse();
-            }
         });
     }
 
