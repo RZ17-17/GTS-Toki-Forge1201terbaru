@@ -67,6 +67,7 @@ import net.mcreator.gts.procedures.TamedTokiMobAggroCheckProcedure;
 import net.mcreator.gts.procedures.TamedTokiAiConditionProcedure;
 import net.mcreator.gts.procedures.GtsDeathProcedure;
 import net.mcreator.gts.network.GtsModVariables;
+import net.mcreator.gts.init.GtsModAttributes;
 import net.mcreator.gts.init.GtsModEntities;
 import net.mcreator.gts.GtsNavigation;
 import net.mcreator.gts.GtsMoveHelper;
@@ -242,7 +243,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, (float) 10, (float) 4) {
+		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 4.0F, false) {
 			@Override
 			public boolean canUse() {
 				double x = TamedTokiEntity.this.getX();
@@ -404,14 +405,14 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
-	public EntityDimensions getDefaultDimensions(Pose pose) {
-		return super.getDefaultDimensions(pose).scale(1f);
+	public EntityDimensions getDimensions(Pose pose) {
+		return super.getDimensions(pose).scale(1f);
 	}
 
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel serverWorld, AgeableMob ageable) {
 		TamedTokiEntity retval = GtsModEntities.TAMED_TOKI.get().create(serverWorld);
-		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null);
+		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null, null);
 		return retval;
 	}
 
@@ -478,7 +479,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 6);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 20);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 32);
-		builder = builder.add(Attributes.STEP_HEIGHT, 2.6);
+		builder = builder.add(net.minecraftforge.common.ForgeMod.STEP_HEIGHT_ADDITION.get(), 2.6);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 2);
 		return builder;
@@ -501,7 +502,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		++this.deathTime;
 		if (this.deathTime == 45) {
 			this.remove(TamedTokiEntity.RemovalReason.KILLED);
-			this.dropExperience(this);
+			this.dropExperience();
 		}
 	}
 
