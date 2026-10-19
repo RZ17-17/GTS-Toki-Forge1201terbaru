@@ -6,7 +6,7 @@ import software.bernie.geckolib.util.ClientUtils;
 import software.bernie.geckolib.model.data.EntityModelData;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.constant.DataTickets;
-import software.bernie.geckolib.cache.object.GeoBone;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.AnimationProcessor;
 
@@ -41,18 +41,18 @@ public class TamedTokiModel extends GeoModel<TamedTokiEntity> {
 
 	@Override
 	public void setCustomAnimations(TamedTokiEntity entity, long instanceId, AnimationState animationState) {
-		GeoBone head = getAnimationProcessor().getBone("head");
+		CoreGeoBone head = getAnimationProcessor().getBone("head");
 		if (head != null) {
 			EntityModelData entityData = (EntityModelData) animationState.getData(DataTickets.ENTITY_MODEL_DATA);
 			head.setRotX(entityData.headPitch() * Mth.DEG_TO_RAD);
 			head.setRotY(entityData.netHeadYaw() * Mth.DEG_TO_RAD);
 		}
 		Player player = ClientUtils.getClientPlayer();
-		if (player instanceof Entity playerEntity) {
+		if (player != null) {
 			AnimationProcessor processor = getAnimationProcessor();
-			Collection<GeoBone> bones = processor.getRegisteredBones();
+			Collection<CoreGeoBone> bones = processor.getRegisteredBones();
 			int index = 0;
-			for (GeoBone bone : bones) {
+			for (CoreGeoBone bone : bones) {
 				if (bone.getName().startsWith("S_")) {
 					Vector3d bPos = bone.getPositionVector();
 					Vec3 offset = new Vec3(bPos.x(), bPos.y(), -bPos.z()).scale((entity.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() / 16.0));
