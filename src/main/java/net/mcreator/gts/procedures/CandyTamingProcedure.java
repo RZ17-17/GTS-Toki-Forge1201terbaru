@@ -109,6 +109,7 @@ public class CandyTamingProcedure {
 						sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1,
 						sourceentity instanceof LivingEntity _livingEntity34 && _livingEntity34.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED) ? _livingEntity34.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue() : 0,
 						sourceentity.getXRot(),
+						0,
 						sourceentity instanceof LivingEntity _livingEntity38 && _livingEntity38.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity38.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0, sourceentity.getYRot());
 				if (!sourceentity.level().isClientSide())
 					sourceentity.discard();
