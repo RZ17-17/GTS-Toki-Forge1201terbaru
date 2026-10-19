@@ -9,6 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.server.level.ServerLevel;
@@ -30,6 +31,7 @@ public class GiantessSpitHitsEntityProcedure {
 						(int) (33 * (sourceentity instanceof LivingEntity _livingEntity3 && _livingEntity3.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity3.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)),
 						(sourceentity instanceof LivingEntity _livingEntity1 && _livingEntity1.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity1.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0), 1,
 						(sourceentity instanceof LivingEntity _livingEntity2 && _livingEntity2.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity2.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0), 0);
+			Entity projectileOwner = immediatesourceentity instanceof Projectile _projectile ? _projectile.getOwner() : null;
 			{
 				final Vec3 _center = new Vec3(x, y, z);
 				List<Entity> _entfound = world.getEntitiesOfClass(Entity.class,
@@ -37,7 +39,7 @@ public class GiantessSpitHitsEntityProcedure {
 								(1 + 2 * (sourceentity instanceof LivingEntity _livingEntity5 && _livingEntity5.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity5.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)) / 2d),
 						e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 				for (Entity entityiterator : _entfound) {
-					if (entityiterator != sourceentity && entityiterator != immediatesourceentity.getOwner() && !(entityiterator instanceof TokiEntity)) {
+					if (entityiterator != sourceentity && entityiterator != projectileOwner && !(entityiterator instanceof TokiEntity)) {
 						if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide())
 							_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1));
 					}

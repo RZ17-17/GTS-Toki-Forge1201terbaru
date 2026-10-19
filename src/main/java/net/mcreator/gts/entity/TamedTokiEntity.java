@@ -231,7 +231,16 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.25D, 4.0F, 2.0F, false));
+		this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.35D, 3.0F, 1.5F, false) {
+            @Override
+            public boolean canUse() {
+                return TamedTokiEntity.this.getTarget() == null && super.canUse();
+            }
+            @Override
+            public boolean canContinueToUse() {
+                return TamedTokiEntity.this.getTarget() == null && super.canContinueToUse();
+            }
+        });
 		this.goalSelector.addGoal(7, new FloatGoal(this));
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1) {
 			@Override
