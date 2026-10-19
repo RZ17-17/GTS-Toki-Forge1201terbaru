@@ -14,7 +14,7 @@ public class TamedTokiLowerBreachProcedure {
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		if (false && !GtsModVariables.MapVariables.get(world).DisableLowerBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
+		if (!GtsModVariables.MapVariables.get(world).DisableLowerBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
 			if (sourceentity instanceof TamedTokiEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(TamedTokiEntity.DATA_AnimationDecision, "Toki.LowerBreach");
 			sourceentity.setDeltaMovement(new Vec3(0, 0, 0));
