@@ -65,7 +65,7 @@ public class TokiMeleeAttackProcedure {
 						&& (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) <= 4
 								* (sourceentity instanceof LivingEntity _livingEntity12 && _livingEntity12.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity12.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)
 						&& Mth.nextInt(RandomSource.create(), 0, (int) Math.round(((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)) * 10)) == 0
-						&& !(sourceentity instanceof LivingEntity _livEnt16 && _livEnt16.hasEffect(GtsModMobEffects.GTS_TIMER)) && !entity.getPersistentData().getBoolean("BeingGrabbed") && true) {
+						&& !(sourceentity instanceof LivingEntity _livEnt16 && _livEnt16.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed") && true) {
 					if ((sourceentity instanceof LivingEntity _livingEntity18 && _livingEntity18.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity18.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > TargetHeight) {
 						if (sourceentity instanceof TokiEntity _datEntSetS)
 							_datEntSetS.getEntityData().set(TokiEntity.DATA_AnimationDecision, "Toki.LowerVoreAttack");
@@ -81,7 +81,7 @@ public class TokiMeleeAttackProcedure {
 				} else if (entity.isShiftKeyDown() && (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) > 0.5
 						&& !(world instanceof ServerLevel _level28 && _level28.isRaided(BlockPos.containing(x, y, z))) && !GtsModVariables.MapVariables.get(world).DisableSubmission
 						&& (sourceentity instanceof LivingEntity _livingEntity29 && _livingEntity29.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity29.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > 2
-						&& !(sourceentity instanceof LivingEntity _livEnt30 && _livEnt30.hasEffect(GtsModMobEffects.GTS_TIMER)) && !entity.getPersistentData().getBoolean("BeingGrabbed")
+						&& !(sourceentity instanceof LivingEntity _livEnt30 && _livEnt30.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed")
 						&& ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:flowers")))
 								|| (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:flowers"))))
 						&& sourceentity.getPersistentData().getBoolean("CanBeFriend") && Mth.nextInt(RandomSource.create(), 1, 3) == 1) {
@@ -121,7 +121,7 @@ public class TokiMeleeAttackProcedure {
 							TokiGunMeleeProcedure.execute(world, x, y, z, entity, sourceentity);
 						} else if (MeleeAttackChoice > 2 && MeleeAttackChoice <= 4
 								&& (sourceentity instanceof LivingEntity _livingEntity50 && _livingEntity50.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity50.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) >= 2
-								&& !entity.getPersistentData().getBoolean("BeingGrabbed") && !(sourceentity instanceof LivingEntity _livEnt52 && _livEnt52.hasEffect(GtsModMobEffects.GTS_TIMER))
+								&& !entity.getPersistentData().getBoolean("BeingGrabbed") && !(sourceentity instanceof LivingEntity _livEnt52 && _livEnt52.hasEffect(GtsModMobEffects.GTS_TIMER.get()))
 								&& !GtsModVariables.MapVariables.get(world).DisableThrow) {
 							TokiThrowAttackProcedure.execute(world, entity, sourceentity);
 						} else if (MeleeAttackChoice >= 5 && !GtsModVariables.MapVariables.get(world).DisableGunSmash) {
@@ -131,7 +131,7 @@ public class TokiMeleeAttackProcedure {
 						} else if (!GtsModVariables.MapVariables.get(world).DisableGunSmash) {
 							TokiGunSmashProcedure.execute(world, x, y, z, entity, sourceentity);
 						} else if ((sourceentity instanceof LivingEntity _livingEntity53 && _livingEntity53.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity53.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) >= 2
-								&& !entity.getPersistentData().getBoolean("BeingGrabbed") && !(sourceentity instanceof LivingEntity _livEnt55 && _livEnt55.hasEffect(GtsModMobEffects.GTS_TIMER))
+								&& !entity.getPersistentData().getBoolean("BeingGrabbed") && !(sourceentity instanceof LivingEntity _livEnt55 && _livEnt55.hasEffect(GtsModMobEffects.GTS_TIMER.get()))
 								&& !GtsModVariables.MapVariables.get(world).DisableThrow) {
 							TokiThrowAttackProcedure.execute(world, entity, sourceentity);
 						}
