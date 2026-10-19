@@ -32,6 +32,7 @@ import net.mcreator.gts.entity.TokiVariantEntity;
 import net.mcreator.gts.entity.CandyEntity;
 import net.mcreator.gts.entity.TokiEntity;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.goal.SitWhenOrderedToGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -140,6 +141,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
+		this.goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
 		// Do not retaliate against players who hit Toki; protect the owner through OwnerHurtByTargetGoal.
 		this.goalSelector.addGoal(2, new OwnerHurtByTargetGoal(this) {
 			@Override
