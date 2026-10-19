@@ -57,6 +57,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             private int cooldown;
             @Override
             public boolean canUse() {
+                if (this.cooldown > 0) this.cooldown--;
                 LivingEntity target = TokiVariantEntity.this.getTarget();
                 return target != null && target.isAlive()
                     && TokiVariantEntity.this.distanceToSqr(target) >= 16.0D
