@@ -1,5 +1,6 @@
 package net.mcreator.gts.entity;
 
+import java.util.EnumSet;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
@@ -29,7 +30,6 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.FollowOwnerGoal;
-import net.minecraft.world.entity.ai.goal.SitWhenOrderedToSitGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -61,7 +61,16 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new SitWhenOrderedToSitGoal(this));
+        this.goalSelector.addGoal(2, new Goal() {
+            {
+                this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.JUMP));
+            }
+            @Override public boolean canUse() { return TokiVariantEntity.this.isOrderedToSit(); }
+            @Override public boolean canContinueToUse() { return TokiVariantEntity.this.isOrderedToSit(); }
+            @Override public void start() { TokiVariantEntity.this.getNavigation().stop(); }
+            @Override public void tick() { TokiVariantEntity.this.getNavigation().stop(); }
+            @Override public void stop() { TokiVariantEntity.this.getNavigation().stop(); }
+        });
         this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, true) {
             @Override public boolean canUse() {
                 return !TokiVariantEntity.this.isOrderedToSit() && TokiVariantEntity.this.getTarget() == null && super.canUse();
