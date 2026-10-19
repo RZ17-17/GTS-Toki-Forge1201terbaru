@@ -4,6 +4,9 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraft.world.entity.player.Player;
+import net.mcreator.gts.entity.TamedTokiEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -61,6 +64,17 @@ public class GtsMod {
 
 		// Start of user code block mod init
 		// End of user code block mod init
+	}
+
+	// Prevent a tamed Toki from being killed as a side effect when its owner dies.
+	@SubscribeEvent
+	public void onTamedTokiOwnerDeath(LivingDeathEvent event) {
+		if (event.getEntity() instanceof TamedTokiEntity toki && toki.isTame()
+				&& toki.getOwner() instanceof Player owner && !owner.isAlive()) {
+			event.setCanceled(true);
+			toki.setHealth(Math.max(1.0F, toki.getMaxHealth() * 0.25F));
+			toki.setLastHurtByMob(null);
+		}
 	}
 
 	// Start of user code block mod methods
