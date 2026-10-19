@@ -12,6 +12,7 @@ import software.bernie.geckolib.animatable.GeoEntity;
 
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -57,6 +58,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.network.chat.Component;
+import net.mcreator.gts.world.inventory.TamedGtsInteractionMenuMenu;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -371,8 +376,20 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		} else {
 			if (this.isTame()) {
 				if (this.isOwnedBy(sourceentity)) {
-					if (itemstack.isEmpty()) {
-						// Empty-hand right-click mounts the owned Candy instead of sitting.
+					if (itemstack.isEmpty() && sourceentity.isShiftKeyDown()) {
+						// Shift-right-click opens the shared controls menu for every tamed companion.
+						this.setOrderedToSit(false);
+						this.navigation.stop();
+						this.setTarget(null);
+						sourceentity.getPersistentData().putString("targetedTamedGiantess", this.getUUID().toString());
+						if (sourceentity instanceof ServerPlayer serverPlayer) {
+							NetworkHooks.openScreen(serverPlayer,
+									new SimpleMenuProvider((id, inventory, player) -> new TamedGtsInteractionMenuMenu(id, inventory, null), Component.literal("Candy Controls")),
+									buf -> buf.writeBlockPos(this.blockPosition()));
+						}
+						retval = InteractionResult.CONSUME;
+					} else if (itemstack.isEmpty()) {
+						// Empty-hand right-click mounts the owned Candy.
 						this.setOrderedToSit(false);
 						this.navigation.stop();
 						this.setTarget(null);
@@ -512,7 +529,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				for (BlockPos blockpos : BlockPos.betweenClosed(Mth.floor(aabb.minX), Mth.floor(aabb.minY), Mth.floor(aabb.minZ), Mth.floor(aabb.maxX), Mth.floor(aabb.maxY), Mth.floor(aabb.maxZ))) {
 					BlockState blockstate = this.level().getBlockState(blockpos);
 					Block block = blockstate.getBlock();
-					if (block instanceof LeavesBlock) {
+					if (false && block instanceof LeavesBlock) {
 						flag = this.level().destroyBlock(blockpos, true, this) || flag;
 					}
 				}
