@@ -33,10 +33,13 @@ public class TamedCandyVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		// Swallow only hostile mobs; protect passive mobs and all Toki-family entities.
-		if (!(entity instanceof Monster) || entity instanceof TokiEntity
-				|| entity instanceof TokiVariantEntity || entity instanceof CandyEntity
-				|| entity instanceof TamedTokiEntity || entity instanceof TamedCandyEntity)
+		// Tamed Candy may swallow wild Toki, but never tamed Toki, Candy, or passive mobs.
+		boolean wildTokiTarget = entity instanceof TokiEntity
+				|| (entity instanceof TokiVariantEntity variant && !variant.isTame());
+		boolean hostileMobTarget = entity instanceof Monster && !(entity instanceof TokiEntity)
+				&& !(entity instanceof TokiVariantEntity) && !(entity instanceof CandyEntity)
+				&& !(entity instanceof TamedTokiEntity) && !(entity instanceof TamedCandyEntity);
+		if (!hostileMobTarget && !wildTokiTarget)
 			return;
 		entity.getPersistentData().putBoolean("BeingGrabbed", true);
 		sourceentity.setDeltaMovement(new Vec3(0, 0, 0));
@@ -87,8 +90,10 @@ public class TamedCandyVoreAttackProcedure {
 					entity.discard();
 				entity.getPersistentData().putBoolean("BeingGrabbed", false);
 				if (sourceentity instanceof LivingEntity _entity) {
-					float maxHealth = _entity.getMaxHealth();
-					_entity.setHealth(Math.min(maxHealth, _entity.getHealth() + maxHealth / 10.0F));
+					if (!wildTokiTarget) {
+						float maxHealth = _entity.getMaxHealth();
+						_entity.setHealth(Math.min(maxHealth, _entity.getHealth() + maxHealth / 10.0F));
+					}
 				}
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {

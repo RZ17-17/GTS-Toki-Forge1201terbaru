@@ -15,6 +15,7 @@ import net.mcreator.gts.entity.FireflyEntity;
 import net.mcreator.gts.init.GtsModEntities;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.TamableAnimal;
@@ -54,7 +55,14 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         super.registerGoals();
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, true));
+        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.35D, 4.0F, 2.0F, true) {
+            @Override public boolean canUse() {
+                return TokiVariantEntity.this.getTarget() == null && super.canUse();
+            }
+            @Override public boolean canContinueToUse() {
+                return TokiVariantEntity.this.getTarget() == null && super.canContinueToUse();
+            }
+        });
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15D, true));
         this.goalSelector.addGoal(5, new Goal() {
             private int cooldown;
@@ -212,6 +220,20 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
         return (AgeableMob) this.getType().create(level);
+    }
+
+    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        Entity attacker = source.getEntity();
+        if (this.isTame() && attacker instanceof TamableAnimal tameAttacker && tameAttacker.isTame()
+                && (attacker instanceof TamedTokiEntity || attacker instanceof TamedCandyEntity || attacker instanceof TokiVariantEntity)) return false;
+        return super.hurt(source, amount);
+    }
+
+    @Override
+    public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+        if (this.isInWaterOrBubble()) return false;
+        return super.causeFallDamage(fallDistance, multiplier, source);
     }
 
     @Override

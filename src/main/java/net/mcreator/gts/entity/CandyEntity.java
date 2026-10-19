@@ -193,6 +193,12 @@ public class CandyEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
+	public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+		if (this.isInWaterOrBubble()) return false;
+		return super.causeFallDamage(fallDistance, multiplier, source);
+	}
+
+	@Override
 	public boolean hurt(DamageSource source, float amount) {
 		GtsHurtProcedure.execute(this, source.getEntity());
 		Entity immediatesourceentity = source.getDirectEntity();

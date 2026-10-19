@@ -459,6 +459,20 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
+	public boolean hurt(DamageSource source, float amount) {
+		Entity attacker = source.getEntity();
+		if (this.isTame() && attacker instanceof TamableAnimal tameAttacker && tameAttacker.isTame()
+				&& (attacker instanceof TamedTokiEntity || attacker instanceof TamedCandyEntity || attacker instanceof TokiVariantEntity)) return false;
+		return super.hurt(source, amount);
+	}
+
+	@Override
+	public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+		if (this.isInWaterOrBubble()) return false;
+		return super.causeFallDamage(fallDistance, multiplier, source);
+	}
+
+	@Override
 	public void aiStep() {
 		super.aiStep();
 		if (!this.level().isClientSide()) {
@@ -502,7 +516,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	public static AttributeSupplier.Builder createAttributes() {
 		AttributeSupplier.Builder builder = Mob.createMobAttributes();
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
-		builder = builder.add(Attributes.MAX_HEALTH, 70);
+		builder = builder.add(Attributes.MAX_HEALTH, 500);
 		builder = builder.add(Attributes.ARMOR, 6);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 25);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 80);

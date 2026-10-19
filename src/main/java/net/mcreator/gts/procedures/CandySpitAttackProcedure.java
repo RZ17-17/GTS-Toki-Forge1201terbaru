@@ -3,6 +3,7 @@ package net.mcreator.gts.procedures;
 
 import net.mcreator.gts.init.GtsModAttributes;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -72,8 +73,15 @@ public class CandySpitAttackProcedure {
 									return entityToSpawn;
 								}
 							}.getArrow(projectileLevel, sourceentity, 0, 0, (byte) 0);
-							_entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
-							_entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z,
+							Vec3 spitDirection = _shootFrom.getLookAngle().normalize();
+							AABB shooterBounds = _shootFrom.getBoundingBox();
+							double startY = _shootFrom.getEyeY();
+							double exitX = Math.abs(spitDirection.x) > 1.0E-4D ? (spitDirection.x > 0 ? (shooterBounds.maxX - _shootFrom.getX()) / spitDirection.x : (shooterBounds.minX - _shootFrom.getX()) / spitDirection.x) : Double.POSITIVE_INFINITY;
+							double exitY = Math.abs(spitDirection.y) > 1.0E-4D ? (spitDirection.y > 0 ? (shooterBounds.maxY - startY) / spitDirection.y : (shooterBounds.minY - startY) / spitDirection.y) : Double.POSITIVE_INFINITY;
+							double exitZ = Math.abs(spitDirection.z) > 1.0E-4D ? (spitDirection.z > 0 ? (shooterBounds.maxZ - _shootFrom.getZ()) / spitDirection.z : (shooterBounds.minZ - _shootFrom.getZ()) / spitDirection.z) : Double.POSITIVE_INFINITY;
+							double spitOffset = Math.max(1.0D, Math.min(exitX, Math.min(exitY, exitZ)) + 1.0D);
+							_entityToSpawn.setPos(_shootFrom.getX() + spitDirection.x * spitOffset, startY + spitDirection.y * spitOffset, _shootFrom.getZ() + spitDirection.z * spitOffset);
+							_entityToSpawn.shoot(spitDirection.x, spitDirection.y, spitDirection.z,
 									(float) ((sourceentity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity10.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) / 3), 1);
 							projectileLevel.addFreshEntity(_entityToSpawn);
 						}
