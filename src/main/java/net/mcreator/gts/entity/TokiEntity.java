@@ -221,7 +221,7 @@ public class TokiEntity extends Raider implements GeoEntity {
 
 	@Override
 	public EntityDimensions getDimensions(Pose pose) {
-		return super.getDimensions(pose).scale(1f);
+		return super.getDimensions(pose).scale((float) Math.max(0.0625D, Math.min(64.0D, this.getAttributeValue(GtsModAttributes.SCALE.get()))));
 	}
 
 	@Override
