@@ -13,8 +13,6 @@ public class TamedCandyBreachProcedure {
 	public static void execute(LevelAccessor world, Entity sourceentity) {
 		if (sourceentity == null)
 			return;
-		// Tamed companions must never destroy terrain; keep combat entity-only.
-		return;
 		if (false && !GtsModVariables.MapVariables.get(world).DisableCandyBreach && !GtsModVariables.MapVariables.get(world).DisableTamedGiantessBreach) {
 			sourceentity.getPersistentData().putBoolean("AttackCheck", true);
 			sourceentity.getPersistentData().putBoolean("ExplosionImmunityCheck", true);
