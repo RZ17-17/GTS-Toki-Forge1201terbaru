@@ -325,6 +325,13 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 
 	@Override
 	public void die(DamageSource source) {
+		// A tamed Toki must not die as a side effect of its owner's death.
+		// Keep normal death behavior for wild Toki and when the owner is alive.
+		if (!this.level().isClientSide() && this.isTame() && this.getOwner() instanceof Player owner && !owner.isAlive()) {
+			this.setHealth(Math.max(1.0F, this.getMaxHealth() * 0.25F));
+			this.setLastHurtByMob(null);
+			return;
+		}
 		super.die(source);
 		GtsDeathProcedure.execute(this.level(), this);
 	}
