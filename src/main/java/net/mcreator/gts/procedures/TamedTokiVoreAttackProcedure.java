@@ -29,7 +29,7 @@ import net.mcreator.gts.GtsMod;
 
 public class TamedTokiVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
-		if (entity == null || sourceentity == null)
+		if (entity == null || !(sourceentity instanceof TamedTokiEntity))
 			return;
 		boolean wildTokiTarget = entity instanceof TokiEntity
             || (entity instanceof TokiVariantEntity variant && !variant.isTame());
