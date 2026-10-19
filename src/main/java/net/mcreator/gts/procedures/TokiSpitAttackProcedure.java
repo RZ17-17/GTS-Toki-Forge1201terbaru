@@ -56,8 +56,6 @@ public class TokiSpitAttackProcedure {
 										public byte getPierceLevel() {
 											return piercing;
 										}
-
-										@Override
 										protected void doKnockback(LivingEntity livingEntity, DamageSource damageSource) {
 											if (knockback > 0) {
 												double d1 = Math.max(0.0, 1.0 - livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
