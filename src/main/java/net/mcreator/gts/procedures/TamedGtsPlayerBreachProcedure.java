@@ -13,6 +13,8 @@ public class TamedGtsPlayerBreachProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		// Terrain damage is disabled for tamed companions; preserve blocks in all combat paths.
+		return;
 		double MeleeChoice = 0;
 		Entity TargetedTamedGTS = null;
 		if (!world.isClientSide() && !((entity.getVehicle()) == null) && (entity.getVehicle()).getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:tamedgiantess"))) && (entity.getVehicle()).onGround()) {
