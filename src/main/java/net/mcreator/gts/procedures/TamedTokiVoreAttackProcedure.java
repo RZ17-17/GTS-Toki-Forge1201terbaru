@@ -34,7 +34,7 @@ public class TamedTokiVoreAttackProcedure {
 			_mobSetNoAi.setNoAi(true);
 		}
 		if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER, 145, 1, false, false));
+			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_TIMER.get(), 145, 1, false, false));
 		GtsMod.queueServerWork(15, () -> {
 			if (sourceentity.isAlive() && !entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction")))) {
 				entity.startRiding(sourceentity);
@@ -65,13 +65,13 @@ public class TamedTokiVoreAttackProcedure {
 					}
 				}
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT, 30, 0));
+					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT.get(), 30, 0));
 			}
 		});
 		GtsMod.queueServerWork(90, () -> {
 			if ((entity.getVehicle()) == sourceentity && sourceentity.isAlive()) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT, 70, 1));
+					_entity.addEffect(new MobEffectInstance(GtsModMobEffects.GTS_SHRINK_EFFECT.get(), 70, 1));
 			}
 		});
 		GtsMod.queueServerWork(145, () -> {
