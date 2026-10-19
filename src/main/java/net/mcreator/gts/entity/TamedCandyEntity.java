@@ -522,19 +522,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				}
 			}
 		}
-		if (this.isAlive()) {
-			if ((this.horizontalCollision || this.verticalCollision) && !this.getPersistentData().getBoolean("AttackCheck") && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
-				boolean flag = false;
-				AABB aabb = this.getBoundingBox().inflate(1);
-				for (BlockPos blockpos : BlockPos.betweenClosed(Mth.floor(aabb.minX), Mth.floor(aabb.minY), Mth.floor(aabb.minZ), Mth.floor(aabb.maxX), Mth.floor(aabb.maxY), Mth.floor(aabb.maxZ))) {
-					BlockState blockstate = this.level().getBlockState(blockpos);
-					Block block = blockstate.getBlock();
-					if (false && block instanceof LeavesBlock) {
-						flag = this.level().destroyBlock(blockpos, true, this) || flag;
-					}
-				}
-			}
-		}
+
 		this.updateSwingTime();
 	}
 
