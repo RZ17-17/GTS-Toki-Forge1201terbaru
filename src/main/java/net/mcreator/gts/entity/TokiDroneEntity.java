@@ -110,8 +110,7 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, Player.class, false, false));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Villager.class, false, false));
 		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true) {
-			@Override
-			protected boolean canPerformAttack() {
+						protected boolean canPerformAttack() {
 				LivingEntity entity = this.mob.getTarget();
 				if (entity == null) return false;
 				return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < (this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth()) && this.mob.getSensing().hasLineOfSight(entity);
