@@ -34,6 +34,8 @@ public class TokiSpitAttackProcedure {
 		if (!GtsModVariables.MapVariables.get(world).DisableSpit) {
 			if (sourceentity instanceof TokiEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(TokiEntity.DATA_AnimationDecision, "Toki.Spit");
+			if (sourceentity instanceof TamedTokiEntity _tamedToki)
+				_tamedToki.getEntityData().set(TamedTokiEntity.DATA_AnimationDecision, "Toki.Spit");
 			sourceentity.setDeltaMovement(new Vec3(0, 0, 0));
 			if (sourceentity instanceof Mob _mobSetNoAi) {
 				_mobSetNoAi.setNoAi(true);

@@ -22,6 +22,7 @@ import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.FollowOwnerGoal;
 import net.minecraft.world.entity.ai.goal.SitWhenOrderedToGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -34,6 +35,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
+import net.mcreator.gts.procedures.TokiSpitAttackProcedure;
 
 public abstract class TokiVariantEntity extends TamableAnimal implements GeoEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -51,6 +53,33 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
         this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.2D, 8.0F, 3.0F, true));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15D, true));
+        this.goalSelector.addGoal(5, new Goal() {
+            private int cooldown;
+            @Override
+            public boolean canUse() {
+                LivingEntity target = TokiVariantEntity.this.getTarget();
+                return target != null && target.isAlive()
+                    && TokiVariantEntity.this.distanceToSqr(target) >= 16.0D
+                    && TokiVariantEntity.this.distanceToSqr(target) <= 400.0D
+                    && this.cooldown <= 0;
+            }
+            @Override
+            public boolean canContinueToUse() {
+                return false;
+            }
+            @Override
+            public void tick() {
+                LivingEntity target = TokiVariantEntity.this.getTarget();
+                if (target != null && target.isAlive() && !TokiVariantEntity.this.level().isClientSide()) {
+                    TokiSpitAttackProcedure.execute(TokiVariantEntity.this.level(), target, TokiVariantEntity.this);
+                    this.cooldown = 100;
+                }
+            }
+            @Override
+            public void start() {
+                this.cooldown = 100;
+            }
+        });
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
@@ -130,8 +159,8 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             }
             return state.setAndContinue(RawAnimation.begin().thenLoop("gts.idle"));
         }).triggerableAnim("attack", RawAnimation.begin().thenPlay(this instanceof FireflyEntity
-            ? "firefly.kicking"
-            : this instanceof AraEntity ? "Ara.LowAtk1" : "gts.walk")));
+            ? "firefly.swordswing"
+            : this instanceof AraEntity ? "Ara.WaistAtk1" : "gts.walk")));
     }
 
     @Override
