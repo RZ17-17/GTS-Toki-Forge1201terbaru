@@ -18,6 +18,7 @@ import net.minecraft.client.KeyMapping;
 import net.mcreator.gts.network.RegularAttackMessage;
 import net.mcreator.gts.network.PlayerStruggleKeyMessage;
 import net.mcreator.gts.network.BreachAttackMessage;
+import net.mcreator.gts.GtsMod;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class GtsModKeyMappings {

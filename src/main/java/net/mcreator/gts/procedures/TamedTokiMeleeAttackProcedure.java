@@ -60,7 +60,7 @@ public class TamedTokiMeleeAttackProcedure {
 				entity.getPersistentData().putDouble("TargetRangeAttack", 0);
 				TargetHeight = entity.getY() - sourceentity.getY();
 				sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY()), (entity.getZ())));
-				if (!(sourceentity instanceof LivingEntity _livEnt12 && _livEnt12.hasEffect(GtsModMobEffects.GTS_TIMER)) && !entity.getPersistentData().getBoolean("BeingGrabbed") && !GtsModVariables.MapVariables.get(world).DisableVore
+				if (!(sourceentity instanceof LivingEntity _livEnt12 && _livEnt12.hasEffect(GtsModMobEffects.GTS_TIMER.get())) && !entity.getPersistentData().getBoolean("BeingGrabbed") && !GtsModVariables.MapVariables.get(world).DisableVore
 						&& (sourceentity instanceof LivingEntity _livingEntity14 && _livingEntity14.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity14.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) > 2 && !(entity instanceof Player)
 						&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 50
 						&& (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) <= 0.7
@@ -101,7 +101,7 @@ public class TamedTokiMeleeAttackProcedure {
 							TamedTokiGunMeleeProcedure.execute(world, x, y, z, sourceentity);
 						} else if (MeleeAttackChoice > 2 && MeleeAttackChoice <= 4
 								&& (sourceentity instanceof LivingEntity _livingEntity36 && _livingEntity36.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity36.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) >= 2
-								&& !entity.getPersistentData().getBoolean("BeingGrabbed") && !(sourceentity instanceof LivingEntity _livEnt38 && _livEnt38.hasEffect(GtsModMobEffects.GTS_TIMER))
+								&& !entity.getPersistentData().getBoolean("BeingGrabbed") && !(sourceentity instanceof LivingEntity _livEnt38 && _livEnt38.hasEffect(GtsModMobEffects.GTS_TIMER.get()))
 								&& !GtsModVariables.MapVariables.get(world).DisableThrow) {
 							TamedTokiThrowProcedure.execute(world, entity, sourceentity);
 						} else if (MeleeAttackChoice >= 5 && !GtsModVariables.MapVariables.get(world).DisableGunSmash) {
@@ -111,7 +111,7 @@ public class TamedTokiMeleeAttackProcedure {
 						} else if (!GtsModVariables.MapVariables.get(world).DisableGunSmash) {
 							TamedTokiGunSmashProcedure.execute(world, x, y, z, sourceentity);
 						} else if ((sourceentity instanceof LivingEntity _livingEntity39 && _livingEntity39.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity39.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) >= 2
-								&& !entity.getPersistentData().getBoolean("BeingGrabbed") && !(sourceentity instanceof LivingEntity _livEnt41 && _livEnt41.hasEffect(GtsModMobEffects.GTS_TIMER))
+								&& !entity.getPersistentData().getBoolean("BeingGrabbed") && !(sourceentity instanceof LivingEntity _livEnt41 && _livEnt41.hasEffect(GtsModMobEffects.GTS_TIMER.get()))
 								&& !GtsModVariables.MapVariables.get(world).DisableThrow) {
 							TamedTokiThrowProcedure.execute(world, entity, sourceentity);
 						}

@@ -11,7 +11,7 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animatable.GeoEntity;
 
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
-import net.minecraftforge.fml.common.asm.enumextension.EnumProxy;
+
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -65,6 +65,7 @@ import net.mcreator.gts.procedures.GtsHurtProcedure;
 import net.mcreator.gts.procedures.GtsDeathProcedure;
 import net.mcreator.gts.procedures.CandyTickUpdateProcedure;
 import net.mcreator.gts.network.GtsModVariables;
+import net.mcreator.gts.init.GtsModAttributes;
 import net.mcreator.gts.init.GtsModEntities;
 import net.mcreator.gts.GtsNavigation;
 import net.mcreator.gts.GtsMoveHelper;
@@ -78,8 +79,7 @@ public class CandyEntity extends Raider implements GeoEntity {
 	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.STRING);
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.STRING);
-	public static final EnumProxy<Raid.RaiderType> RAIDER_TYPE = new EnumProxy<>(Raid.RaiderType.class, GtsModEntities.CANDY, new int[]{0, 0, 0, 1, 1, 1, 1, 1});
-	public static final EntityDataAccessor<Integer> DATA_passengerSlots = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.INT);
+		public static final EntityDataAccessor<Integer> DATA_passengerSlots = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<String> DATA_AnimationDecision = SynchedEntityData.defineId(CandyEntity.class, EntityDataSerializers.STRING);
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	private boolean swinging;
@@ -132,11 +132,9 @@ public class CandyEntity extends Raider implements GeoEntity {
 		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, Villager.class, false, false));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, true) {
 			@Override
-			protected boolean canPerformAttack(LivingEntity entity) {
-				return this.isTimeToAttack()
-						&& (((entity.getX() - this.mob.getX()) * (entity.getX() - this.mob.getX())) + ((entity.getZ() - this.mob.getZ()) * (entity.getZ() - this.mob.getZ()))) <= ((this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5)
-								* (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5))
-						&& (entity.getY() - this.mob.getY()) >= -1 && (entity.getY() - this.mob.getY()) < (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() * 3) && this.mob.getSensing().hasLineOfSight(entity);
+			protected double getAttackReachSqr(LivingEntity entity) {
+				double reach = this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5;
+				return reach * reach;
 			}
 		});
 		this.goalSelector.addGoal(6, new FloatGoal(this));
@@ -172,8 +170,8 @@ public class CandyEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata) {
-		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata, @Nullable CompoundTag data) {
+		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata, data);
 		GtsSpawnProcedure.execute(world, this.getX(), this.getY(), this.getZ(), this);
 		return retval;
 	}
@@ -205,15 +203,15 @@ public class CandyEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
-	public EntityDimensions getDefaultDimensions(Pose pose) {
-		return super.getDefaultDimensions(pose).scale(1f);
+	public EntityDimensions getDimensions(Pose pose) {
+		return super.getDimensions(pose).scale(1f);
 	}
 
 	@Override
 	public void aiStep() {
 		super.aiStep();
 		if (this.isAlive()) {
-			if ((this.horizontalCollision || this.verticalCollision) && net.minecraftforge.event.EventHooks.canEntityGrief(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
+			if ((this.horizontalCollision || this.verticalCollision) && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level(), this) && !GtsModVariables.MapVariables.get(this.level()).DisableLeavesBreakWalk) {
 				boolean flag = false;
 				AABB aabb = this.getBoundingBox().inflate(1);
 				for (BlockPos blockpos : BlockPos.betweenClosed(Mth.floor(aabb.minX), Mth.floor(aabb.minY), Mth.floor(aabb.minZ), Mth.floor(aabb.maxX), Mth.floor(aabb.maxY), Mth.floor(aabb.maxZ))) {
@@ -238,7 +236,7 @@ public class CandyEntity extends Raider implements GeoEntity {
 	}
 
 	@Override
-	public void applyRaidBuffs(ServerLevel serverLevel, int num, boolean logic) {
+	public void applyRaidBuffs(int num, boolean logic) {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -248,7 +246,7 @@ public class CandyEntity extends Raider implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 6);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 25);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 80);
-		builder = builder.add(Attributes.STEP_HEIGHT, 2.6);
+		builder = builder.add(net.minecraftforge.common.ForgeMod.STEP_HEIGHT_ADDITION.get(), 2.6);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 2);
 		return builder;
@@ -271,7 +269,7 @@ public class CandyEntity extends Raider implements GeoEntity {
 		++this.deathTime;
 		if (this.deathTime == 45) {
 			this.remove(CandyEntity.RemovalReason.KILLED);
-			this.dropExperience(this);
+			this.dropExperience();
 		}
 	}
 
@@ -293,12 +291,6 @@ public class CandyEntity extends Raider implements GeoEntity {
 		return this.cache;
 	}
 
-	@Override
-	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
-		int index = this.getPassengers().indexOf(entity);
-		Vec3 offset = getPassengerSlotOffset(index);
-		return offset;
-	}
 
 	@Override
 	protected boolean canAddPassenger(Entity entity) {

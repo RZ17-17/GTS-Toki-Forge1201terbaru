@@ -11,6 +11,6 @@ public class TokiDroneBatteryCountDownProcedure {
 		if (entity == null)
 			return;
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.TOKI_DRONE_BATTERY, 1200, 1, false, false));
+			_entity.addEffect(new MobEffectInstance(GtsModMobEffects.TOKI_DRONE_BATTERY.get(), 1200, 1, false, false));
 	}
 }

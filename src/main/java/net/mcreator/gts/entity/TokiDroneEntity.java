@@ -111,8 +111,8 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Villager.class, false, false));
 		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true) {
 			@Override
-			protected boolean canPerformAttack(LivingEntity entity) {
-				return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < (this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth()) && this.mob.getSensing().hasLineOfSight(entity);
+			protected double getAttackReachSqr(LivingEntity entity) {
+				return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
 			}
 		});
 		this.goalSelector.addGoal(4, new Goal() {
@@ -167,8 +167,8 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 	}
 
-	protected void dropCustomDeathLoot(ServerLevel serverLevel, DamageSource source, boolean recentlyHitIn) {
-		super.dropCustomDeathLoot(serverLevel, source, recentlyHitIn);
+	protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
+		super.dropCustomDeathLoot(source, looting, recentlyHitIn);
 		this.spawnAtLocation(new ItemStack(GtsModItems.TOKI_CRYSTAL.get()));
 	}
 
@@ -200,7 +200,6 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		return super.hurt(source, amount);
 	}
 
-	@Override
 	public boolean ignoreExplosion(Explosion explosion) {
 		return true;
 	}
@@ -211,8 +210,8 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 	}
 
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata) {
-		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata, @Nullable CompoundTag data) {
+		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata, data);
 		TokiDroneBatteryCountDownProcedure.execute(this);
 		return retval;
 	}
@@ -240,8 +239,8 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 	}
 
 	@Override
-	public EntityDimensions getDefaultDimensions(Pose pose) {
-		return super.getDefaultDimensions(pose).scale(1f);
+	public EntityDimensions getDimensions(Pose pose) {
+		return super.getDimensions(pose).scale(1f);
 	}
 
 	@Override
@@ -268,7 +267,7 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 5);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 64);
-		builder = builder.add(Attributes.STEP_HEIGHT, 0.6);
+		builder = builder.add(net.minecraftforge.common.ForgeMod.STEP_HEIGHT_ADDITION.get(), 0.6);
 		builder = builder.add(Attributes.FLYING_SPEED, 0.3);
 		return builder;
 	}
@@ -304,7 +303,7 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		++this.deathTime;
 		if (this.deathTime == 20) {
 			this.remove(TokiDroneEntity.RemovalReason.KILLED);
-			this.dropExperience(this);
+			this.dropExperience();
 		}
 	}
 
@@ -327,12 +326,6 @@ public class TokiDroneEntity extends Monster implements GeoEntity {
 		return this.cache;
 	}
 
-	@Override
-	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
-		int index = this.getPassengers().indexOf(entity);
-		Vec3 offset = getPassengerSlotOffset(index);
-		return offset;
-	}
 
 	@Override
 	protected boolean canAddPassenger(Entity entity) {

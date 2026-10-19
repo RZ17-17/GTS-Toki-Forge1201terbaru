@@ -67,6 +67,7 @@ import net.mcreator.gts.procedures.TamedCandyMobAggroCheckProcedure;
 import net.mcreator.gts.procedures.TamedCandyAiConditionProcedure;
 import net.mcreator.gts.procedures.GtsDeathProcedure;
 import net.mcreator.gts.network.GtsModVariables;
+import net.mcreator.gts.init.GtsModAttributes;
 import net.mcreator.gts.init.GtsModEntities;
 import net.mcreator.gts.GtsNavigation;
 import net.mcreator.gts.GtsMoveHelper;
@@ -215,11 +216,9 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		});
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
 			@Override
-			protected boolean canPerformAttack(LivingEntity entity) {
-				return this.isTimeToAttack()
-						&& (((entity.getX() - this.mob.getX()) * (entity.getX() - this.mob.getX())) + ((entity.getZ() - this.mob.getZ()) * (entity.getZ() - this.mob.getZ()))) <= ((this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5)
-								* (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5))
-						&& (entity.getY() - this.mob.getY()) >= -1 && (entity.getY() - this.mob.getY()) < (this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() * 3) && this.mob.getSensing().hasLineOfSight(entity);
+			protected double getAttackReachSqr(LivingEntity entity) {
+				double reach = this.mob.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() + 0.5;
+				return reach * reach;
 			}
 
 			@Override
@@ -242,7 +241,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedCandyAiConditionProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, (float) 10, (float) 4) {
+		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 4.0F, false) {
 			@Override
 			public boolean canUse() {
 				double x = TamedCandyEntity.this.getX();
@@ -365,7 +364,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 					if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
 						this.usePlayerItem(sourceentity, hand, itemstack);
 						FoodProperties foodproperties = itemstack.getFoodProperties(this);
-						float nutrition = foodproperties != null ? (float) foodproperties.nutrition() : 1;
+						float nutrition = foodproperties != null ? (float) foodproperties.getNutrition() : 1;
 						this.heal(nutrition);
 						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
 					} else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
@@ -404,14 +403,14 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
-	public EntityDimensions getDefaultDimensions(Pose pose) {
-		return super.getDefaultDimensions(pose).scale(1f);
+	public EntityDimensions getDimensions(Pose pose) {
+		return super.getDimensions(pose).scale(1f);
 	}
 
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel serverWorld, AgeableMob ageable) {
 		TamedCandyEntity retval = GtsModEntities.TAMED_CANDY.get().create(serverWorld);
-		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null);
+		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null, null);
 		return retval;
 	}
 
@@ -478,7 +477,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 6);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 25);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 80);
-		builder = builder.add(Attributes.STEP_HEIGHT, 2.6);
+		builder = builder.add(net.minecraftforge.common.ForgeMod.STEP_HEIGHT_ADDITION.get(), 2.6);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 2);
 		return builder;
@@ -501,7 +500,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		++this.deathTime;
 		if (this.deathTime == 45) {
 			this.remove(TamedCandyEntity.RemovalReason.KILLED);
-			this.dropExperience(this);
+			this.dropExperience();
 		}
 	}
 
@@ -523,12 +522,6 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		return this.cache;
 	}
 
-	@Override
-	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
-		int index = this.getPassengers().indexOf(entity);
-		Vec3 offset = getPassengerSlotOffset(index);
-		return offset;
-	}
 
 	@Override
 	protected boolean canAddPassenger(Entity entity) {

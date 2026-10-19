@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.mcreator.gts.entity.model.TamedTokiModel;
 import net.mcreator.gts.entity.layer.TamedTokiLayer;
 import net.mcreator.gts.entity.TamedTokiEntity;
+import net.mcreator.gts.init.GtsModAttributes;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -29,11 +30,11 @@ public class TamedTokiRenderer extends GeoEntityRenderer<TamedTokiEntity> {
 	}
 
 	@Override
-	public void preRender(PoseStack poseStack, TamedTokiEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int color) {
-		float scale = 1f;
+	public void preRender(PoseStack poseStack, TamedTokiEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		float scale = (float) Math.max(0.0625D, Math.min(64.0D, entity.getAttributeValue(GtsModAttributes.SCALE.get())));
 		this.scaleHeight = scale;
 		this.scaleWidth = scale;
-		super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, color);
+		super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
 	@Override

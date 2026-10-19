@@ -1,6 +1,7 @@
 
 package net.mcreator.gts.block;
 
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -112,7 +113,7 @@ public class ModifiedAnvilBlock extends FallingBlock implements SimpleWaterlogge
 	public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {
 		
 		if (entity instanceof ServerPlayer player) {
-			player.openMenu(new MenuProvider() {
+			NetworkHooks.openScreen(player, new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
 					return Component.literal("Modified Anvil");
@@ -122,7 +123,7 @@ public class ModifiedAnvilBlock extends FallingBlock implements SimpleWaterlogge
 				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 					return new TokiAnvilGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(pos));
 				}
-			}, pos);
+			}, buf -> buf.writeBlockPos(pos));
 		}
 		return InteractionResult.SUCCESS;
 	}

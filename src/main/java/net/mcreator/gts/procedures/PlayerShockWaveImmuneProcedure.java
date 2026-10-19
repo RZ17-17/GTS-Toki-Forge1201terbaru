@@ -22,7 +22,7 @@ public class PlayerShockWaveImmuneProcedure {
 	@SubscribeEvent
 	public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		if (event.phase != TickEvent.Phase.END) return;
-		execute(event, event.getEntity().level(), event.getEntity());
+		execute(event, event.player.level(), event.player);
 	}
 
 	public static void execute(LevelAccessor world, Entity entity) {
@@ -34,7 +34,7 @@ public class PlayerShockWaveImmuneProcedure {
 			return;
 		if (!world.isClientSide() && !((entity.getVehicle()) == null) && (entity.getVehicle()).getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:tamedgiantess")))) {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(GtsModMobEffects.SHOCK_WAVE_IMMUNE, 2, 1, false, false));
+				_entity.addEffect(new MobEffectInstance(GtsModMobEffects.SHOCK_WAVE_IMMUNE.get(), 2, 1, false, false));
 		}
 	}
 }

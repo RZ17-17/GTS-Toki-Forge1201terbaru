@@ -65,9 +65,6 @@ public class TamedGtsSizeDecreaseProcedure {
 					if (TargetEntity instanceof LivingEntity _livingEntity12 && _livingEntity12.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED))
 						_livingEntity12.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(
 								(0.25 + 0.05 * (TargetEntity instanceof LivingEntity _livingEntity11 && _livingEntity11.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity11.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)));
-					if (TargetEntity instanceof LivingEntity _livingEntity14 && _livingEntity14.getAttributes().hasAttribute(Attributes.SAFE_FALL_DISTANCE))
-						_livingEntity14.getAttribute(Attributes.SAFE_FALL_DISTANCE)
-								.setBaseValue((5 * (TargetEntity instanceof LivingEntity _livingEntity13 && _livingEntity13.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity13.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0)));
 					if (TargetEntity instanceof LivingEntity _livingEntity16 && _livingEntity16.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 						_livingEntity16.getAttribute(Attributes.MAX_HEALTH)
 								.setBaseValue(((TargetEntity instanceof LivingEntity _livingEntity15 && _livingEntity15.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity15.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 125));

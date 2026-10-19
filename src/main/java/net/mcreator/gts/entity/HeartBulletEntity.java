@@ -39,11 +39,11 @@ public class HeartBulletEntity extends AbstractArrow implements ItemSupplier {
 	}
 
 	public HeartBulletEntity(EntityType<? extends HeartBulletEntity> type, double x, double y, double z, Level world, @Nullable ItemStack firedFromWeapon) {
-		super(type, x, y, z, world, PROJECTILE_ITEM, firedFromWeapon);
+		super(type, x, y, z, world);
 	}
 
 	public HeartBulletEntity(EntityType<? extends HeartBulletEntity> type, LivingEntity entity, Level world, @Nullable ItemStack firedFromWeapon) {
-		super(type, entity, world, PROJECTILE_ITEM, firedFromWeapon);
+		super(type, entity, world);
 	}
 
 	@Override
@@ -67,7 +67,6 @@ public class HeartBulletEntity extends AbstractArrow implements ItemSupplier {
 		this.knockback = knockback;
 	}
 
-	@Override
 	protected void doKnockback(LivingEntity livingEntity, DamageSource damageSource) {
 		if (knockback > 0.0) {
 			double d1 = Math.max(0.0, 1.0 - livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));

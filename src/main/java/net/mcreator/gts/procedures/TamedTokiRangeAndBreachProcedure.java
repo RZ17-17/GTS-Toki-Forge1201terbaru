@@ -31,26 +31,14 @@ public class TamedTokiRangeAndBreachProcedure {
 		SpeedEntity = entity.getRootVehicle();
 		TokiSpeed = Math.pow(sourceentity.getDeltaMovement().x(), 2) + Math.pow(sourceentity.getDeltaMovement().z(), 2);
 		TargetSpeed = Math.pow(SpeedEntity.getDeltaMovement().x(), 2) + Math.pow(SpeedEntity.getDeltaMovement().z(), 2);
+		// Count ranged-attack cooldown independently of movement so spit/ultimate can trigger against a stationary target.
+		sourceentity.getPersistentData().putDouble("RangeAttack", sourceentity.getPersistentData().getDouble("RangeAttack") + 1);
 		if (TokiSpeed >= (TokiInWater ? 0.000784 : 0.01)) {
-			sourceentity.getPersistentData().putDouble("RangeAttack", (sourceentity.getPersistentData().getDouble("RangeAttack") + 1));
 			sourceentity.getPersistentData().putDouble("BreachAttack", 0);
-		} else if (TokiSpeed < (TokiInWater ? 0.000784 : 0.01)) {
-			sourceentity.getPersistentData().putDouble("BreachAttack", (sourceentity.getPersistentData().getDouble("BreachAttack") + 1));
-			sourceentity.getPersistentData().putDouble("RangeAttack", 0);
-		}
-		if (!(entity instanceof Player)) {
-			if (TargetSpeed > (TokiInWater ? 0.000784 : 0.01)) {
-				entity.getPersistentData().putDouble("TargetRangeAttack", (entity.getPersistentData().getDouble("TargetRangeAttack") + 1));
-			} else {
-				entity.getPersistentData().putDouble("TargetRangeAttack", 0);
-			}
 		} else {
-			if (GtsModVariables.getPlayerVariables(entity).Player_Speed > (TokiInWater ? 2 : 5)) {
-				entity.getPersistentData().putDouble("TargetRangeAttack", (entity.getPersistentData().getDouble("TargetRangeAttack") + 1));
-			} else {
-				entity.getPersistentData().putDouble("TargetRangeAttack", 0);
-			}
+			sourceentity.getPersistentData().putDouble("BreachAttack", sourceentity.getPersistentData().getDouble("BreachAttack") + 1);
 		}
+		entity.getPersistentData().putDouble("TargetRangeAttack", entity.getPersistentData().getDouble("TargetRangeAttack") + 1);
 		if (sourceentity.getPersistentData().getDouble("RangeAttack") >= 15) {
 			sourceentity.getPersistentData().putDouble("RangeAttack", 0);
 		}

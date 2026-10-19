@@ -146,13 +146,13 @@ public class GtsNavigation extends GroundPathNavigation {
 				for (int z = z0; z != z1; z += stepz) {
 					for (int y = y0; y != y1; y += stepy) {
 						BlockState block = this.level.getBlockState(pos.set(x, y, z));
-						if (!block.isPathfindable(PathComputationType.LAND))
+						if (!block.isPathfindable(this.level, pos, PathComputationType.LAND))
 							return false;
 					}
-					BlockPathTypes below = this.nodeEvaluator.getPathType(mob, BlockPos.containing(x, y0 - 1, z));
+					BlockPathTypes below = WalkNodeEvaluator.getBlockPathTypeStatic(this.level, new BlockPos.MutableBlockPos(x, y0 - 1, z));
 					if (below == BlockPathTypes.WATER || below == BlockPathTypes.LAVA || below == BlockPathTypes.OPEN)
 						return false;
-					BlockPathTypes in = this.nodeEvaluator.getPathType(mob, BlockPos.containing(x, y0, z));
+					BlockPathTypes in = WalkNodeEvaluator.getBlockPathTypeStatic(this.level, new BlockPos.MutableBlockPos(x, y0, z));
 					float priority = this.mob.getPathfindingMalus(in);
 					if (priority < 0.0F || priority >= 8.0F)
 						return false;

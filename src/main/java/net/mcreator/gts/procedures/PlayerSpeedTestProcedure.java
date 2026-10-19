@@ -19,7 +19,7 @@ public class PlayerSpeedTestProcedure {
 	@SubscribeEvent
 	public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		if (event.phase != TickEvent.Phase.END) return;
-		execute(event, event.getEntity().level(), event.getEntity());
+		execute(event, event.player.level(), event.player);
 	}
 
 	public static void execute(LevelAccessor world, Entity entity) {

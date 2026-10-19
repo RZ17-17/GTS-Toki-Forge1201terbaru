@@ -49,7 +49,7 @@ public class GtsModMobEffects {
 	}
 
 	private static void expireEffects(Entity entity, MobEffectInstance effectInstance) {
-		if (effectInstance.getEffect().is(TOKI_DRONE_BATTERY)) {
+		if (effectInstance.getEffect() == TOKI_DRONE_BATTERY.get()) {
 			TokiDroneNoBatteryProcedure.execute(entity);
 		}
 	}
