@@ -185,7 +185,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 		});
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, Monster.class, false, false) {
+		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Monster.class, false, false, target -> !isFriendlyTamedTarget(target)) {
 			@Override
 			public boolean canUse() {
 				double x = TamedTokiEntity.this.getX();
@@ -207,9 +207,9 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 			}
 		});
 		// Defend the owner against wild Toki-family entities as well as monsters.
-		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, false));
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, 10, true, false, target -> !isFriendlyTamedTarget(target)));
 		// Candy is not hostile; tamed Toki should focus on monsters and wild Toki.
-		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame()));
+		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame() && !isFriendlyTamedTarget(target)));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
 						protected boolean canPerformAttack() {
 				LivingEntity entity = this.mob.getTarget();
@@ -354,6 +354,9 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				if (this.isOwnedBy(sourceentity)) {
 					// Shift-right-click opens the owner controls and selects this Toki for size changes.
 					if (itemstack.isEmpty() && sourceentity.isShiftKeyDown()) {
+                        this.setOrderedToSit(false);
+                        this.navigation.stop();
+                        this.setTarget(null);
 						sourceentity.getPersistentData().putString("targetedTamedGiantess", this.getUUID().toString());
 						if (sourceentity instanceof ServerPlayer serverPlayer) {
 							NetworkHooks.openScreen(serverPlayer,
@@ -364,7 +367,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 					} else if (itemstack.isEmpty()) {
 						// Empty-hand right-click toggles sitting; food is not used for healing.
 						
-						this.setOrderedToSit(!this.isOrderedToSit());
+						this.setOrderedToSit(true);
 						this.navigation.stop();
 						this.setTarget(null);
 						retval = InteractionResult.CONSUME;
@@ -447,7 +450,20 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 		super.travel(dir);
 	}
 
-		@Override
+		private boolean isFriendlyTamedTarget(Entity target) {
+        if (target == null || target == this || this.isAlliedTo(target)) return true;
+        if (target instanceof TamableAnimal tameTarget && tameTarget.isTame()) return true;
+        if (target instanceof TamedTokiEntity || target instanceof TamedCandyEntity) return true;
+        return target instanceof TokiVariantEntity variant && variant.isTame();
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        if (this.isTame() && isFriendlyTamedTarget(target)) return false;
+        return super.doHurtTarget(target);
+    }
+
+	@Override
 	public boolean hurt(DamageSource source, float amount) {
 		Entity attacker = source.getEntity();
 		// Prevent hits from the owner and allied tamed companions.
