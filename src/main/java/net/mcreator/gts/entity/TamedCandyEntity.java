@@ -30,7 +30,6 @@ import net.mcreator.gts.entity.TokiVariantEntity;
 import net.mcreator.gts.entity.CandyEntity;
 import net.mcreator.gts.entity.TokiEntity;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.goal.SitWhenOrderedToGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -134,7 +133,6 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this) {
 			@Override
 			public boolean canUse() {
@@ -374,10 +372,11 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 			if (this.isTame()) {
 				if (this.isOwnedBy(sourceentity)) {
 					if (itemstack.isEmpty()) {
-						// Empty-hand right-click toggles sitting for the owner.
-						this.setOrderedToSit(!this.isOrderedToSit());
+						// Empty-hand right-click mounts the owned Candy instead of sitting.
+						this.setOrderedToSit(false);
 						this.navigation.stop();
 						this.setTarget(null);
+						if (!this.isVehicle()) sourceentity.startRiding(this);
 						retval = InteractionResult.CONSUME;
 					} else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
 						this.usePlayerItem(sourceentity, hand, itemstack);
@@ -409,10 +408,9 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 					this.setPersistenceRequired();
 			}
 		}
-		// Preserve Candy's ride interaction when holding an item, but an empty-hand
-		// owner interaction is reserved for the sit/stand toggle.
-		if (!(this.isTame() && this.isOwnedBy(sourceentity) && itemstack.isEmpty()))
-			sourceentity.startRiding(this);
+        // Keep the existing non-owner/item interaction behavior; owner empty-hand riding is handled above.
+        if (!(this.isTame() && this.isOwnedBy(sourceentity) && itemstack.isEmpty()))
+            sourceentity.startRiding(this);
 		return retval;
 	}
 
