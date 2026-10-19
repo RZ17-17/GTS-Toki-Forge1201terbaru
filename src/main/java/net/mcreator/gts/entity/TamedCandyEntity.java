@@ -220,7 +220,7 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		// Defend the owner against wild Toki-family entities.
 		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, false));
 		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, CandyEntity.class, false));
-		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> !target.isTame()));
+		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame()));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
 						protected boolean canPerformAttack() {
 				LivingEntity entity = this.mob.getTarget();

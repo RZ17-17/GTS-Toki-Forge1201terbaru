@@ -111,7 +111,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         });
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, false));
         this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<CandyEntity>(this, CandyEntity.class, false));
-        this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> !target.isTame()) {
+        this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame()) {
             @Override public boolean canUse() { return TokiVariantEntity.this.isTame() && super.canUse(); }
             @Override public boolean canContinueToUse() { return TokiVariantEntity.this.isTame() && super.canContinueToUse(); }
         });
