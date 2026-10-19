@@ -45,8 +45,6 @@ public class GtsSpawnProcedure {
 					_livingEntity5.getAttribute(GtsModAttributes.SCALE.get()).setBaseValue(TokiSpawnScale);
 				if (entity instanceof LivingEntity _livingEntity6 && _livingEntity6.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED))
 					_livingEntity6.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((0.25 + 0.05 * TokiSpawnScale));
-				if (entity instanceof LivingEntity _livingEntity7 && _livingEntity7.getAttributes().hasAttribute(Attributes.SAFE_FALL_DISTANCE))
-					_livingEntity7.getAttribute(Attributes.SAFE_FALL_DISTANCE).setBaseValue((5 * TokiSpawnScale));
 				if (entity instanceof LivingEntity _livingEntity9 && _livingEntity9.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 					_livingEntity9.getAttribute(Attributes.MAX_HEALTH)
 							.setBaseValue(((entity instanceof LivingEntity _livingEntity8 && _livingEntity8.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity8.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 125));
