@@ -65,8 +65,6 @@ public class GiantessSpitEntity extends AbstractArrow implements ItemSupplier {
 	public void setKnockback(int knockback) {
 		this.knockback = knockback;
 	}
-
-	@Override
 	protected void doKnockback(LivingEntity livingEntity) {
 		if (knockback > 0.0) {
 			double d1 = Math.max(0.0, 1.0 - livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
