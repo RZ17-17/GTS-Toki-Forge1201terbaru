@@ -151,9 +151,8 @@ public class CandyEntity extends Raider implements GeoEntity {
 	}
 
 	private static boolean isTamingFood(ItemStack stack) {
-		return stack.is(Items.CARROT) || stack.is(Items.GOLDEN_CARROT) || stack.is(Items.BREAD)
-			|| stack.is(Items.APPLE) || stack.is(Items.BAKED_POTATO) || stack.is(Items.POTATO)
-			|| stack.is(Items.BEETROOT) || stack.is(Items.MELON_SLICE);
+		// Candy liar langsung jinak dengan cake; tidak ada peluang gagal.
+		return stack.is(Items.CAKE);
 	}
 
 	@Override
