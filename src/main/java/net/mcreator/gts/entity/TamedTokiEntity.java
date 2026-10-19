@@ -416,7 +416,15 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 
 	@Override
 	public boolean isFood(ItemStack stack) {
-		return List.of().contains(stack.getItem());
+		// Common vanilla foods can be used to tame Toki and feed an already-tamed Toki.
+		return stack.is(net.minecraft.world.item.Items.CARROT)
+				|| stack.is(net.minecraft.world.item.Items.GOLDEN_CARROT)
+				|| stack.is(net.minecraft.world.item.Items.BREAD)
+				|| stack.is(net.minecraft.world.item.Items.APPLE)
+				|| stack.is(net.minecraft.world.item.Items.BAKED_POTATO)
+				|| stack.is(net.minecraft.world.item.Items.POTATO)
+				|| stack.is(net.minecraft.world.item.Items.BEETROOT)
+				|| stack.is(net.minecraft.world.item.Items.MELON_SLICE);
 	}
 
 	@Override
