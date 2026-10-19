@@ -76,6 +76,14 @@ public class GiantessSpitEntity extends AbstractArrow implements ItemSupplier {
 	}
 
 	@Override
+	protected boolean canHitEntity(net.minecraft.world.entity.Entity entity) {
+		if (entity == this.getOwner()) return false;
+		if (this.getOwner() instanceof net.minecraft.world.entity.TamableAnimal shooter && shooter.isTame()
+				&& entity instanceof net.minecraft.world.entity.TamableAnimal target && target.isTame()) return false;
+		return super.canHitEntity(entity);
+	}
+
+	@Override
 	public void onHitEntity(EntityHitResult entityHitResult) {
 		super.onHitEntity(entityHitResult);
 		GiantessSpitHitsEntityProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this, this.getOwner());
