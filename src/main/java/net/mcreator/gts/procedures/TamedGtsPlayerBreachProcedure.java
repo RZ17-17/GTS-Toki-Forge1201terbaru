@@ -15,7 +15,7 @@ public class TamedGtsPlayerBreachProcedure {
 			return;
 		double MeleeChoice = 0;
 		Entity TargetedTamedGTS = null;
-		if (false && !world.isClientSide() && !((entity.getVehicle()) == null) && (entity.getVehicle()).getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:tamedgiantess"))) && (entity.getVehicle()).onGround()) {
+		if (!world.isClientSide() && !((entity.getVehicle()) == null) && (entity.getVehicle()).getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:tamedgiantess"))) && (entity.getVehicle()).onGround()) {
 			if ((entity.getVehicle()) instanceof TamedCandyEntity && !(entity.getVehicle()).getPersistentData().getBoolean("AttackCheck")) {
 				TamedCandyBreachProcedure.execute(world, entity.getVehicle());
 			} else if ((entity.getVehicle()) instanceof TamedTokiEntity && !(entity.getVehicle()).getPersistentData().getBoolean("AttackCheck")) {
