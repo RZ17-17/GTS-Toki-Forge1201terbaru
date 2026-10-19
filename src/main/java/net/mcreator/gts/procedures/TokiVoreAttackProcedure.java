@@ -36,9 +36,9 @@ import net.mcreator.gts.GtsMod;
 
 public class TokiVoreAttackProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
-		// Swallowing is reserved for tamed Toki's dedicated procedure.
-		// Ordinary wild Toki must not eat mobs or trigger a healing animation.
-		if (entity == null || sourceentity == null || !(sourceentity instanceof TamedTokiEntity))
+		// Wild and tamed Toki may consume hostile monsters for healing.
+		// Only tamed Toki may consume wild Toki; that exception is handled by TamedTokiVoreAttackProcedure.
+		if (entity == null || sourceentity == null || !(sourceentity instanceof TokiEntity))
 			return;
 		if (!(entity instanceof Monster) || entity instanceof net.minecraft.world.entity.TamableAnimal tameTarget && tameTarget.isTame()
 				|| entity instanceof TokiEntity || entity instanceof TokiVariantEntity
