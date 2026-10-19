@@ -137,7 +137,8 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         ItemStack stack = player.getItemInHand(hand);
         if (this.isTame()) {
             if (this.isOwnedBy(player) && stack.isEmpty()) {
-                this.setOrderedToSit(true);
+                // Ordinary right-click orders the companion to sit; sneak-right-click stands it up.
+                this.setOrderedToSit(!player.isShiftKeyDown());
                 this.navigation.stop();
                 this.setTarget(null);
                 return InteractionResult.sidedSuccess(this.level().isClientSide());
