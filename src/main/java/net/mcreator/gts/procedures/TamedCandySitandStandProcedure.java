@@ -20,6 +20,8 @@ public class TamedCandySitandStandProcedure {
 					&& (entity instanceof TamedCandyEntity _datEntS ? _datEntS.getEntityData().get(TamedCandyEntity.DATA_AnimationDecision) : "").equals("empty") && world instanceof Level _lvl6 && _lvl6.isDay()) {
 				if (entity instanceof TamedCandyEntity _datEntSetL)
 					_datEntSetL.getEntityData().set(TamedCandyEntity.DATA_Sleep, true);
+				((TamedCandyEntity) entity).getNavigation().stop();
+				((TamedCandyEntity) entity).setTarget(null);
 				if (entity instanceof TamedCandyEntity _datEntSetS)
 					_datEntSetS.getEntityData().set(TamedCandyEntity.DATA_AnimationDecision, "candy.sit");
 			} else if (!(entity instanceof TamedCandyEntity _datEntL9 && _datEntL9.getEntityData().get(TamedCandyEntity.DATA_Sleep))
