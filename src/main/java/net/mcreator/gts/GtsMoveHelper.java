@@ -53,7 +53,7 @@ public class GtsMoveHelper extends MoveControl {
 			PathNavigation pathnavigate = this.mob.getNavigation();
 			if (pathnavigate != null) {
 				NodeEvaluator nodeprocessor = pathnavigate.getNodeEvaluator();
-				if (nodeprocessor != null && WalkNodeEvaluator.getBlockPathTypeStatic(this.mob.level(), BlockPos.containing(this.mob.getX() + f7, this.mob.getY(), this.mob.getZ() + f8)) != BlockPathTypes.WALKABLE) {
+				if (nodeprocessor != null && WalkNodeEvaluator.getBlockPathTypeStatic(this.mob.level(), new BlockPos.MutableBlockPos().set(Mth.floor(this.mob.getX() + f7), Mth.floor(this.mob.getY()), Mth.floor(this.mob.getZ() + f8))) != BlockPathTypes.WALKABLE) {
 					this.strafeForwards = 1.0F;
 					this.strafeRight = 0.0F;
 					f1 = f;
