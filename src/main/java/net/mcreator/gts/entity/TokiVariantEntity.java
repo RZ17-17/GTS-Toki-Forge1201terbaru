@@ -408,12 +408,11 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         controllers.add(new AnimationController<>(this, "movement", 5, state -> {
             if (this.shouldRenderSitPose()) {
                 if (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) {
-                    // Play the transition once, then hold the actual sitting pose.
-                    // Looping "firefly.sitting" repeats the transition and can make
-                    // the Firefly appear to never settle into its seated posture.
-                    return state.setAndContinue(RawAnimation.begin()
-                        .thenPlay("firefly.sitting")
-                        .thenLoop("firefly.sit"));
+                    // Use the dedicated static sitting pose directly. Chaining the
+                    // transition animation can leave GeckoLib holding/resetting the
+                    // transition on some controller updates instead of settling into
+                    // the seated pose.
+                    return state.setAndContinue(RawAnimation.begin().thenLoop("firefly.sit"));
                 }
                 return state.setAndContinue(RawAnimation.begin().thenLoop("Ara.sit"));
             }
