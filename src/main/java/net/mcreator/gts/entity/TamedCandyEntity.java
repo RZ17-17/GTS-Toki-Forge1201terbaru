@@ -603,10 +603,16 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	public Vec3 getPassengerSlotOffset(int index) {
-		if (passengerSlots.containsKey(index)) {
-			return passengerSlots.get(index);
+		Vec3 modelOffset = passengerSlots.get(index);
+		// The Candy geo model's saddle locator can resolve to (0, 0, 0) on the
+		// server or before the client model has populated its bone positions.
+		// Keep the rider up at the upper torso instead of leaving them inside
+		// Candy's feet/root when that locator is missing or empty.
+		if (modelOffset != null && modelOffset.lengthSqr() > 1.0E-6D) {
+			return modelOffset;
 		}
-		return Vec3.ZERO;
+		double scale = this.getAttributeValue(GtsModAttributes.SCALE.get());
+		return new Vec3(0.0D, scale * 2.3D, scale * 0.05D);
 	}
 
 	public void setPassengerSlotOffset(int index, Vec3 offset) {
