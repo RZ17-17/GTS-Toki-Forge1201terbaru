@@ -367,6 +367,16 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     }
 
     @Override
+    public void aiStep() {
+        super.aiStep();
+        if (!this.level().isClientSide() && this.isTame()
+                && FriendlyFireGuard.isFriendlyTarget(this, this.getTarget())) {
+            this.setTarget(null);
+            this.getNavigation().stop();
+        }
+    }
+
+    @Override
     public boolean hurt(DamageSource source, float amount) {
         Entity attacker = source.getEntity();
         // Prevent hits from the owner and allied tamed companions.
