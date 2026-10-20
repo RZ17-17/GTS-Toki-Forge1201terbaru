@@ -592,12 +592,11 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
-	public Vec3 getPassengerRidingPosition(Entity passenger) {
-		// Vanilla rider placement uses Candy's unscaled collision dimensions, while
-		// the renderer scales the model from the SCALE attribute. Compute the rider
-		// position from the live scale attribute so it rises with the rendered body.
+	protected void positionRider(Entity passenger, Entity.MoveFunction moveFunction) {
+		if (!this.hasPassenger(passenger)) return;
+		// Position riders from the live rendered scale, not Candy's unscaled bounds.
 		double scale = Math.max(0.0625D, Math.min(64.0D, this.getAttributeValue(GtsModAttributes.SCALE.get())));
-		return this.position().add(0.0D, scale * 2.3D + passenger.getMyRidingOffset(), scale * 0.05D);
+		moveFunction.accept(passenger, this.getX(), this.getY() + scale * 2.3D + passenger.getMyRidingOffset(), this.getZ() + scale * 0.05D);
 	}
 
 	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
