@@ -2817,7 +2817,7 @@
 						}
 					}
 				},
-				"DownBody3": {
+				"DownBody2": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -3772,7 +3772,7 @@
 						"vector": [0, 0, 0]
 					}
 				},
-				"up_Body": {
+				"UpBody": {
 					"rotation": {
 						"vector": [0, 0, 0]
 					}
@@ -3782,7 +3782,7 @@
 						"vector": [0, 0, 0]
 					}
 				},
-				"DownBody3": {
+				"DownBody2": {
 					"rotation": {
 						"vector": [0, 0, 0]
 					}
