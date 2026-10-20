@@ -22,6 +22,8 @@ public class TamedTokiRangeAndBreachProcedure {
 			return;
 		// A kick/melee animation or a sitting companion must never start a breach that can affect terrain.
 		if (sourceentity.getPersistentData().getBoolean("AttackCheck")) return;
+		if (sourceentity instanceof net.mcreator.gts.entity.TamedTokiEntity kickingToki
+				&& "Toki.kick".equals(kickingToki.getEntityData().get(net.mcreator.gts.entity.TamedTokiEntity.DATA_AnimationDecision))) return;
 		if (sourceentity instanceof net.mcreator.gts.entity.TamedTokiEntity toki
 				&& toki.getEntityData().get(net.mcreator.gts.entity.TamedTokiEntity.DATA_Sleep)) return;
 		double DistanceToTarget = 0;
