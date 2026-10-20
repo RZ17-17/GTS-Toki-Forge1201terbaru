@@ -16,6 +16,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.mcreator.gts.entity.AraEntity;
 import net.mcreator.gts.entity.FireflyEntity;
 import net.mcreator.gts.init.GtsModEntities;
+import net.mcreator.gts.init.GtsModAttributes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
@@ -257,24 +258,36 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         }
     }
 
-    // Seat offsets are applied by the rider-positioning hook below.
+    /**
+     * Scale used by the renderer and passenger seat placement. Keeping seat
+     * offsets in model-space means the rider follows the creature when its
+     * size is changed, without modifying movement, AI, or interaction rules.
+     */
+    private double getVisualScale() {
+        double scale = this.getAttributes().hasAttribute(GtsModAttributes.SCALE.get())
+            ? this.getAttributeValue(GtsModAttributes.SCALE.get()) : 1.0D;
+        return Math.max(0.0625D, Math.min(64.0D, scale));
+    }
+
+    // Seat offsets are stored in model-space and scaled with the body.
     public Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float yaw) {
         int index = this.getPassengers().indexOf(passenger);
-        return passengerSlots.getOrDefault(index, Vec3.ZERO);
+        return passengerSlots.getOrDefault(index, Vec3.ZERO).scale(getVisualScale());
     }
 
     @Override
     public void positionRider(Entity passenger, Entity.MoveFunction callback) {
         if (!this.hasPassenger(passenger)) return;
         int index = this.getPassengers().indexOf(passenger);
-        Vec3 offset = passengerSlots.getOrDefault(index, Vec3.ZERO);
+        double scale = getVisualScale();
+        Vec3 offset = passengerSlots.getOrDefault(index, Vec3.ZERO).scale(scale);
         double yaw = Math.toRadians(-this.getYRot());
         double cos = Math.cos(yaw);
         double sin = Math.sin(yaw);
         double offsetX = offset.x * cos - offset.z * sin;
         double offsetZ = offset.x * sin + offset.z * cos;
         callback.accept(passenger, this.getX() + offsetX,
-            this.getY() + this.getPassengersRidingOffset() + offset.y,
+            this.getY() + this.getPassengersRidingOffset() * scale + offset.y,
             this.getZ() + offsetZ);
     }
 
