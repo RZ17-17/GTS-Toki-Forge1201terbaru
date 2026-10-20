@@ -46,6 +46,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.mcreator.gts.world.inventory.TamedGtsInteractionMenuMenu;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.server.level.ServerPlayer;
@@ -53,6 +56,7 @@ import net.minecraftforge.network.NetworkHooks;
 import net.mcreator.gts.procedures.TokiSpitAttackProcedure;
 
 public abstract class TokiVariantEntity extends TamableAnimal implements GeoEntity {
+    private static final EntityDataAccessor<Boolean> DATA_SIT_POSE = SynchedEntityData.defineId(TokiVariantEntity.class, EntityDataSerializers.BOOLEAN);
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Map<Integer, Vec3> passengerSlots = new HashMap<>();
 
@@ -60,6 +64,27 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         super(type, level);
         this.xpReward = 50;
         this.setNoAi(false);
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_SIT_POSE, false);
+    }
+
+    /**
+     * TamableAnimal's ordered-to-sit flag is server AI state and is not itself
+     * reliably synchronized to GeckoLib's client animation controller. Mirror
+     * it into entity data so both Ara and Firefly render their sitting pose.
+     */
+    @Override
+    public void setOrderedToSit(boolean orderedToSit) {
+        super.setOrderedToSit(orderedToSit);
+        this.entityData.set(DATA_SIT_POSE, orderedToSit);
+    }
+
+    private boolean shouldRenderSitPose() {
+        return this.entityData.get(DATA_SIT_POSE);
     }
 
     @Override
@@ -378,9 +403,9 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "movement", 5, state -> {
-            if (this.isOrderedToSit()) {
+            if (this.shouldRenderSitPose()) {
                 return state.setAndContinue(RawAnimation.begin().thenLoop(
-                    (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) ? "firefly.sit" : "Ara.sit"));
+                    (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) ? "firefly.sitting" : "Ara.sit"));
             }
             if (state.isMoving()) {
                 return state.setAndContinue(RawAnimation.begin().thenLoop("gts.walk"));
