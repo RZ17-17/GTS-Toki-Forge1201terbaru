@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.mcreator.gts.entity.model.CandyModel;
 import net.mcreator.gts.entity.layer.CandyLayer;
 import net.mcreator.gts.entity.CandyEntity;
+import net.mcreator.gts.init.GtsModAttributes;
 
 
 public class CandyRenderer extends GeoEntityRenderer<CandyEntity> {
@@ -30,7 +31,9 @@ public class CandyRenderer extends GeoEntityRenderer<CandyEntity> {
 
 	@Override
 	public void preRender(PoseStack poseStack, CandyEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		float scale = 1f;
+		float scale = (float) Math.max(0.0625D, Math.min(64.0D,
+            entity.getAttributes().hasAttribute(GtsModAttributes.SCALE.get())
+                ? entity.getAttributeValue(GtsModAttributes.SCALE.get()) : 1.0D));
 		this.scaleHeight = scale;
 		this.scaleWidth = scale;
 		super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
