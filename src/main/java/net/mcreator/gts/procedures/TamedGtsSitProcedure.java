@@ -48,6 +48,8 @@ public class TamedGtsSitProcedure {
             variant.setOrderedToSit(sit);
             variant.getNavigation().stop();
             variant.setTarget(null);
+            variant.setDeltaMovement(0.0D, variant.getDeltaMovement().y, 0.0D);
+            variant.setSprinting(false);
         }
     }
 }
