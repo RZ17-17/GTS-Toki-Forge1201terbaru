@@ -255,8 +255,19 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
 
     @Override
     public Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float yaw) {
-        // Match Candy's riding anchor so the rider stays at the same relative position.
-        return new Vec3(0.0D, this.getBbHeight() * 0.88D, 0.0D);
+        int index = this.getPassengers().indexOf(passenger);
+        return getPassengerSlotOffset(index);
+    }
+
+    public Vec3 getPassengerSlotOffset(int index) {
+        if (passengerSlots.containsKey(index)) {
+            return passengerSlots.get(index);
+        }
+        return Vec3.ZERO;
+    }
+
+    public void setPassengerSlotOffset(int index, Vec3 offset) {
+        passengerSlots.put(index, offset);
     }
 
     @Override
