@@ -183,7 +183,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && TamedTokiAiConditionProcedure.execute(entity);
 			}
 		});
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false, target -> !isFriendlyTamedTarget(target)) {
+		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false, target -> !FriendlyFireGuard.isFriendlyTarget(this, target)) {
 			@Override
 			public boolean canUse() {
 				double x = TamedTokiEntity.this.getX();
@@ -205,9 +205,9 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 			}
 		});
 		// Defend the owner against wild Toki-family entities as well as monsters.
-		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, 10, true, false, target -> !isFriendlyTamedTarget(target)));
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, 10, true, false, target -> !FriendlyFireGuard.isFriendlyTarget(this, target)));
 		// Candy is not hostile; tamed Toki should focus on monsters and wild Toki.
-		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame() && !isFriendlyTamedTarget(target)));
+		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame() && !FriendlyFireGuard.isFriendlyTarget(this, target)));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
 						protected boolean canPerformAttack() {
 				LivingEntity entity = this.mob.getTarget();
@@ -458,7 +458,7 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 
     @Override
     public boolean doHurtTarget(Entity target) {
-        if (this.isTame() && isFriendlyTamedTarget(target)) return false;
+        if (this.isTame() && FriendlyFireGuard.isFriendlyTarget(this, target)) return false;
         return super.doHurtTarget(target);
     }
 
@@ -481,6 +481,10 @@ public class TamedTokiEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	public void aiStep() {
 		super.aiStep();
+		if (!this.level().isClientSide() && this.isTame() && FriendlyFireGuard.isFriendlyTarget(this, this.getTarget())) {
+			this.setTarget(null);
+			this.getNavigation().stop();
+		}
 		if (!this.level().isClientSide() && !this.isTame()) {
 			Player nearby = this.level().getNearestPlayer(this, 24.0D);
 			if (nearby != null) {
