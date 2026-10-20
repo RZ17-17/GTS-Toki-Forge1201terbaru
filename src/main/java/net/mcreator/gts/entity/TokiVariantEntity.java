@@ -84,7 +84,10 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     }
 
     private boolean shouldRenderSitPose() {
-        return this.entityData.get(DATA_SIT_POSE);
+        // Prefer the canonical TamableAnimal flag and retain the mirrored client flag
+        // as a fallback. This prevents the sit controller from briefly falling back
+        // to idle/walk when the two synchronized values arrive on different ticks.
+        return this.isOrderedToSit() || this.entityData.get(DATA_SIT_POSE);
     }
 
     @Override
