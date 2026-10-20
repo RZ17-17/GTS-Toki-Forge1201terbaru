@@ -257,11 +257,25 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         }
     }
 
-    // Match Candy's passenger placement contract: provide the local seat offset
-    // and let vanilla apply rider positioning, rotation, and collision handling.
+    // Seat offsets are applied by the rider-positioning hook below.
     public Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float yaw) {
         int index = this.getPassengers().indexOf(passenger);
-        return passengerSlots.getOrDefault(index, Vec3.ZERO);
+        return passengerSlots.getOrDefault(index, new Vec3(0.0D, this.getPassengersRidingOffset(), 0.0D));
+    }
+
+    @Override
+    public void positionRider(Entity passenger, Entity.MoveFunction callback) {
+        if (!this.hasPassenger(passenger)) return;
+        int index = this.getPassengers().indexOf(passenger);
+        Vec3 offset = passengerSlots.getOrDefault(index, new Vec3(0.0D, this.getPassengersRidingOffset(), 0.0D));
+        double yaw = Math.toRadians(-this.getYRot());
+        double cos = Math.cos(yaw);
+        double sin = Math.sin(yaw);
+        double offsetX = offset.x * cos - offset.z * sin;
+        double offsetZ = offset.x * sin + offset.z * cos;
+        callback.accept(passenger, this.getX() + offsetX,
+            this.getY() + offset.y,
+            this.getZ() + offsetZ);
     }
 
     @Override
