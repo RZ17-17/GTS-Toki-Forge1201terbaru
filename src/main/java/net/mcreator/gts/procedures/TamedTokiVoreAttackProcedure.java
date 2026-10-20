@@ -8,6 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -96,8 +97,10 @@ public class TamedTokiVoreAttackProcedure {
 					entity.discard();
 				entity.getPersistentData().putBoolean("BeingGrabbed", false);
 				// Healing is granted only after an allowed target is fully swallowed.
-				if (sourceentity instanceof LivingEntity _entity) {
+				if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
 					_entity.setHealth(_entity.getMaxHealth());
+					// Make the successful heal visible and keep regeneration active briefly.
+					_entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1, false, true));
 				}
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
