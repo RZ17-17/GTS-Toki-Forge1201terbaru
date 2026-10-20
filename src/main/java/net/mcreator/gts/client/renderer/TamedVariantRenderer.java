@@ -21,7 +21,11 @@ public class TamedVariantRenderer extends GeoEntityRenderer<TokiVariantEntity> {
         return RenderType.entityTranslucent(getTextureLocation(entity));
     }
     @Override public void preRender(PoseStack poseStack, TokiVariantEntity entity, BakedGeoModel model, MultiBufferSource buffers, VertexConsumer buffer, boolean reRender, float partialTick, int light, int overlay, float red, float green, float blue, float alpha) {
-        float scale = (float)Math.max(0.0625D, Math.min(64.0D, entity.getAttributeValue(GtsModAttributes.SCALE.get())));
+        // Some world/entity initialization paths can render before the custom scale
+        // attribute is available. Fall back to vanilla size instead of crashing.
+        double rawScale = entity.getAttributes().hasAttribute(GtsModAttributes.SCALE.get())
+            ? entity.getAttributeValue(GtsModAttributes.SCALE.get()) : 1.0D;
+        float scale = (float) Math.max(0.0625D, Math.min(64.0D, rawScale));
         this.scaleHeight = scale;
         this.scaleWidth = scale;
         super.preRender(poseStack, entity, model, buffers, buffer, reRender, partialTick, light, overlay, red, green, blue, alpha);
