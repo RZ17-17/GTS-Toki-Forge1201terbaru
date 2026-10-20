@@ -257,7 +257,6 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         }
     }
 
-    @Override
     public Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float yaw) {
         int index = this.getPassengers().indexOf(passenger);
         return getPassengerSlotOffset(index);
