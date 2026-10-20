@@ -254,6 +254,11 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     @Override
     public void aiStep() {
         super.aiStep();
+        if (!this.level().isClientSide() && this.isTame()
+                && FriendlyFireGuard.isFriendlyTarget(this, this.getTarget())) {
+            this.setTarget(null);
+            this.getNavigation().stop();
+        }
         if (!this.level().isClientSide()) {
             // Spawned tamed variants bind to a nearby player, rather than treating that player as prey.
             if (!this.isTame() && (this instanceof TamedAraEntity || this instanceof TamedFireflyEntity)) {
@@ -364,16 +369,6 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         if (target instanceof net.minecraft.world.entity.OwnableEntity owned && owned.getOwner() != null) return true;
         if (target instanceof TamedTokiEntity || target instanceof TamedCandyEntity) return true;
         return target instanceof TokiVariantEntity variant && variant.isTame();
-    }
-
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        if (!this.level().isClientSide() && this.isTame()
-                && FriendlyFireGuard.isFriendlyTarget(this, this.getTarget())) {
-            this.setTarget(null);
-            this.getNavigation().stop();
-        }
     }
 
     @Override
