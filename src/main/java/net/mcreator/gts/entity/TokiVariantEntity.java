@@ -380,7 +380,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         controllers.add(new AnimationController<>(this, "movement", 5, state -> {
             if (this.isOrderedToSit()) {
                 return state.setAndContinue(RawAnimation.begin().thenLoop(
-                    (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) ? "firefly.sitting" : "Ara.sit"));
+                    (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) ? "firefly.sit" : "Ara.sit"));
             }
             if (state.isMoving()) {
                 return state.setAndContinue(RawAnimation.begin().thenLoop("gts.walk"));
