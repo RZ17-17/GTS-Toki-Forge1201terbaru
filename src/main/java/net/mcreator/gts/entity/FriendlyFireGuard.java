@@ -15,7 +15,8 @@ public final class FriendlyFireGuard {
     private FriendlyFireGuard() {}
 
     public static boolean isFriendlyTarget(Entity attacker, Entity target) {
-        if (attacker == null || target == null || attacker == target) return true;
+        if (attacker == null || target == null) return false;
+        if (attacker == target) return true;
         if (!(attacker instanceof TamableAnimal tameAttacker) || !tameAttacker.isTame()) return false;
 
         if (tameAttacker.isAlliedTo(target)) return true;
