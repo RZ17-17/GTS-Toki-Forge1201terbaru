@@ -407,8 +407,15 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "movement", 5, state -> {
             if (this.shouldRenderSitPose()) {
-                return state.setAndContinue(RawAnimation.begin().thenLoop(
-                    (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) ? "firefly.sitting" : "Ara.sit"));
+                if (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) {
+                    // Play the transition once, then hold the actual sitting pose.
+                    // Looping "firefly.sitting" repeats the transition and can make
+                    // the Firefly appear to never settle into its seated posture.
+                    return state.setAndContinue(RawAnimation.begin()
+                        .thenPlay("firefly.sitting")
+                        .thenLoop("firefly.sit"));
+                }
+                return state.setAndContinue(RawAnimation.begin().thenLoop("Ara.sit"));
             }
             if (state.isMoving()) {
                 return state.setAndContinue(RawAnimation.begin().thenLoop("gts.walk"));
