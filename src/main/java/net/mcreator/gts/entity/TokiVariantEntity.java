@@ -260,7 +260,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     // Seat offsets are applied by the vanilla rider-positioning hook below.
     public Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float yaw) {
         int index = this.getPassengers().indexOf(passenger);
-        return passengerSlots.getOrDefault(index, new Vec3(0.0D, this.getBbHeight() * 0.88D, 0.0D));
+        return passengerSlots.getOrDefault(index, new Vec3(0.0D, this.getPassengersRidingOffset(), 0.0D));
     }
 
     @Override
@@ -274,7 +274,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         double offsetX = offset.x * cos - offset.z * sin;
         double offsetZ = offset.x * sin + offset.z * cos;
         callback.accept(passenger, this.getX() + offsetX,
-            this.getY() + this.getBbHeight() * 0.88D + offset.y,
+            this.getY() + this.getPassengersRidingOffset() + offset.y,
             this.getZ() + offsetZ);
     }
 
