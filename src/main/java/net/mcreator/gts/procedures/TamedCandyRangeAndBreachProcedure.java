@@ -20,6 +20,10 @@ public class TamedCandyRangeAndBreachProcedure {
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
+		// Never run Candy's special/ranged attack sequence against an ally.
+		if (sourceentity instanceof net.mcreator.gts.entity.TamedCandyEntity
+				&& net.mcreator.gts.entity.FriendlyFireGuard.isFriendlyTarget(sourceentity, entity))
+			return;
 		double DistanceToTarget = 0;
 		double TargetHeight = 0;
 		double TargetSpeed = 0;
@@ -57,7 +61,9 @@ public class TamedCandyRangeAndBreachProcedure {
 		if (entity.getPersistentData().getDouble("TargetRangeAttack") >= 15) {
 			entity.getPersistentData().putDouble("TargetRangeAttack", 0);
 		}
-		if (sourceentity.getPersistentData().getDouble("RangeAttack") >= 6 && entity.getPersistentData().getDouble("TargetRangeAttack") >= 6) {
+		if ((sourceentity.getPersistentData().getDouble("RangeAttack") >= 6
+				|| sourceentity.getPersistentData().getDouble("BreachAttack") >= 6)
+				&& entity.getPersistentData().getDouble("TargetRangeAttack") >= 6) {
 			if (Mth.nextInt(RandomSource.create(), 1, (int) (CandyInWater ? 12 : 6)) == 1) {
 				Scale = sourceentity instanceof LivingEntity _livingEntity26 && _livingEntity26.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity26.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0;
 				DistanceToTarget = Math.pow(sourceentity.getX() - entity.getX(), 2) + Math.pow(sourceentity.getZ() - entity.getZ(), 2);
@@ -73,6 +79,7 @@ public class TamedCandyRangeAndBreachProcedure {
 				}
 			}
 			sourceentity.getPersistentData().putDouble("RangeAttack", 0);
+			sourceentity.getPersistentData().putDouble("BreachAttack", 0);
 			entity.getPersistentData().putDouble("TargetRangeAttack", 0);
 		}
 		if (sourceentity.getPersistentData().getDouble("BreachAttack") >= 15) {
