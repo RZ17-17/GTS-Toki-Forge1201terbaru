@@ -20,7 +20,17 @@ public class TamedGtsSitProcedure {
         try {
             String uuid = owner.getPersistentData().getString("targetedTamedGiantess");
             if (uuid.isEmpty()) return;
-            target = server.getEntity(UUID.fromString(uuid));
+            UUID targetId = UUID.fromString(uuid);
+            target = server.getEntity(targetId);
+            // The menu can stay open while a companion crosses a dimension or its
+            // entity lookup cache changes. Resolve the saved companion UUID across
+            // loaded server levels before treating the button press as a no-op.
+            if (target == null) {
+                for (ServerLevel level : server.getServer().getAllLevels()) {
+                    target = level.getEntity(targetId);
+                    if (target != null) break;
+                }
+            }
         } catch (Exception ignored) {
             return;
         }
