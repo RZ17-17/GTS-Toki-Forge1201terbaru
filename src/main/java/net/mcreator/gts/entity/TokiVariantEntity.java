@@ -257,15 +257,25 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         }
     }
 
-    // Forge 1.20.1 does not declare getPassengerAttachmentPoint on Entity,
-    // so keep this helper without @Override to avoid a compile error.
+    // Seat offsets are applied by the vanilla rider-positioning hook below.
     public Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float yaw) {
         int index = this.getPassengers().indexOf(passenger);
-        if (passengerSlots.containsKey(index)) {
-            return passengerSlots.get(index);
-        }
-        // Keep riders attached relative to the actual entity height, including scaled variants.
-        return new Vec3(0.0D, this.getBbHeight() * 0.88D, 0.0D);
+        return passengerSlots.getOrDefault(index, new Vec3(0.0D, this.getBbHeight() * 0.88D, 0.0D));
+    }
+
+    @Override
+    public void positionRider(Entity passenger, Entity.MoveFunction callback) {
+        if (!this.hasPassenger(passenger)) return;
+        int index = this.getPassengers().indexOf(passenger);
+        Vec3 offset = passengerSlots.getOrDefault(index, Vec3.ZERO);
+        double yaw = Math.toRadians(-this.getYRot());
+        double cos = Math.cos(yaw);
+        double sin = Math.sin(yaw);
+        double offsetX = offset.x * cos - offset.z * sin;
+        double offsetZ = offset.x * sin + offset.z * cos;
+        callback.accept(passenger, this.getX() + offsetX,
+            this.getY() + this.getBbHeight() * 0.88D + offset.y,
+            this.getZ() + offsetZ);
     }
 
     @Override
