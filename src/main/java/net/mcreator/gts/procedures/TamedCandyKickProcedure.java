@@ -81,7 +81,11 @@ public class TamedCandyKickProcedure {
 					List<Entity> _entfound = world.getEntitiesOfClass(Entity.class,
 							new AABB(_center, _center).inflate(
 									((sourceentity instanceof LivingEntity _livingEntity19 && _livingEntity19.getAttributes().hasAttribute(GtsModAttributes.SCALE.get()) ? _livingEntity19.getAttribute(GtsModAttributes.SCALE.get()).getBaseValue() : 0) * 1.5) / 2d),
-							e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+							e -> e != sourceentity
+                                    && !(e instanceof TamableAnimal tameTarget && tameTarget.isTame())
+                                    && !(e instanceof net.minecraft.world.entity.OwnableEntity ownedTarget && ownedTarget.getOwner() != null)
+                                    && !sourceentity.isAlliedTo(e)
+                                    && !net.mcreator.gts.entity.FriendlyFireGuard.isFriendlyTarget(sourceentity, e)).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 					for (Entity entityiterator : _entfound) {
 						if (GtsModVariables.MapVariables.get(world).DisableTamedGiantessFriendlyFire) {
 							if (!entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("gts:giantessfaction")))

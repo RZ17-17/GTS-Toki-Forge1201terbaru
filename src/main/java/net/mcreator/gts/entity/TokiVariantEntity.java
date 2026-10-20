@@ -162,7 +162,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             }
         });
         // Prioritize hostile monsters so tamed Ara/Firefly fight instead of repeatedly following their owner.
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<Monster>(this, Monster.class, 10, true, false, target -> !isFriendlyTamedTarget(target) && !(target instanceof TamableAnimal tameTarget && tameTarget.isTame()) && !TokiVariantEntity.this.isAlliedTo(target)));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<Monster>(this, Monster.class, 10, true, false, target -> !FriendlyFireGuard.isFriendlyTarget(this, target) && !(target instanceof TamableAnimal tameTarget && tameTarget.isTame()) && !TokiVariantEntity.this.isAlliedTo(target)));
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<Player>(this, Player.class, false) {
             @Override
             public boolean canUse() {
@@ -175,7 +175,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                     && !TokiVariantEntity.this.isTame() && super.canContinueToUse();
             }
         });
-        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, 10, true, false, target -> !isFriendlyTamedTarget(target)));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<TokiEntity>(this, TokiEntity.class, 10, true, false, target -> !FriendlyFireGuard.isFriendlyTarget(this, target)));
         // Tamed variants do not hunt friendly Candy; wild variants retain the original behavior.
         this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<CandyEntity>(this, CandyEntity.class, false) {
             @Override public boolean canUse() { return !TokiVariantEntity.this.isTame() && super.canUse(); }
@@ -254,6 +254,11 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     @Override
     public void aiStep() {
         super.aiStep();
+        if (!this.level().isClientSide() && this.isTame()
+                && FriendlyFireGuard.isFriendlyTarget(this, this.getTarget())) {
+            this.setTarget(null);
+            this.getNavigation().stop();
+        }
         if (!this.level().isClientSide()) {
             // Spawned tamed variants bind to a nearby player, rather than treating that player as prey.
             if (!this.isTame() && (this instanceof TamedAraEntity || this instanceof TamedFireflyEntity)) {
@@ -384,7 +389,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
 
     @Override
     public boolean doHurtTarget(Entity target) {
-        if (this.isTame() && isFriendlyTamedTarget(target)) return false;
+        if (this.isTame() && FriendlyFireGuard.isFriendlyTarget(this, target)) return false;
         boolean hit = super.doHurtTarget(target);
         if (hit && !this.level().isClientSide() && target instanceof LivingEntity) {
             this.triggerAnim("movement", "attack");

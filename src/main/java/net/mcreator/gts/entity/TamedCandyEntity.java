@@ -223,8 +223,8 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 			}
 		});
 		// Defend the owner against wild Toki-family entities.
-		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, false));
-		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, CandyEntity.class, false));
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, 10, true, false, target -> !FriendlyFireGuard.isFriendlyTarget(this, target)));
+		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, CandyEntity.class, 10, true, false, target -> !FriendlyFireGuard.isFriendlyTarget(this, target)));
 		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame()));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
 						protected boolean canPerformAttack() {
@@ -485,6 +485,12 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
+	public boolean doHurtTarget(Entity target) {
+		if (this.isTame() && FriendlyFireGuard.isFriendlyTarget(this, target)) return false;
+		return super.doHurtTarget(target);
+	}
+
+	@Override
 	public boolean hurt(DamageSource source, float amount) {
 		Entity attacker = source.getEntity();
 		// Prevent hits from the owner and allied tamed companions.
@@ -503,6 +509,10 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	public void aiStep() {
 		super.aiStep();
+		if (!this.level().isClientSide() && this.isTame() && FriendlyFireGuard.isFriendlyTarget(this, this.getTarget())) {
+			this.setTarget(null);
+			this.getNavigation().stop();
+		}
 		if (!this.level().isClientSide()) {
 			if (!this.isTame()) {
 				Player nearby = this.level().getNearestPlayer(this, 24.0D);
@@ -581,6 +591,14 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 		return this.cache;
 	}
 
+	@Override
+	protected void positionRider(Entity passenger, Entity.MoveFunction moveFunction) {
+		if (!this.hasPassenger(passenger)) return;
+		// Position riders from the live rendered scale, not Candy's unscaled bounds.
+		double scale = Math.max(0.0625D, Math.min(64.0D, this.getAttributeValue(GtsModAttributes.SCALE.get())));
+		moveFunction.accept(passenger, this.getX(), this.getY() + scale * 2.3D + passenger.getMyRidingOffset(), this.getZ() + scale * 0.05D);
+	}
+
 	public Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float yaw) {
 		int index = this.getPassengers().indexOf(entity);
 		Vec3 offset = getPassengerSlotOffset(index);
@@ -593,10 +611,16 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	public Vec3 getPassengerSlotOffset(int index) {
-		if (passengerSlots.containsKey(index)) {
-			return passengerSlots.get(index);
+		Vec3 modelOffset = passengerSlots.get(index);
+		// The Candy geo model's saddle locator can resolve to (0, 0, 0) on the
+		// server or before the client model has populated its bone positions.
+		// Keep the rider up at the upper torso instead of leaving them inside
+		// Candy's feet/root when that locator is missing or empty.
+		if (modelOffset != null && modelOffset.lengthSqr() > 1.0E-6D) {
+			return modelOffset;
 		}
-		return Vec3.ZERO;
+		double scale = this.getAttributeValue(GtsModAttributes.SCALE.get());
+		return new Vec3(0.0D, scale * 2.3D, scale * 0.05D);
 	}
 
 	public void setPassengerSlotOffset(int index, Vec3 offset) {
