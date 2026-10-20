@@ -20,6 +20,10 @@ public class TokiRangeAndBreachProcedure {
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
+		// Never start a terrain-affecting breach during the kick or another active attack.
+		if (sourceentity.getPersistentData().getBoolean("AttackCheck")) return;
+		if (sourceentity instanceof net.mcreator.gts.entity.TokiEntity wildToki
+				&& "Toki.kick".equals(wildToki.getEntityData().get(net.mcreator.gts.entity.TokiEntity.DATA_AnimationDecision))) return;
 		double DistanceToTarget = 0;
 		double TokiSpeed = 0;
 		double TargetHeight = 0;
