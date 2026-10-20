@@ -223,8 +223,8 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 			}
 		});
 		// Defend the owner against wild Toki-family entities.
-		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, false));
-		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, CandyEntity.class, false));
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TokiEntity.class, 10, true, false, target -> !FriendlyFireGuard.isFriendlyTarget(this, target)));
+		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, CandyEntity.class, 10, true, false, target -> !FriendlyFireGuard.isFriendlyTarget(this, target)));
 		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<TokiVariantEntity>(this, TokiVariantEntity.class, 10, true, false, target -> target instanceof TokiVariantEntity variant && !variant.isTame()));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, false) {
 						protected boolean canPerformAttack() {
@@ -485,6 +485,12 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
+	public boolean doHurtTarget(Entity target) {
+		if (this.isTame() && FriendlyFireGuard.isFriendlyTarget(this, target)) return false;
+		return super.doHurtTarget(target);
+	}
+
+	@Override
 	public boolean hurt(DamageSource source, float amount) {
 		Entity attacker = source.getEntity();
 		// Prevent hits from the owner and allied tamed companions.
@@ -503,6 +509,10 @@ public class TamedCandyEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	public void aiStep() {
 		super.aiStep();
+		if (!this.level().isClientSide() && this.isTame() && FriendlyFireGuard.isFriendlyTarget(this, this.getTarget())) {
+			this.setTarget(null);
+			this.getNavigation().stop();
+		}
 		if (!this.level().isClientSide()) {
 			if (!this.isTame()) {
 				Player nearby = this.level().getNearestPlayer(this, 24.0D);
