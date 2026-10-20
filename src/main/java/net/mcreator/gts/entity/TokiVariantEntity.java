@@ -257,9 +257,21 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
         }
     }
 
+    // Forge 1.20.1 does not declare getPassengerAttachmentPoint on Entity,
+    // so keep this helper without @Override to avoid a compile error.
     public Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float yaw) {
         int index = this.getPassengers().indexOf(passenger);
-        return getPassengerSlotOffset(index);
+        if (passengerSlots.containsKey(index)) {
+            return passengerSlots.get(index);
+        }
+        // Keep riders attached relative to the actual entity height, including scaled variants.
+        return new Vec3(0.0D, this.getBbHeight() * 0.88D, 0.0D);
+    }
+
+    @Override
+    protected boolean canAddPassenger(Entity passenger) {
+        // Match Candy's default one-rider limit without changing movement controls.
+        return this.getPassengers().size() < 1;
     }
 
     public Vec3 getPassengerSlotOffset(int index) {
