@@ -162,7 +162,6 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                 this.navigation.stop();
                 this.setTarget(null);
                 if (player.isShiftKeyDown()) {
-                    this.setOrderedToSit(false);
                     player.getPersistentData().putString("targetedTamedGiantess", this.getUUID().toString());
                     if (player instanceof ServerPlayer serverPlayer) {
                         NetworkHooks.openScreen(serverPlayer,
@@ -238,6 +237,8 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             if (this.isTame() && this.isOrderedToSit()) {
                 this.setTarget(null);
                 this.getNavigation().stop();
+                this.setDeltaMovement(0.0D, this.getDeltaMovement().y, 0.0D);
+                this.setSprinting(false);
             }
             if (this.isTame() && !this.isOrderedToSit()) {
                 LivingEntity owner = this.getOwner();
