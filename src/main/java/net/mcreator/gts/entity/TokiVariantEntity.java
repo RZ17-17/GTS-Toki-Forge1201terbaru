@@ -1,6 +1,8 @@
 package net.mcreator.gts.entity;
 
 import java.util.EnumSet;
+import java.util.Map;
+import java.util.HashMap;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
@@ -16,6 +18,7 @@ import net.mcreator.gts.entity.FireflyEntity;
 import net.mcreator.gts.init.GtsModEntities;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -50,6 +53,7 @@ import net.mcreator.gts.procedures.TokiSpitAttackProcedure;
 
 public abstract class TokiVariantEntity extends TamableAnimal implements GeoEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    private final Map<Integer, Vec3> passengerSlots = new HashMap<>();
 
     protected TokiVariantEntity(EntityType<? extends TokiVariantEntity> type, Level level) {
         super(type, level);
