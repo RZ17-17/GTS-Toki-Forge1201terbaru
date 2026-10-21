@@ -404,7 +404,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
                     horizontal.z * 1.15D
                 );
                 livingTarget.hurtMarked = true;
-                this.triggerAnim("movement", "ara_throw");
+                this.triggerAnim("movement", "attack");
             } else {
                 this.triggerAnim("movement", "attack");
             }
@@ -442,7 +442,7 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
             return state.setAndContinue(RawAnimation.begin().thenLoop("gts.idle"));
         }).triggerableAnim("attack", RawAnimation.begin().thenPlay(
             (this instanceof FireflyEntity || this instanceof TamedFireflyEntity) ? "firefly.swordswing"
-            : (this instanceof AraEntity || this instanceof TamedAraEntity) ? "Ara.WaistAtk1" : "gts.walk")));
+            : (this instanceof AraEntity || this instanceof TamedAraEntity) ? "Ara.AboveAttack1" : "gts.walk")));
     }
 
     @Override
