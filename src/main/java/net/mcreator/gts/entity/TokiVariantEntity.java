@@ -386,8 +386,28 @@ public abstract class TokiVariantEntity extends TamableAnimal implements GeoEnti
     public boolean doHurtTarget(Entity target) {
         if (this.isTame() && isFriendlyTamedTarget(target)) return false;
         boolean hit = super.doHurtTarget(target);
-        if (hit && !this.level().isClientSide() && target instanceof LivingEntity) {
-            this.triggerAnim("movement", "attack");
+        if (hit && !this.level().isClientSide() && target instanceof LivingEntity livingTarget) {
+            if (this instanceof AraEntity || this instanceof TamedAraEntity) {
+                // Ara's close-range attack follows the reference's lift-and-throw beat:
+                // hit first, then launch the victim upward and away from Ara.
+                Vec3 away = livingTarget.position().subtract(this.position());
+                Vec3 horizontal = new Vec3(away.x, 0.0D, away.z);
+                if (horizontal.lengthSqr() < 1.0E-6D) {
+                    float yaw = this.getYRot() * ((float) Math.PI / 180.0F);
+                    horizontal = new Vec3(-Math.sin(yaw), 0.0D, Math.cos(yaw));
+                } else {
+                    horizontal = horizontal.normalize();
+                }
+                livingTarget.setDeltaMovement(
+                    horizontal.x * 1.15D,
+                    Math.max(livingTarget.getDeltaMovement().y, 0.72D),
+                    horizontal.z * 1.15D
+                );
+                livingTarget.hurtMarked = true;
+                this.triggerAnim("movement", "ara_throw");
+            } else {
+                this.triggerAnim("movement", "attack");
+            }
         }
         return hit;
     }
