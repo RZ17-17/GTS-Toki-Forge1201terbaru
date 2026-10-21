@@ -4,17 +4,13 @@ package net.mcreator.gts.procedures;
 import net.mcreator.gts.init.GtsModAttributes;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 
-import net.mcreator.gts.network.GtsModVariables;
 
-import com.ibm.icu.number.Scale;
 
 public class TokiRangeAndBreachProcedure {
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
